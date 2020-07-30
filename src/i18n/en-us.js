@@ -439,6 +439,7 @@ export default {
     },
     destinationUnknown: "Destination Unknown",
     editAddressBookEntry: "Edit address book entry",
+    hardwareWallet: "Hardware wallet",
     lnsDescription:
       "Purchase or update a name for a Session ID. If you purchase a name, it may take a minute or two for it to show up in the list.",
     loadingSettings: "Loading settings",

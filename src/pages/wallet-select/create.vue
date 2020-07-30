@@ -12,10 +12,6 @@
         />
       </LokiField>
 
-      <LokiField :label="$t('fieldLabels.seedLanguage')">
-        <q-select v-model="wallet.language" :options="languageOptions" :dark="theme == 'dark'" hide-underline />
-      </LokiField>
-
       <LokiField :label="$t('fieldLabels.password')" optional>
         <q-input
           v-model="wallet.password"
@@ -35,6 +31,14 @@
           hide-underline
           @keyup.enter="create"
         />
+      </LokiField>
+
+      <q-field class="q-pb-sm">
+        <q-checkbox v-model="wallet.hardware_wallet" :label="$t('strings.hardwareWallet')" :dark="theme == 'dark'" />
+      </q-field>
+
+      <LokiField v-if="!wallet.hardware_wallet" :label="$t('fieldLabels.seedLanguage')">
+        <q-select v-model="wallet.language" :options="languageOptions" :dark="theme == 'dark'" hide-underline />
       </LokiField>
 
       <q-field>
@@ -58,7 +62,8 @@ export default {
         name: "",
         language: "English",
         password: "",
-        password_confirm: ""
+        password_confirm: "",
+        hardware_wallet: false
       },
 
       languageOptions: [
