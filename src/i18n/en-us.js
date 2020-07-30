@@ -440,6 +440,7 @@ export default {
     destinationUnknown: "Destination Unknown",
     editAddressBookEntry: "Edit address book entry",
     hardwareWallet: "Hardware wallet",
+    hardwareWallets: "Hardware wallets",
     lnsDescription:
       "Purchase or update a name for a Session ID. If you purchase a name, it may take a minute or two for it to show up in the list.",
     loadingSettings: "Loading settings",
@@ -466,6 +467,7 @@ export default {
     readingWalletList: "Reading wallet list",
     recentIncomingTransactionsToAddress: "Recent incoming transactions to this address",
     recentTransactionsWithAddress: "Recent transactions with this address",
+    regularWallets: "Regular wallets",
     rescanModalDescription: "Select full rescan or rescan of spent outputs only.",
     saveSeedWarning: "Please copy and save these in a secure location!",
     saveToAddressBook: "Save to address book",
