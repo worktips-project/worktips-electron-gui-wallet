@@ -1442,6 +1442,9 @@ export class WalletRPC {
   // send address and tx fees before sending
   // isSweepAll refers to if it's the sweep from service nodes page
   transfer(password, amount, address, payment_id, priority, isSweepAll) {
+    this.backend.log.debug(
+      "Transfer being called, is it sweep all?? " + isSweepAll
+    );
     const cryptoCallback = (err, password_hash) => {
       if (err) {
         this.sendGateway("set_tx_status", {
