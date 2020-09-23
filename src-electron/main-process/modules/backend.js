@@ -365,11 +365,6 @@ export class Backend {
           level: "trace",
           period: "1d", // daily rotation
           count: 4 // keep 4 days of logs
-        },
-        {
-          type: "file",
-          path: path.join(logPath, "electron.log"),
-          level: "trace"
         }
       ]
     });
