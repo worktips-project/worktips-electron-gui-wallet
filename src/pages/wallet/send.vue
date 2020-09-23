@@ -358,6 +358,9 @@ export default {
       this.$gateway.send("wallet", "relay_tx", relayTxData);
     },
     onCancelTransaction() {
+      window.alert("hello");
+      window.log.debug("this should send a debug message");
+      ipc.send("log-info", "next is the window");
       ipc.send(`log-info`, "from send, ipc direct");
       this.$store.commit("gateway/set_tx_status", {
         code: DO_NOTHING,
