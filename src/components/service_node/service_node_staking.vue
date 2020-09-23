@@ -284,6 +284,7 @@ export default {
   },
   methods: {
     lokiWebsite() {
+      window.log.debug("loki website clicked window debug");
       const url = "https://loki.network/service-nodes/";
       this.$gateway.send("core", "open_url", {
         url
