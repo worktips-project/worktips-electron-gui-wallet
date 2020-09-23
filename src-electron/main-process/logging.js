@@ -43,10 +43,10 @@ function cleanArgsForIPC(args) {
 }
 
 // Backwards-compatible logging, simple strings and no level (defaulted to INFO)
-function now() {
-  const date = new Date();
-  return date.toJSON();
-}
+// function now() {
+//   const date = new Date();
+//   return date.toJSON();
+// }
 
 // The Bunyan API: https://github.com/trentm/node-bunyan#log-method-api
 function logAtLevel(level, prefix, ...args) {
@@ -54,7 +54,7 @@ function logAtLevel(level, prefix, ...args) {
 
   // log both to see if it fixes stuff
   // console[fn](prefix + " fn: ", now(), ...args);
-  console._log(prefix + "_: ", now(), ...args);
+  // console._log(prefix + "_: ", now(), ...args);
 
   const logText = cleanArgsForIPC(args);
   ipc.send(`log-${level}`, logText);
