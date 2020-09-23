@@ -15,20 +15,18 @@ function log(...args) {
 
 // console.log = log;
 
-window.console = {
-  log: log
-};
-
-// if (window.console) {
-//   console._log = console.log;
-//   console.log = log;
-//   console._trace = console.trace;
-//   console._debug = console.debug;
-//   console._info = console.info;
-//   console._warn = console.warn;
-//   console._error = console.error;
-//   console._fatal = console.error;
-// }
+// we can still log to the console if it exists,
+// using the underscore functions
+if (window.console) {
+  console._log = console.log;
+  console.log = log;
+  console._trace = console.trace;
+  console._debug = console.debug;
+  console._info = console.info;
+  console._warn = console.warn;
+  console._error = console.error;
+  console._fatal = console.error;
+}
 
 // To avoid [Object object] in our log since console.log handles non-strings
 // smoothly
