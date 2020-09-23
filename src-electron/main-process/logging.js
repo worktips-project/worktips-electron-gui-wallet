@@ -13,6 +13,8 @@ function log(...args) {
   logAtLevel("info", "INFO ", ...args);
 }
 
+console.log = log;
+
 if (window.console) {
   console._log = console.log;
   console.log = log;
