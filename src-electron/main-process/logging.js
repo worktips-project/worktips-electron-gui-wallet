@@ -50,10 +50,10 @@ function now() {
 
 // The Bunyan API: https://github.com/trentm/node-bunyan#log-method-api
 function logAtLevel(level, prefix, ...args) {
-  const fn = `_${level}`;
+  // const fn = `_${level}`;
 
   // log both to see if it fixes stuff
-  console[fn](prefix + " fn: ", now(), ...args);
+  // console[fn](prefix + " fn: ", now(), ...args);
   console._log(prefix + "_: ", now(), ...args);
 
   const logText = cleanArgsForIPC(args);
