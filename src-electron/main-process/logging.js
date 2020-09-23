@@ -72,8 +72,8 @@ window.log = {
 window.onerror = (message, script, line, col, error) => {
   const errorInfo = error && error.stack ? error.stack : JSON.stringify(error);
   const msg = `Top-level unhandled error: ${errorInfo}`;
-  window.log.error(msg);
-  console.log(msg);
+  window.log.error("window log: " + msg);
+  console.log("console log: " + msg);
 };
 
 window.addEventListener("unhandledrejection", rejectionEvent => {
