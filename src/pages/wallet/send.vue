@@ -326,12 +326,13 @@ export default {
     },
     onConfirmTransaction() {
       // put the loading spinner up
-      console.log("Confirmed transaction on send");
+      ipc.send("log-info", "confirm transaction clicked");
       this.$store.commit("gateway/set_tx_status", {
         code: DO_NOTHING,
         message: "Getting transaction information",
         sending: true
       });
+      ipc.send("log-info", "start the loading screen clicked");
       const { name, description, save } = this.newTx.address_book;
       const addressSave = {
         address: this.newTx.address,
@@ -342,7 +343,7 @@ export default {
           save
         }
       };
-
+      ipc.send("log-info", "about to set some relay_tx fields");
       const note = this.newTx.note;
       const metadataList = this.confirmFields.metadataList;
       const isBlink = this.confirmFields.isBlink;
@@ -353,15 +354,12 @@ export default {
         addressSave,
         note
       };
-      console.log("Relay the transaction after confirming");
+      ipc.send("log-info", "about to relay the transaction");
       // Commit the transaction
       this.$gateway.send("wallet", "relay_tx", relayTxData);
     },
     onCancelTransaction() {
-      window.log.alert("alerting here in on cancel");
-      window.log.debug("this should send a debug message");
-      ipc.send("log-info", "next is the window");
-      ipc.send(`log-info`, "from send, ipc direct");
+      ipc.send("log-info", "cancel transaction");
       this.$store.commit("gateway/set_tx_status", {
         code: DO_NOTHING,
         message: "Cancel the transaction from confirm dialog",
