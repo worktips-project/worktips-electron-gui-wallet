@@ -1,9 +1,7 @@
 <template>
   <q-page class="send">
     <template v-if="view_only">
-      <div class="q-pa-md">
-        {{ $t("strings.viewOnlyMode") }}
-      </div>
+      <div class="q-pa-md">{{ $t("strings.viewOnlyMode") }}</div>
     </template>
     <template v-else>
       <div class="q-pa-md">
@@ -29,9 +27,8 @@
                 color="secondary"
                 :text-color="theme == 'dark' ? 'white' : 'dark'"
                 @click="newTx.amount = unlocked_balance / 1e9"
+                >{{ $t("buttons.all") }}</q-btn
               >
-                {{ $t("buttons.all") }}
-              </q-btn>
             </LokiField>
           </div>
 
@@ -69,9 +66,8 @@
               color="secondary"
               :text-color="theme == 'dark' ? 'white' : 'dark'"
               to="addressbook"
+              >{{ $t("buttons.contacts") }}</q-btn
             >
-              {{ $t("buttons.contacts") }}
-            </q-btn>
           </LokiField>
         </div>
 
@@ -295,6 +291,9 @@ export default {
               message
             });
             break;
+          default:
+            console.log("Default case hit on tx_status watcher");
+            break;
         }
       },
       deep: true
@@ -324,6 +323,7 @@ export default {
     },
     onConfirmTransaction() {
       // put the loading spinner up
+      console.log("Confirmed transaction on send");
       this.$store.commit("gateway/set_tx_status", {
         code: DO_NOTHING,
         message: "Getting transaction information",
@@ -350,7 +350,7 @@ export default {
         addressSave,
         note
       };
-
+      console.log("Relay the transaction after confirming");
       // Commit the transaction
       this.$gateway.send("wallet", "relay_tx", relayTxData);
     },

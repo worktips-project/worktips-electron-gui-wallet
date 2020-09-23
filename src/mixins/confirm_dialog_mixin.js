@@ -1,7 +1,17 @@
 export default {
   methods: {
     buildDialogFields(val) {
-      const { feeList, amountList, destinations, metadataList, priority, isSweepAll, address } = val.txData;
+      const {
+        feeList,
+        amountList,
+        destinations,
+        metadataList,
+        priority,
+        isSweepAll,
+        address
+      } = val.txData;
+      console.log("Here's the tx data in the confirm dialog mixin");
+      console.log(val.txData);
       const totalFees = feeList.reduce((a, b) => a + b, 0) / 1e9;
       const totalAmount = amountList.reduce((a, b) => a + b, 0) / 1e9;
       // If the tx is a sweep all, we're sending to the wallet's primary address
@@ -15,6 +25,7 @@ export default {
         totalAmount,
         totalFees
       };
+      console.log("Returning the confirm field values from the mixin");
       return confirmFields;
     }
   }

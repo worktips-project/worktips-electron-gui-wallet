@@ -1363,7 +1363,8 @@ export class WalletRPC {
 
     let failed = false;
     let errorMessage = "Failed to relay transaction";
-
+    this.backend.log.debug("Start looping through metadatalist, below:");
+    this.backend.log.debug(metadataList);
     // submit each transaction individually
     for (const hex of metadataList) {
       const params = {
@@ -1373,17 +1374,21 @@ export class WalletRPC {
       // don't try submit more txs if a prev one failed
       if (failed) break;
       try {
+        this.backend.log.debug("Sending relay_tx from wallet-rpc");
         const data = await this.sendRPC("relay_tx", params);
         if (data.hasOwnProperty("error")) {
           errorMessage = data.error.message || errorMessage;
           failed = true;
+          this.backend.log.debug("Failed relay_tx, had error prop");
           break;
         } else if (data.hasOwnProperty("result")) {
           const tx_hash = data.result.tx_hash;
+          this.backend.log.debug("Success, now save the notes");
           if (note && note !== "") {
             this.saveTxNotes(tx_hash, note);
           }
         } else {
+          this.backend.log.debug("Failed, invalid relay_tx format");
           errorMessage = "Invalid format of relay_tx RPC return message";
           failed = true;
           break;
@@ -1391,6 +1396,9 @@ export class WalletRPC {
       } catch (e) {
         failed = true;
         errorMessage = e.toString();
+        this.backend.log.debug(
+          "Caugh the relay_tx fail with error: " + errorMessage
+        );
       }
     }
 
@@ -1400,6 +1408,9 @@ export class WalletRPC {
       : "set_tx_status";
 
     if (!failed) {
+      this.backend.log.debug(
+        "Sending the success message and saving the address"
+      );
       this.sendGateway(gatewayEndpoint, {
         code: 0,
         i18n: "notification.positive.sendSuccess",
@@ -1417,6 +1428,9 @@ export class WalletRPC {
       return;
     }
 
+    this.backend.log.debug(
+      "Failed, final action in relay transaction method, send notifcation"
+    );
     this.sendGateway(gatewayEndpoint, {
       code: -1,
       message: errorMessage,
