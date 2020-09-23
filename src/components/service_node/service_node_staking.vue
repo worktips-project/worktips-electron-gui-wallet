@@ -331,18 +331,19 @@ export default {
       });
       console.log("Start loading screen just clicked");
 
-      const metadataList = this.confirmFields.metadataList;
-      const isBlink = this.confirmFields.isBlink;
+      // const metadataList = this.confirmFields.metadataList;
+      // const isBlink = this.confirmFields.isBlink;
 
-      const relayTxData = {
-        metadataList,
-        isBlink,
-        isSweepAll: true
-      };
+      throw new Error("shit an error in sweep all");
+      // const relayTxData = {
+      //   metadataList,
+      //   isBlink,
+      //   isSweepAll: true
+      // };
 
-      console.log("Commit the transaction, send relay_tx RPC call");
-      // Commit the transaction
-      this.$gateway.send("wallet", "relay_tx", relayTxData);
+      // console.log("Commit the transaction, send relay_tx RPC call");
+      // // Commit the transaction
+      // this.$gateway.send("wallet", "relay_tx", relayTxData);
     },
     onCancelTransaction() {
       this.$store.commit("gateway/set_sweep_all_status", {
