@@ -7,7 +7,12 @@ module.exports = {
     node: true,
     browser: true
   },
-  extends: ["plugin:prettier/recommended", "plugin:vue/recommended", "eslint:recommended", "prettier/vue"],
+  extends: [
+    "plugin:prettier/recommended",
+    "plugin:vue/recommended",
+    "eslint:recommended",
+    "prettier/vue"
+  ],
   // required to lint *.vue files
   plugins: ["vue"],
   globals: {
@@ -17,8 +22,9 @@ module.exports = {
   // add your custom rules here
   rules: {
     // allow debugger during development
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-console": "off",
+    // "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    // 'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     "vue/component-name-in-template-casing": ["error", "PascalCase"]
   }
 };
