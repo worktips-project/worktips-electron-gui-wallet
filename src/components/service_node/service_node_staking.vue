@@ -323,7 +323,6 @@ export default {
     },
     onConfirmTransaction() {
       console.log("Confirm transaction just clicked");
-      window.log.debug("Using window debug, confirm tx clicked");
       // put the loading spinner up
       this.$store.commit("gateway/set_sweep_all_status", {
         code: DO_NOTHING,
@@ -331,7 +330,6 @@ export default {
         sending: true
       });
       console.log("Start loading screen just clicked");
-      window.log.debug("Using window debug, start loading screen");
 
       const metadataList = this.confirmFields.metadataList;
       const isBlink = this.confirmFields.isBlink;
@@ -342,7 +340,6 @@ export default {
         isSweepAll: true
       };
 
-      window.log.debug("Using window debug, commit the tx");
       console.log("Commit the transaction, send relay_tx RPC call");
       // Commit the transaction
       this.$gateway.send("wallet", "relay_tx", relayTxData);
@@ -371,7 +368,6 @@ export default {
           dark: this.theme === "dark"
         })
         .onOk(() => {
-          window.log.debug("window debug: Warning agreed to, begin to sweep");
           console.log("Warning agreed to, begin to sweep");
           this.sweepAll();
         })
@@ -379,8 +375,6 @@ export default {
         .onCancel(() => {});
     },
     buildDialogFieldsSweepAll(txData) {
-      window.log.debug("Using window debug, build fields sweep all");
-      window.log.debug(txData);
       console.log("Building the sweep all fields with tx data below: ");
       console.log(txData);
       this.confirmFields = this.buildDialogFields(txData);
