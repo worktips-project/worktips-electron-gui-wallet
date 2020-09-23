@@ -1,5 +1,3 @@
-// require("./logging.js");
-
 // This allows for logging (to a file) from the frontend by creating global logging functions
 // That send ipc calls (from renderer) to the electron main process
 // create global logging functions for the frontend. It sends messages to the main
@@ -14,8 +12,6 @@ const ipc = electron.ipcRenderer;
 function log(...args) {
   logAtLevel("info", "INFO ", ...args);
 }
-
-// console.log = log;
 
 // we can still log to the console if it exists,
 // using the underscore functions
@@ -49,18 +45,16 @@ function cleanArgsForIPC(args) {
 }
 
 // Backwards-compatible logging, simple strings and no level (defaulted to INFO)
-// function now() {
-//   const date = new Date();
-//   return date.toJSON();
-// }
+function now() {
+  const date = new Date();
+  return date.toJSON();
+}
 
 // The Bunyan API: https://github.com/trentm/node-bunyan#log-method-api
 function logAtLevel(level, prefix, ...args) {
-  // const fn = `_${level}`;
+  const fn = `_${level}`;
 
-  // log both to see if it fixes stuff
-  // console[fn](prefix + " fn: ", now(), ...args);
-  // console._log(prefix + "_: ", now(), ...args);
+  console[fn](prefix + " fn: ", now(), ...args);
 
   const logText = cleanArgsForIPC(args);
   ipc.send(`log-${level}`, logText);
