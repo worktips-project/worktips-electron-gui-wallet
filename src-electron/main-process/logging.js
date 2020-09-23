@@ -13,18 +13,22 @@ function log(...args) {
   logAtLevel("info", "INFO ", ...args);
 }
 
-console.log = log;
+// console.log = log;
 
-if (window.console) {
-  console._log = console.log;
-  console.log = log;
-  console._trace = console.trace;
-  console._debug = console.debug;
-  console._info = console.info;
-  console._warn = console.warn;
-  console._error = console.error;
-  console._fatal = console.error;
-}
+window.console = {
+  log: log
+};
+
+// if (window.console) {
+//   console._log = console.log;
+//   console.log = log;
+//   console._trace = console.trace;
+//   console._debug = console.debug;
+//   console._info = console.info;
+//   console._warn = console.warn;
+//   console._error = console.error;
+//   console._fatal = console.error;
+// }
 
 // To avoid [Object object] in our log since console.log handles non-strings
 // smoothly
