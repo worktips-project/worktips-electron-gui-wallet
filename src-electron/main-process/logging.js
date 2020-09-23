@@ -70,7 +70,8 @@ window.log = {
   warn: _.partial(logAtLevel, "warn", "WARN "),
   info: _.partial(logAtLevel, "info", "INFO "),
   debug: _.partial(logAtLevel, "debug", "DEBUG"),
-  trace: _.partial(logAtLevel, "trace", "TRACE")
+  trace: _.partial(logAtLevel, "trace", "TRACE"),
+  alert: window.alert
 };
 
 window.onerror = (message, script, line, col, error) => {
