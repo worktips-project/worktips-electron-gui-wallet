@@ -167,7 +167,6 @@
 
 <script>
 import { mapState } from "vuex";
-const electron = require("electron");
 import { required, decimal } from "vuelidate/lib/validators";
 import { payment_id, address, greater_than_zero } from "src/validators/common";
 import LokiField from "components/loki_field";
@@ -178,8 +177,6 @@ const objectAssignDeep = require("object-assign-deep");
 
 // the case for doing nothing on a tx_status update
 const DO_NOTHING = 10;
-
-const ipc = electron.ipcRenderer;
 
 export default {
   components: {
@@ -326,13 +323,13 @@ export default {
     },
     onConfirmTransaction() {
       // put the loading spinner up
-      ipc.send("log-info", "confirm transaction clicked");
+      window.log.debug("confirm transaction clicked");
       this.$store.commit("gateway/set_tx_status", {
         code: DO_NOTHING,
         message: "Getting transaction information",
         sending: true
       });
-      ipc.send("log-info", "start the loading screen clicked");
+      window.log.debug("start the loading screen clicked");
       const { name, description, save } = this.newTx.address_book;
       const addressSave = {
         address: this.newTx.address,
@@ -343,7 +340,7 @@ export default {
           save
         }
       };
-      ipc.send("log-info", "about to set some relay_tx fields");
+      window.log.debug("about to set some relay_tx fields");
       const note = this.newTx.note;
       const metadataList = this.confirmFields.metadataList;
       const isBlink = this.confirmFields.isBlink;
@@ -354,12 +351,12 @@ export default {
         addressSave,
         note
       };
-      ipc.send("log-info", "about to relay the transaction");
+      window.log.debug("about to relay the transaction");
       // Commit the transaction
       this.$gateway.send("wallet", "relay_tx", relayTxData);
     },
     onCancelTransaction() {
-      ipc.send("log-info", "cancel transaction");
+      window.log.debug("cancel transaction");
       this.$store.commit("gateway/set_tx_status", {
         code: DO_NOTHING,
         message: "Cancel the transaction from confirm dialog",

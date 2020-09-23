@@ -13,8 +13,6 @@ function log(...args) {
   logAtLevel("info", "INFO ", ...args);
 }
 
-// we can still log to the console if it exists,
-// using the underscore functions
 if (window.console) {
   console._log = console.log;
   console.log = log;

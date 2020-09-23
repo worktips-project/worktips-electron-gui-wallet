@@ -103,9 +103,6 @@ import ServiceNodeContribute from "./service_node_contribute";
 import ServiceNodeMixin from "src/mixins/service_node_mixin";
 import ConfirmTransactionDialog from "components/confirm_tx_dialog";
 
-const electron = require("electron");
-const ipc = electron.ipcRenderer;
-
 const DO_NOTHING = 10;
 
 export default {
@@ -326,14 +323,14 @@ export default {
       }
     },
     onConfirmTransaction() {
-      ipc.send("log-info", "confirmed the transaction");
+      window.log.debug("confirmed the transaction");
       // put the loading spinner up
       this.$store.commit("gateway/set_sweep_all_status", {
         code: DO_NOTHING,
         message: "Getting sweep all tx information",
         sending: true
       });
-      ipc.send("log-info", "just started loading");
+      window.log.debug("just started loading");
 
       const metadataList = this.confirmFields.metadataList;
       const isBlink = this.confirmFields.isBlink;
@@ -344,7 +341,7 @@ export default {
         isSweepAll: true
       };
 
-      ipc.send("log-info", "about to commit the transaction");
+      window.log.debug("about to commit the transaction");
       // Commit the transaction
       this.$gateway.send("wallet", "relay_tx", relayTxData);
     },
@@ -413,7 +410,7 @@ export default {
       passwordDialog
         .onOk(password => {
           password = password || "";
-          ipc.send("log-info", "about to sweep all");
+          window.log.debug("about to sweep all");
           this.$store.commit("gateway/set_sweep_all_status", {
             code: DO_NOTHING,
             message: "Sweeping all",
