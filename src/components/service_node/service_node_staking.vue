@@ -368,6 +368,7 @@ export default {
           dark: this.theme === "dark"
         })
         .onOk(() => {
+          window.debug("warning agreed to, window, begin to sweep");
           console.log("Warning agreed to, begin to sweep");
           this.sweepAll();
         })
