@@ -319,11 +319,13 @@ export default {
     },
     buildDialogFieldsSend(txData) {
       // build using mixin method
+      window.log.debug("Using window debug, building tx fields in send.vue");
       this.confirmFields = this.buildDialogFields(txData);
     },
     onConfirmTransaction() {
       // put the loading spinner up
       console.log("Confirmed transaction on send");
+      window.log.debug("Using window debug, on confirm tx");
       this.$store.commit("gateway/set_tx_status", {
         code: DO_NOTHING,
         message: "Getting transaction information",
