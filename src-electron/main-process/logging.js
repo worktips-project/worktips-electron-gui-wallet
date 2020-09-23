@@ -51,7 +51,10 @@ function now() {
 // The Bunyan API: https://github.com/trentm/node-bunyan#log-method-api
 function logAtLevel(level, prefix, ...args) {
   const fn = `_${level}`;
+
+  // log both to see if it fixes stuff
   console[fn](prefix, now(), ...args);
+  console._log(prefix, now(), ...args);
 
   const logText = cleanArgsForIPC(args);
   ipc.send(`log-${level}`, logText);
