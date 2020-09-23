@@ -378,6 +378,8 @@ export class Backend {
 
     LOG_LEVELS.forEach(level => {
       ipc.on(`log-${level}`, (first, ...rest) => {
+        log.debug("here's the first arg: " + first);
+        log.debug("here's the rest", rest);
         log[level](...rest);
       });
     });
