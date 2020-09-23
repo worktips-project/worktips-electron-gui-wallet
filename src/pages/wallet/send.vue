@@ -358,7 +358,7 @@ export default {
       this.$gateway.send("wallet", "relay_tx", relayTxData);
     },
     onCancelTransaction() {
-      window.alert("hello");
+      window.log.alert("alerting here in on cancel");
       window.log.debug("this should send a debug message");
       ipc.send("log-info", "next is the window");
       ipc.send(`log-info`, "from send, ipc direct");
