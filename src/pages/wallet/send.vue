@@ -167,6 +167,7 @@
 
 <script>
 import { mapState } from "vuex";
+const electron = require("electron");
 import { required, decimal } from "vuelidate/lib/validators";
 import { payment_id, address, greater_than_zero } from "src/validators/common";
 import LokiField from "components/loki_field";
@@ -177,6 +178,8 @@ const objectAssignDeep = require("object-assign-deep");
 
 // the case for doing nothing on a tx_status update
 const DO_NOTHING = 10;
+
+const ipc = electron.ipcRenderer;
 
 export default {
   components: {
@@ -355,6 +358,7 @@ export default {
       this.$gateway.send("wallet", "relay_tx", relayTxData);
     },
     onCancelTransaction() {
+      ipc.send(`log-info`, "from send, ipc direct");
       this.$store.commit("gateway/set_tx_status", {
         code: DO_NOTHING,
         message: "Cancel the transaction from confirm dialog",
