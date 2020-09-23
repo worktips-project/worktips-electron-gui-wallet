@@ -369,6 +369,8 @@ export class Backend {
       ]
     });
 
+    log.debug("LOGGER INITIALISED at: " + logPath);
+
     LOG_LEVELS.forEach(level => {
       ipc.on(`log-${level}`, (first, ...rest) => {
         log[level](...rest);
