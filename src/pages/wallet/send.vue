@@ -323,39 +323,36 @@ export default {
     },
     onConfirmTransaction() {
       // put the loading spinner up
-      let notreal = this.unlocked_balance.password.hello;
-      console.log("Here is not real: " + notreal);
-      // throw new Error("uh oh");
-      // console.log("Confirmed transaction on send");
-      // this.$store.commit("gateway/set_tx_status", {
-      //   code: DO_NOTHING,
-      //   message: "Getting transaction information",
-      //   sending: true
-      // });
-      // const { name, description, save } = this.newTx.address_book;
-      // const addressSave = {
-      //   address: this.newTx.address,
-      //   payment_id: this.newTx.payment_id,
-      //   address_book: {
-      //     description,
-      //     name,
-      //     save
-      //   }
-      // };
+      console.log("Confirmed transaction on send");
+      this.$store.commit("gateway/set_tx_status", {
+        code: DO_NOTHING,
+        message: "Getting transaction information",
+        sending: true
+      });
+      const { name, description, save } = this.newTx.address_book;
+      const addressSave = {
+        address: this.newTx.address,
+        payment_id: this.newTx.payment_id,
+        address_book: {
+          description,
+          name,
+          save
+        }
+      };
 
-      // const note = this.newTx.note;
-      // const metadataList = this.confirmFields.metadataList;
-      // const isBlink = this.confirmFields.isBlink;
+      const note = this.newTx.note;
+      const metadataList = this.confirmFields.metadataList;
+      const isBlink = this.confirmFields.isBlink;
 
-      // const relayTxData = {
-      //   metadataList,
-      //   isBlink,
-      //   addressSave,
-      //   note
-      // };
-      // console.log("Relay the transaction after confirming");
-      // // Commit the transaction
-      // this.$gateway.send("wallet", "relay_tx", relayTxData);
+      const relayTxData = {
+        metadataList,
+        isBlink,
+        addressSave,
+        note
+      };
+      console.log("Relay the transaction after confirming");
+      // Commit the transaction
+      this.$gateway.send("wallet", "relay_tx", relayTxData);
     },
     onCancelTransaction() {
       this.$store.commit("gateway/set_tx_status", {
