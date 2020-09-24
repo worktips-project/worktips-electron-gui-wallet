@@ -292,7 +292,7 @@ export default {
             });
             break;
           default:
-            console.log("Default case hit on tx_status watcher");
+            window.log.debug("Default case hit on tx_status watcher");
             break;
         }
       },

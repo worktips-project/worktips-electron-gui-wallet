@@ -275,7 +275,7 @@ export default {
             });
             break;
           default:
-            console.log("Default case hit on sweep_all watcher");
+            window.log.debug("Default case hit on sweep_all watcher");
             break;
         }
       },
@@ -368,16 +368,13 @@ export default {
           dark: this.theme === "dark"
         })
         .onOk(() => {
-          window.debug("warning agreed to, window, begin to sweep");
-          console.log("Warning agreed to, begin to sweep");
           this.sweepAll();
         })
         .onDismiss(() => {})
         .onCancel(() => {});
     },
     buildDialogFieldsSweepAll(txData) {
-      console.log("Building the sweep all fields with tx data below: ");
-      console.log(txData);
+      window.log.debug("building the dialog fields for sweep");
       this.confirmFields = this.buildDialogFields(txData);
     },
     areButtonsEnabled() {
