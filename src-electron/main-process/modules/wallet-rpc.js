@@ -2094,7 +2094,10 @@ export class WalletRPC {
   getAddressBook() {
     return new Promise(resolve => {
       this.sendRPC("get_address_book").then(data => {
+        this.backend.log.info("get_address_book called");
         if (data.hasOwnProperty("error") || !data.hasOwnProperty("result")) {
+          this.backend.log.info("Error in get_address_book: ");
+          this.backend.log.info(data);
           resolve({});
           return;
         }
@@ -2104,6 +2107,10 @@ export class WalletRPC {
             address_book_starred: []
           }
         };
+        this.backend.log.info("get_address_book success");
+        this.backend.log.info(
+          "Number of entries: " + data.result.entries.length
+        );
 
         const entries = data.result.entries || [];
         const addresses = entries.map(e => {

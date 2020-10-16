@@ -47,7 +47,6 @@
     <template v-else>
       <p class="q-ma-md">{{ $t("strings.addressBookIsEmpty") }}</p>
     </template>
-
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
       <q-btn round color="primary" icon="add" @click="addEntry" />
     </q-page-sticky>
@@ -82,6 +81,7 @@ export default {
     address_book_starred: state =>
       state.gateway.wallet.address_list.address_book_starred,
     address_book_combined() {
+      // window.log.info("Address book combined was called");
       const starred = this.address_book_starred.map(a => ({
         ...a,
         starred: true
