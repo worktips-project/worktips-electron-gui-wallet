@@ -1,4 +1,4 @@
-name: Loki Electron Wallet Build
+name: Loki Electron Wallet MacOS 10.12+ Build
 
 on:
   push:
