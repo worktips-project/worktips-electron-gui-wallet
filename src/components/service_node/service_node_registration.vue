@@ -1,11 +1,15 @@
 <template>
   <div class="service-node-registration">
     <div class="q-pa-md">
-      <i18n path="strings.serviceNodeRegistrationDescription" tag="div" class="description q-mb-lg">
+      <i18n
+        path="strings.serviceNodeRegistrationDescription"
+        tag="div"
+        class="description q-mb-lg"
+      >
         <b place="registerCommand">register_service_node</b>
         <b place="prepareCommand">prepare_registration</b>
       </i18n>
-      <LokiField
+      <OxenField
         :label="$t('fieldLabels.serviceNodeCommand')"
         :error="$v.registration_string.$error"
         :disabled="registration_status.sending"
@@ -22,7 +26,7 @@
           @blur="$v.registration_string.$touch"
           @paste="onPaste"
         />
-      </LokiField>
+      </OxenField>
       <q-btn
         class="register-button"
         color="primary"
@@ -32,7 +36,10 @@
       />
     </div>
 
-    <q-inner-loading :showing="registration_status.sending" :dark="theme == 'dark'">
+    <q-inner-loading
+      :showing="registration_status.sending"
+      :dark="theme == 'dark'"
+    >
       <q-spinner color="primary" size="30" />
     </q-inner-loading>
   </div>
@@ -41,13 +48,13 @@
 <script>
 import { mapState } from "vuex";
 import { required } from "vuelidate/lib/validators";
-import LokiField from "components/loki_field";
+import OxenField from "components/oxen_field";
 import WalletPassword from "src/mixins/wallet_password";
 
 export default {
   name: "ServiceNodeRegistration",
   components: {
-    LokiField
+    OxenField
   },
   mixins: [WalletPassword],
   data() {

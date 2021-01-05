@@ -329,7 +329,7 @@ export default {
       noKeyImageExport: "Не найдено ключевых образов для экспорта",
       usingLocalNode:
         "Не удалось подключиться к удаленной ноде, переключаемся на локальную ноду",
-      usingRemoteNode: "Не найден файл lokid, используется удаленная нода"
+      usingRemoteNode: "Не найден файл oxend, используется удаленная нода"
     }
   },
   placeholders: {

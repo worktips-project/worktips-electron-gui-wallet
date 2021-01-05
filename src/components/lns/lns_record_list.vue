@@ -184,9 +184,9 @@ export default {
     color: #313131;
   }
 
-  .q-item:hover {
-    background: rgba(117, 117, 117, 0.3);
-  }
+  // .q-item:hover {
+  //   background: rgba(117, 117, 117, 0.3);
+  // }
 }
 .update-renew-buttons {
   .q-btn:not(:first-child) {

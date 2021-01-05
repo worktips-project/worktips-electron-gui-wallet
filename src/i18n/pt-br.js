@@ -330,7 +330,7 @@ export default {
       noKeyImageExport: "Nenhuma chave de imagem encontrada para exportar",
       usingLocalNode:
         "Não foi possível aceder ao nódulo remoto, mudando para nódulo local apenas",
-      usingRemoteNode: "lokid não encontrado, utilizando nódulo remoto"
+      usingRemoteNode: "oxend não encontrado, utilizando nódulo remoto"
     }
   },
   placeholders: {

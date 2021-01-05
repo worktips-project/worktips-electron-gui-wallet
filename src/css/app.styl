@@ -100,7 +100,7 @@ footer,
 }
 
 .q-layout, .app-content {
-    background: $loki-black-80;
+    background: $oxen-light-teal;
     color:white;
 }
 
@@ -153,9 +153,9 @@ footer,
         .q-tab {
             text-transform: none;
 
-            &:hover {
-                background-color: rgba(12,12,12,0.15)
-            }
+            // &:hover {
+            //     background-color: rgba(12,12,12,0.15)
+            // }
 
             .q-icon {
                 font-size: 22px;
@@ -242,7 +242,7 @@ footer,
             }
 
             .ready {
-              color: $loki-green-solid;
+              color: $positive;
             }
 
             .scanning, .syncing {
@@ -271,11 +271,12 @@ footer,
         }
 
         div:first-child {
-            background-color: $loki-green-dark-solid;
+            // TODO: should first and last child be different, where even is this?
+            background-color: $positive;
         }
 
         div:last-child {
-            background-color: $loki-green-solid;
+            background-color: $positive;
         }
     }
 
@@ -407,11 +408,6 @@ footer,
     background: $primary;
     color: white;
     max-width: 250px !important;
-    // padding-top: 4px;
-
-    // .q-list-separator > .q-item-division + .q-item-division, .q-item-division + .q-separator {
-    //     border-top: 1px solid $loki-green-dark-solid;
-    // }
 }
 
 .modal.minimized {
@@ -467,16 +463,21 @@ footer,
   }
 }
 
-.loki-green {
-    background: $loki-green;
+.oxen-light-teal {
+    background: $oxen-light-teal;
+    color: white;
+}
+
+.oxen-navy {
+    background: $oxen-navy;
     color: white;
 }
 
 .startup-icons {
     .solid {
-        color:$loki-green-solid;
+        color:$oxen-teal;
         g,path {
-            fill: $loki-green-solid;
+            fill: $oxen-teal;
         }
     }
 }
@@ -489,12 +490,16 @@ footer,
 
 .navigation {
     .q-btn {
+        background: $oxen-navy;
         color: white;
-        background: $loki-black-90;
+        
+        .q-icon {
+            color: $oxen-teal;
+        }
     }
 
     .router-link-exact-active > .q-btn {
-        background: $loki-green;
+        background: $oxen-navy;
     }
 
 }
@@ -504,22 +509,22 @@ footer,
     }
 
     .q-item {
-        background: $secondary;
+        background: $oxen-navy;
         .wallet-icon {
-            color: $tertiary;
+            color: $oxen-teal;
             g,path {
-                fill: $tertiary;
+                fill: $oxen-teal;
             }
         }
     }
 
     .q-item:hover, .q-item.selected {
-        background: $primary !important;
+        background: $oxen-purple !important;
 
         .wallet-icon {
-            color:$loki-green-solid;
+            color: $oxen-teal;
             g,path {
-                fill: $loki-green-solid;
+                fill: $oxen-teal;
             }
         }
 
@@ -540,7 +545,7 @@ footer,
     }
 
     .primary-address {
-        background: #3eb13e !important;
+        background: $oxen-navy !important;
 
         .q-item, .q-item-side {
             color: white;
@@ -552,14 +557,14 @@ footer,
     }
 
     .primary-address:hover {
-        background: $loki-green-solid !important;
+        background: $oxen-teal !important;
     }
 
 }
 
 .loki-list {
     .loki-list-item {
-        background: #313131;
+        background: $loki-black-60;
         -webkit-transition: background-color 0.2s ease-in;
         transition: background-color 0.2s ease-in;
 
@@ -577,7 +582,7 @@ footer,
     }
 
     .loki-list-item:hover {
-        background: rgba(117,117,117,0.3);
+        background: $oxen-teal;
     }
 
 }
@@ -591,7 +596,7 @@ footer,
 .service-node-list {
     .q-item {
         cursor: pointer;
-        background: #313131;
+        background: $loki-black-60;
         -webkit-transition: background-color 0.2s ease-in;
         transition: background-color 0.2s ease-in;
 
@@ -618,7 +623,7 @@ footer,
     }
 }
 
-.loki-field {
+.oxen-field {
     .content {
         border: 1px solid #484848;
 

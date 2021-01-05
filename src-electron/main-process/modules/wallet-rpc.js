@@ -137,8 +137,8 @@ export class WalletRPC {
 
         const rpcExecutable =
           process.platform === "win32"
-            ? "loki-wallet-rpc.exe"
-            : "loki-wallet-rpc";
+            ? "oxen-wallet-rpc.exe"
+            : "oxen-wallet-rpc";
         // eslint-disable-next-line no-undef
         const rpcPath = path.join(__ryo_bin, rpcExecutable);
 

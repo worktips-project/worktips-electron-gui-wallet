@@ -5,7 +5,7 @@
         {{ $t("strings.checkTransaction.description") }}
       </div>
       <div>
-        <LokiField
+        <OxenField
           :label="$t('fieldLabels.transactionId')"
           :error="$v.txid.$error"
         >
@@ -17,8 +17,8 @@
             dense
             @blur="$v.txid.$touch"
           />
-        </LokiField>
-        <LokiField
+        </OxenField>
+        <OxenField
           class="q-mt-md"
           :label="$t('fieldLabels.address')"
           :error="$v.address.$error"
@@ -32,8 +32,8 @@
             dense
             @blur="$v.address.$touch"
           />
-        </LokiField>
-        <LokiField class="q-mt-md" :label="$t('fieldLabels.message')" optional>
+        </OxenField>
+        <OxenField class="q-mt-md" :label="$t('fieldLabels.message')" optional>
           <q-input
             v-model.trim="message"
             :dark="theme == 'dark'"
@@ -41,8 +41,8 @@
             borderless
             dense
           />
-        </LokiField>
-        <LokiField
+        </OxenField>
+        <OxenField
           class="q-mt-md"
           :label="$t('fieldLabels.signature')"
           :error="$v.signature.$error"
@@ -54,7 +54,7 @@
             borderless
             dense
           />
-        </LokiField>
+        </OxenField>
         <div class="submit-button">
           <q-btn color="primary" :label="$t('buttons.check')" @click="check" />
           <q-btn
@@ -108,13 +108,13 @@ import { mapState } from "vuex";
 import { required } from "vuelidate/lib/validators";
 import { address } from "src/validators/common";
 import { i18n } from "boot/i18n";
-import LokiField from "components/loki_field";
+import OxenField from "components/oxen_field";
 import FormatLoki from "components/format_loki";
 
 export default {
   name: "CheckTransaction",
   components: {
-    LokiField,
+    OxenField,
     FormatLoki
   },
   data() {

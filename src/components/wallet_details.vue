@@ -1,10 +1,10 @@
 <template>
   <div class="column wallet-info">
-    <div class="row justify-between items-center wallet-header loki-green">
+    <div class="row justify-between items-center wallet-header oxen-light-teal">
       <div class="title">{{ info.name }}</div>
       <WalletSettings />
     </div>
-    <div class="wallet-content">
+    <div class="wallet-content oxen-navy">
       <div class="row justify-center">
         <div class="funds column items-center">
           <div class="balance">
@@ -16,7 +16,10 @@
             </div>
           </div>
           <div class="row unlocked">
-            <span>{{ $t("strings.lokiUnlockedShort") }}: <FormatLoki :amount="info.unlocked_balance"/></span>
+            <span
+              >{{ $t("strings.lokiUnlockedShort") }}:
+              <FormatLoki :amount="info.unlocked_balance"
+            /></span>
           </div>
         </div>
       </div>
@@ -58,7 +61,6 @@ export default {
 
   .wallet-content {
     text-align: center;
-    background-color: #0a0a0a;
     padding: 2em;
 
     .balance {

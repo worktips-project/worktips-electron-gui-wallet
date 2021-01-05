@@ -2,7 +2,7 @@
   <div class="lns-input-form">
     <!-- Type -->
     <div class="col q-mt-sm">
-      <LokiField :label="$t('fieldLabels.lnsType')" :disable="updating">
+      <OxenField :label="$t('fieldLabels.lnsType')" :disable="updating">
         <q-select
           v-model.trim="record.type"
           emit-value
@@ -13,11 +13,11 @@
           borderless
           dense
         />
-      </LokiField>
+      </OxenField>
     </div>
     <!-- Name -->
     <div class="col q-mt-sm">
-      <LokiField
+      <OxenField
         :label="$t('fieldLabels.name')"
         :disable="disableName"
         :error="$v.record.name.$error"
@@ -32,12 +32,12 @@
           :suffix="record.type === 'session' ? '' : '.loki'"
           @blur="$v.record.name.$touch"
         />
-      </LokiField>
+      </OxenField>
     </div>
 
     <!-- Value (Session ID, Wallet Address or .loki address) -->
     <div class="col q-mt-sm">
-      <LokiField
+      <OxenField
         class="q-mt-md"
         :label="value_field_label"
         :error="$v.record.value.$error"
@@ -52,12 +52,12 @@
           :suffix="record.type === 'session' ? '' : '.loki'"
           @blur="$v.record.value.$touch"
         />
-      </LokiField>
+      </OxenField>
     </div>
 
     <!-- Owner -->
     <div class="col q-mt-sm">
-      <LokiField
+      <OxenField
         class="q-mt-md"
         :label="$t('fieldLabels.owner')"
         :error="$v.record.owner.$error"
@@ -72,12 +72,12 @@
           :disable="renewing"
           @blur="$v.record.owner.$touch"
         />
-      </LokiField>
+      </OxenField>
     </div>
 
     <!-- Backup owner -->
     <div class="col q-mt-sm">
-      <LokiField
+      <OxenField
         class="q-mt-md"
         :label="$t('fieldLabels.backupOwner')"
         :error="$v.record.backup_owner.$error"
@@ -92,7 +92,7 @@
           dense
           @blur="$v.record.backup_owner.$touch"
         />
-      </LokiField>
+      </OxenField>
     </div>
     <div class="buttons">
       <q-btn
@@ -120,13 +120,13 @@ import {
   lokinet_name,
   session_name
 } from "src/validators/common";
-import LokiField from "components/loki_field";
+import OxenField from "components/oxen_field";
 import WalletPassword from "src/mixins/wallet_password";
 
 export default {
   name: "LNSInputForm",
   components: {
-    LokiField
+    OxenField
   },
   mixins: [WalletPassword],
   props: {

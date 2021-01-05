@@ -9,7 +9,7 @@
           >Loki {{ $t("strings.website") }}.</span
         >
       </p>
-      <LokiField
+      <OxenField
         :label="$t('fieldLabels.serviceNodeKey')"
         :error="$v.service_node.key.$error"
       >
@@ -21,8 +21,8 @@
           dense
           @blur="$v.service_node.key.$touch"
         />
-      </LokiField>
-      <LokiField
+      </OxenField>
+      <OxenField
         :label="$t('fieldLabels.amount')"
         class="q-mt-md"
         :error="$v.service_node.amount.$error"
@@ -52,7 +52,7 @@
           :disable="!areButtonsEnabled()"
           @click="service_node.amount = maxStake(service_node.key)"
         />
-      </LokiField>
+      </OxenField>
       <div class="submit-button">
         <q-btn
           :disable="!is_able_to_send"
@@ -96,7 +96,7 @@ const objectAssignDeep = require("object-assign-deep");
 import { mapState } from "vuex";
 import { required, decimal } from "vuelidate/lib/validators";
 import { service_node_key, greater_than_zero } from "src/validators/common";
-import LokiField from "components/loki_field";
+import OxenField from "components/oxen_field";
 import WalletPassword from "src/mixins/wallet_password";
 import ConfirmDialogMixin from "src/mixins/confirm_dialog_mixin";
 import ServiceNodeContribute from "./service_node_contribute";
@@ -108,7 +108,7 @@ const DO_NOTHING = 10;
 export default {
   name: "ServiceNodeStaking",
   components: {
-    LokiField,
+    OxenField,
     ServiceNodeContribute,
     ConfirmTransactionDialog
   },

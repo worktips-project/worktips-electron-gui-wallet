@@ -334,7 +334,7 @@ export default {
       noKeyImageExport: "Aucune clé image n'a été trouvé pour l'export",
       usingLocalNode:
         "Impossible d'accéder au nœud distant, basculement en local uniquement",
-      usingRemoteNode: "lokid introuvable, utilisation du nœud distant"
+      usingRemoteNode: "oxend introuvable, utilisation du nœud distant"
     }
   },
   placeholders: {

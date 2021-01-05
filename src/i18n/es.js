@@ -330,7 +330,7 @@ export default {
       noKeyImageExport: "No se han encontrado claves para exportar",
       usingLocalNode:
         "No se ha podido acceder al nodo remoto, volviendo al modo local",
-      usingRemoteNode: "lokid no encontrado, utilizando nodo remoto"
+      usingRemoteNode: "oxend no encontrado, utilizando nodo remoto"
     }
   },
   placeholders: {
@@ -431,7 +431,7 @@ export default {
     seedWords: "Palabras semilla",
     selectLanguage: "Escoja un idioma",
     serviceNodeRegistrationDescription:
-      'Introduzca la orden {registerCommand} generada por el servicio (lokid) que se está intentado registrar como Nodo de Servicio usando la instrucción "{prepareCommand}"',
+      'Introduzca la orden {registerCommand} generada por el servicio (oxend) que se está intentado registrar como Nodo de Servicio usando la instrucción "{prepareCommand}"',
     spendKey: "Clave de gasto",
     startingDaemon: "Iniciando servicio",
     startingWallet: "Iniciando monedero",

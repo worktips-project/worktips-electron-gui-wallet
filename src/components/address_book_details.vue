@@ -28,7 +28,7 @@
       </q-header>
       <q-page-container>
         <div class="address-book-modal q-mx-md">
-          <LokiField
+          <OxenField
             :label="$t('fieldLabels.address')"
             :error="$v.newEntry.address.$error"
           >
@@ -47,16 +47,16 @@
               :icon="newEntry.starred ? 'star' : 'star_border'"
               @click="updateStarred"
             />
-          </LokiField>
-          <LokiField :label="$t('fieldLabels.name')">
+          </OxenField>
+          <OxenField :label="$t('fieldLabels.name')">
             <q-input
               v-model.trim="newEntry.name"
               :dark="theme == 'dark'"
               borderless
               dense
             />
-          </LokiField>
-          <LokiField :label="$t('fieldLabels.notes')" optional>
+          </OxenField>
+          <OxenField :label="$t('fieldLabels.notes')" optional>
             <q-input
               v-model="newEntry.description"
               :placeholder="$t('placeholders.additionalNotes')"
@@ -66,7 +66,7 @@
               borderless
               dense
             />
-          </LokiField>
+          </OxenField>
 
           <q-btn
             v-if="mode == 'edit'"
@@ -140,7 +140,7 @@
 import { mapState } from "vuex";
 import AddressHeader from "components/address_header";
 import TxList from "components/tx_list";
-import LokiField from "components/loki_field";
+import OxenField from "components/oxen_field";
 import { address } from "src/validators/common";
 import { required } from "vuelidate/lib/validators";
 export default {
@@ -148,7 +148,7 @@ export default {
   components: {
     AddressHeader,
     TxList,
-    LokiField
+    OxenField
   },
   data() {
     return {
@@ -258,7 +258,7 @@ export default {
 <style lang="scss">
 .address-book-details {
   .address-book-modal {
-    > .loki-field {
+    > .oxen-field {
       margin-top: 16px;
     }
 
