@@ -61,7 +61,7 @@ const { clipboard } = require("electron");
 import { mapState } from "vuex";
 import { QSpinnerDots } from "quasar";
 import TxDetails from "components/tx_details";
-import FormatOxen from "components/format_loki";
+import FormatOxen from "components/format_oxen";
 import { i18n } from "boot/i18n";
 import ContextMenu from "components/menus/contextmenu";
 

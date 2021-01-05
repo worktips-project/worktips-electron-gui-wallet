@@ -33,7 +33,7 @@
 
 <script>
 import { mapState } from "vuex";
-import FormatOxen from "components/format_loki";
+import FormatOxen from "components/format_oxen";
 import WalletSettings from "components/menus/wallet_settings";
 import CopyIcon from "components/icons/copy_icon";
 export default {

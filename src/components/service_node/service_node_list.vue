@@ -72,7 +72,7 @@
 <script>
 import { clipboard } from "electron";
 import ContextMenu from "components/menus/contextmenu";
-import FormatOxen from "components/format_loki";
+import FormatOxen from "components/format_oxen";
 import ServiceNodeMixin from "src/mixins/service_node_mixin";
 import { mapState } from "vuex";
 

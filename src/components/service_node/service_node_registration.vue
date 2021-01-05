@@ -4,7 +4,7 @@
       <i18n
         path="strings.serviceNodeRegistrationDescription"
         tag="div"
-        class="description q-mb-lg"
+        class="tab-desc q-mb-lg"
       >
         <b place="registerCommand">register_service_node</b>
         <b place="prepareCommand">prepare_registration</b>
@@ -17,7 +17,6 @@
         <q-input
           v-model.trim="registration_string"
           type="textarea"
-          :dark="theme == 'dark'"
           class="full-width text-area-oxen"
           placeholder="register_service_node ..."
           :disabled="registration_status.sending"
@@ -36,10 +35,7 @@
       />
     </div>
 
-    <q-inner-loading
-      :showing="registration_status.sending"
-      :dark="theme == 'dark'"
-    >
+    <q-inner-loading :showing="registration_status.sending">
       <q-spinner color="primary" size="30" />
     </q-inner-loading>
   </div>

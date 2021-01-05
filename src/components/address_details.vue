@@ -162,7 +162,7 @@
 import { mapState } from "vuex";
 const { clipboard, nativeImage } = require("electron");
 import AddressHeader from "components/address_header";
-import FormatOxen from "components/format_loki";
+import FormatOxen from "components/format_oxen";
 import QrcodeVue from "qrcode.vue";
 import TxList from "components/tx_list";
 export default {

@@ -175,7 +175,7 @@
 const { clipboard } = require("electron");
 import { mapState } from "vuex";
 import { date } from "quasar";
-import FormatOxen from "components/format_loki";
+import FormatOxen from "components/format_oxen";
 import ContextMenu from "components/menus/contextmenu";
 export default {
   name: "ServiceNodeDetails",

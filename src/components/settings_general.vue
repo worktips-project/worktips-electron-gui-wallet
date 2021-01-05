@@ -24,13 +24,13 @@
       </div>
     </div>
 
-    <p v-if="config_daemon.type == 'local_remote'">
+    <p v-if="config_daemon.type == 'local_remote'" class="tab-desc">
       {{ $t("strings.daemon.localRemote.description") }}
     </p>
-    <p v-if="config_daemon.type == 'local'">
+    <p v-if="config_daemon.type == 'local'" class="tab-desc">
       {{ $t("strings.daemon.local.description") }}
     </p>
-    <p v-if="is_remote">
+    <p v-if="is_remote" class="tab-desc">
       {{ $t("strings.daemon.remote.description") }}
     </p>
 
@@ -138,7 +138,7 @@
           @change="setDataPath"
         />
         <q-btn
-          color="secondary"
+          color="primary"
           :text-color="theme == 'dark' ? 'white' : 'dark'"
           @click="selectPath('data')"
           >{{ $t("buttons.selectLocation") }}</q-btn
@@ -162,7 +162,7 @@
           @change="setWalletDataPath"
         />
         <q-btn
-          color="secondary"
+          color="primary"
           :text-color="theme == 'dark' ? 'white' : 'dark'"
           @click="selectPath('wallet')"
           >{{ $t("buttons.selectLocation") }}</q-btn

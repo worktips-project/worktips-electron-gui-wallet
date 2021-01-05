@@ -262,7 +262,7 @@
                 hidden
                 @change="setKeyImageExportPath"
               />
-              <q-btn color="secondary" @click="selectKeyImageExportPath">{{
+              <q-btn color="primary" @click="selectKeyImageExportPath">{{
                 $t("buttons.browse")
               }}</q-btn>
             </OxenField>
@@ -286,7 +286,7 @@
                 hidden
                 @change="setKeyImageImportPath"
               />
-              <q-btn color="secondary" @click="selectKeyImageImportPath">{{
+              <q-btn color="primary" @click="selectKeyImageImportPath">{{
                 $t("buttons.browse")
               }}</q-btn>
             </OxenField>

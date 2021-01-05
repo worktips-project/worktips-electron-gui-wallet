@@ -225,7 +225,7 @@ const { clipboard } = require("electron");
 import { mapState } from "vuex";
 import { date } from "quasar";
 import TxTypeIcon from "components/tx_type_icon";
-import FormatOxen from "components/format_loki";
+import FormatOxen from "components/format_oxen";
 import ContextMenu from "components/menus/contextmenu";
 export default {
   name: "TxDetails",

@@ -5,7 +5,7 @@
         {{ $t("strings.serviceNodeContributionDescription") }}
         <span
           style="cursor: pointer; text-decoration: underline;"
-          @click="lokiWebsite"
+          @click="oxenWebsite"
           >Loki {{ $t("strings.website") }}.</span
         >
       </p>
@@ -278,7 +278,7 @@ export default {
     }
   },
   methods: {
-    lokiWebsite() {
+    oxenWebsite() {
       const url = "https://loki.network/service-nodes/";
       this.$gateway.send("core", "open_url", {
         url

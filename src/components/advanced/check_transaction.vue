@@ -109,7 +109,7 @@ import { required } from "vuelidate/lib/validators";
 import { address } from "src/validators/common";
 import { i18n } from "boot/i18n";
 import OxenField from "components/oxen_field";
-import FormatOxen from "components/format_loki";
+import FormatOxen from "components/format_oxen";
 
 export default {
   name: "CheckTransaction",

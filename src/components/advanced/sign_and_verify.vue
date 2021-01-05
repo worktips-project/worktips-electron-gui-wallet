@@ -8,7 +8,7 @@
         {{ $t("strings.cannotSign") }}
       </div>
       <div v-else>
-        <div class="text-h6">{{ $t("titles.advanced.sign") }}</div>
+        <div class="text-h6 header">{{ $t("titles.advanced.sign") }}</div>
         <div class="row justify-between items-end">
           <OxenField :label="$t('fieldLabels.data')">
             <q-input
@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="verify-heading text-h6">
+      <div class="verify-heading text-h6 header">
         {{ $t("titles.advanced.verify") }}
       </div>
       <div class="justify-between items-end">
@@ -71,7 +71,7 @@
           <q-btn
             v-if="canClear"
             :label="$t('buttons.clear')"
-            color="secondary"
+            color="accent"
             @click="clear"
           />
         </div>
