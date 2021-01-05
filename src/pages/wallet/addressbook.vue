@@ -11,7 +11,7 @@
         <q-item
           v-for="(entry, index) in address_book_combined"
           :key="`${entry.address}-${entry.name}-${index}`"
-          class="loki-list-item"
+          class="oxen-list-item"
           @click.native="details(entry)"
         >
           <q-item-section>
@@ -128,7 +128,7 @@ export default {
     font-weight: 500;
   }
 
-  .loki-list-item {
+  .oxen-list-item {
     cursor: pointer;
     padding-top: 12px;
     padding-bottom: 12px;

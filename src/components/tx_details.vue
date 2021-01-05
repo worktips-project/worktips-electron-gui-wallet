@@ -72,7 +72,7 @@
                   <span>{{ $t("strings.transactions.amount") }}</span>
                 </div>
                 <div class="value">
-                  <span><FormatLoki :amount="tx.amount" raw-value/></span>
+                  <span><FormatOxen :amount="tx.amount" raw-value/></span>
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@
                   </span>
                 </div>
                 <div class="value">
-                  <span><FormatLoki :amount="tx.fee" raw-value/></span>
+                  <span><FormatOxen :amount="tx.fee" raw-value/></span>
                 </div>
               </div>
             </div>
@@ -176,7 +176,7 @@
                       destination.address
                     }}</q-item-label>
                     <q-item-label
-                      ><FormatLoki :amount="destination.amount"
+                      ><FormatOxen :amount="destination.amount"
                     /></q-item-label>
                   </q-item-label>
                   <ContextMenu
@@ -225,13 +225,13 @@ const { clipboard } = require("electron");
 import { mapState } from "vuex";
 import { date } from "quasar";
 import TxTypeIcon from "components/tx_type_icon";
-import FormatLoki from "components/format_loki";
+import FormatOxen from "components/format_loki";
 import ContextMenu from "components/menus/contextmenu";
 export default {
   name: "TxDetails",
   components: {
     TxTypeIcon,
-    FormatLoki,
+    FormatOxen,
     ContextMenu
   },
   data() {

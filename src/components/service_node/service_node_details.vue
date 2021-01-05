@@ -40,7 +40,7 @@
                 </div>
                 <div class="value">
                   <span
-                    ><FormatLoki :amount="node.staking_requirement" raw-value
+                    ><FormatOxen :amount="node.staking_requirement" raw-value
                   /></span>
                 </div>
               </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="value">
                   <span
-                    ><FormatLoki :amount="node.total_contributed" raw-value
+                    ><FormatOxen :amount="node.total_contributed" raw-value
                   /></span>
                 </div>
               </div>
@@ -129,7 +129,7 @@
             <q-item
               v-for="contributor in contributors"
               :key="contributor.address"
-              class="loki-list-item"
+              class="oxen-list-item"
               clickable
               @click="openUserWalletInfo(contributor.address)"
             >
@@ -150,7 +150,7 @@
                     >{{ $t("strings.operator") }} •
                   </span>
                   {{ $t("strings.contribution") }}:
-                  <FormatLoki :amount="contributor.amount" raw-value />
+                  <FormatOxen :amount="contributor.amount" raw-value />
                 </q-item-label>
               </q-item-label>
               <ContextMenu
@@ -175,12 +175,12 @@
 const { clipboard } = require("electron");
 import { mapState } from "vuex";
 import { date } from "quasar";
-import FormatLoki from "components/format_loki";
+import FormatOxen from "components/format_loki";
 import ContextMenu from "components/menus/contextmenu";
 export default {
   name: "ServiceNodeDetails",
   components: {
-    FormatLoki,
+    FormatOxen,
     ContextMenu
   },
   props: {

@@ -316,10 +316,10 @@ footer,
     .q-item.tx-snode,
     .q-item.tx-gov {
         .amount span {
-            color: #43bd43;
+            color: $oxen-navy;
             &:before {
                 content: "+";
-                color: #43bd43;
+                color: $oxen-navy;
             }
         }
     }
@@ -473,6 +473,11 @@ footer,
     color: white;
 }
 
+.oxen-teal {
+    background: $oxen-teal;
+    color: white;
+}
+
 .startup-icons {
     .solid {
         color:$oxen-teal;
@@ -540,15 +545,19 @@ footer,
     }
 
     .q-separator-component {
-        background-color: $secondary;
+        background-color: white;
         opacity: 0.4;
     }
 
     .primary-address {
-        background: $oxen-navy !important;
+        background: $oxen-teal !important;
 
         .q-item, .q-item-side {
             color: white;
+
+            .text-caption {
+                color: white;
+            }
         }
 
         .q-btn {
@@ -557,32 +566,38 @@ footer,
     }
 
     .primary-address:hover {
-        background: $oxen-teal !important;
+        background: $oxen-navy !important;
     }
 
 }
 
 .loki-list {
-    .loki-list-item {
-        background: $loki-black-60;
+    .oxen-list-item {
+        background: white;
         -webkit-transition: background-color 0.2s ease-in;
         transition: background-color 0.2s ease-in;
 
         font-size: 16px;
-        color: #cecece;
+        color: $oxen-navy;
         padding-top: 6px;
         padding-bottom: 6px;
 
         margin: 0 16px;
         border-radius: 3px;
 
-        + .loki-list-item {
+        + .oxen-list-item {
             margin-top: 10px;
         }
     }
 
-    .loki-list-item:hover {
+    .text-caption {
+        color: $oxen-navy;
+    }
+
+    .oxen-list-item:hover {
         background: $oxen-teal;
+
+
     }
 
 }
@@ -596,7 +611,7 @@ footer,
 .service-node-list {
     .q-item {
         cursor: pointer;
-        background: $loki-black-60;
+        background: $oxen-navy;
         -webkit-transition: background-color 0.2s ease-in;
         transition: background-color 0.2s ease-in;
 
@@ -607,8 +622,8 @@ footer,
         }
     }
 
-    .q-item-sublabel {
-        color: $loki-black-50;
+    .q-item-label {
+        color: $oxen-navy;
     }
 
     .q-item:hover {

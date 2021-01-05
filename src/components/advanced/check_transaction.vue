@@ -83,7 +83,7 @@
             {{ $t("strings.checkTransaction.infoTitles.received") }}
           </div>
           <div>
-            <FormatLoki :amount="status.state.received" raw-value />
+            <FormatOxen :amount="status.state.received" raw-value />
           </div>
         </div>
         <div v-if="status.state.in_pool != null" class="q-mb-sm">
@@ -109,13 +109,13 @@ import { required } from "vuelidate/lib/validators";
 import { address } from "src/validators/common";
 import { i18n } from "boot/i18n";
 import OxenField from "components/oxen_field";
-import FormatLoki from "components/format_loki";
+import FormatOxen from "components/format_loki";
 
 export default {
   name: "CheckTransaction",
   components: {
     OxenField,
-    FormatLoki
+    FormatOxen
   },
   data() {
     return {

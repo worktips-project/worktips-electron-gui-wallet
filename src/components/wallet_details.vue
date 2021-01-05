@@ -1,6 +1,6 @@
 <template>
   <div class="column wallet-info">
-    <div class="row justify-between items-center wallet-header oxen-light-teal">
+    <div class="row justify-between items-center wallet-header oxen-teal">
       <div class="title">{{ info.name }}</div>
       <WalletSettings />
     </div>
@@ -12,13 +12,13 @@
               <span>{{ $t("strings.lokiBalance") }}</span>
             </div>
             <div class="value">
-              <span><FormatLoki :amount="info.balance"/></span>
+              <span><FormatOxen :amount="info.balance"/></span>
             </div>
           </div>
           <div class="row unlocked">
             <span
               >{{ $t("strings.lokiUnlockedShort") }}:
-              <FormatLoki :amount="info.unlocked_balance"
+              <FormatOxen :amount="info.unlocked_balance"
             /></span>
           </div>
         </div>
@@ -33,13 +33,13 @@
 
 <script>
 import { mapState } from "vuex";
-import FormatLoki from "components/format_loki";
+import FormatOxen from "components/format_loki";
 import WalletSettings from "components/menus/wallet_settings";
 import CopyIcon from "components/icons/copy_icon";
 export default {
   name: "WalletDetails",
   components: {
-    FormatLoki,
+    FormatOxen,
     WalletSettings,
     CopyIcon
   },

@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "FormatLoki",
+  name: "FormatOxen",
   props: {
     amount: {
       type: Number,

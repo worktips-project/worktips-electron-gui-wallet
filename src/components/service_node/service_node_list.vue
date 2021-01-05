@@ -16,7 +16,7 @@
               <span v-if="getRole(node)">{{ getRole(node) }} •</span>
               <span>
                 {{ $t("strings.contribution") }}:
-                <FormatLoki :amount="node.ourContributionAmount" />
+                <FormatOxen :amount="node.ourContributionAmount" />
               </span>
             </span>
             <!-- you only have a contribution amount of 0 if you are a "contributor"
@@ -72,7 +72,7 @@
 <script>
 import { clipboard } from "electron";
 import ContextMenu from "components/menus/contextmenu";
-import FormatLoki from "components/format_loki";
+import FormatOxen from "components/format_loki";
 import ServiceNodeMixin from "src/mixins/service_node_mixin";
 import { mapState } from "vuex";
 
@@ -80,7 +80,7 @@ export default {
   name: "ServiceNodeList",
   components: {
     ContextMenu,
-    FormatLoki
+    FormatOxen
   },
   mixins: [ServiceNodeMixin],
   props: {

@@ -165,7 +165,7 @@ module.exports = function() {
 
         linux: {
           target: ["AppImage", "deb"],
-          icon: "src-electron/icons/icon_512x512.png",
+          icon: "src-electron/icon.png",
           category: "Finance"
         },
 

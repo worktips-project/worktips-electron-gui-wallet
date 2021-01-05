@@ -7,8 +7,17 @@
           <q-toolbar-title>
             {{ $t("titles.addressDetails") }}
           </q-toolbar-title>
-          <q-btn flat :label="$t('buttons.showQRCode')" @click="isQRCodeVisible = true" />
-          <q-btn class="q-ml-sm" color="primary" :label="$t('buttons.copyAddress')" @click="copyAddress()" />
+          <q-btn
+            flat
+            :label="$t('buttons.showQRCode')"
+            @click="isQRCodeVisible = true"
+          />
+          <q-btn
+            class="q-ml-sm"
+            color="primary"
+            :label="$t('buttons.copyAddress')"
+            @click="copyAddress()"
+          />
         </q-toolbar>
       </q-header>
       <q-page-container>
@@ -29,7 +38,7 @@
                       <span>{{ $t("strings.lokiBalance") }}</span>
                     </div>
                     <div class="value">
-                      <span><FormatLoki :amount="address.balance"/></span>
+                      <span><FormatOxen :amount="address.balance"/></span>
                     </div>
                   </div>
                 </div>
@@ -40,7 +49,9 @@
                       <span>{{ $t("strings.lokiUnlockedBalance") }}</span>
                     </div>
                     <div class="value">
-                      <span><FormatLoki :amount="address.unlocked_balance"/></span>
+                      <span
+                        ><FormatOxen :amount="address.unlocked_balance"
+                      /></span>
                     </div>
                   </div>
                 </div>
@@ -91,7 +102,9 @@
             <div class="q-mt-sm">
               <div class="non-selectable recent-transactions-wrapper">
                 <q-icon name="history" size="24px" />
-                <span class="vertical-middle q-ml-xs">{{ $t("strings.recentIncomingTransactionsToAddress") }}</span>
+                <span class="vertical-middle q-ml-xs">{{
+                  $t("strings.recentIncomingTransactionsToAddress")
+                }}</span>
               </div>
 
               <div style="margin: 12px -16px;">
@@ -108,12 +121,21 @@
       </q-page-container>
     </q-layout>
     <template v-if="address != null">
-      <q-dialog v-model="isQRCodeVisible" minimized :content-class="'qr-code-modal'">
+      <q-dialog
+        v-model="isQRCodeVisible"
+        minimized
+        :content-class="'qr-code-modal'"
+      >
         <q-card class="qr-code-card">
           <div class="text-center q-mb-sm q-pa-md" style="background: white;">
-            <QrcodeVue ref="qr" :value="address.address" size="240"> </QrcodeVue>
+            <QrcodeVue ref="qr" :value="address.address" size="240">
+            </QrcodeVue>
             <q-menu content-menu>
-              <q-list link separator style="min-width: 150px; max-height: 300px;">
+              <q-list
+                link
+                separator
+                style="min-width: 150px; max-height: 300px;"
+              >
                 <q-item v-close-popup @click.native="copyQR()">
                   <q-item-label :label="$t('menuItems.copyQR')" />
                 </q-item>
@@ -124,7 +146,11 @@
             </q-menu>
           </div>
           <q-card-actions>
-            <q-btn color="primary" :label="$t('buttons.close')" @click="isQRCodeVisible = false" />
+            <q-btn
+              color="primary"
+              :label="$t('buttons.close')"
+              @click="isQRCodeVisible = false"
+            />
           </q-card-actions>
         </q-card>
       </q-dialog>
@@ -136,7 +162,7 @@
 import { mapState } from "vuex";
 const { clipboard, nativeImage } = require("electron");
 import AddressHeader from "components/address_header";
-import FormatLoki from "components/format_loki";
+import FormatOxen from "components/format_loki";
 import QrcodeVue from "qrcode.vue";
 import TxList from "components/tx_list";
 export default {
@@ -144,7 +170,7 @@ export default {
   components: {
     AddressHeader,
     TxList,
-    FormatLoki,
+    FormatOxen,
     QrcodeVue
   },
   data() {
@@ -169,7 +195,9 @@ export default {
           ")";
       }
 
-      const extra = this.address.used ? this.$t("strings.userUsedAddress") : this.$t("strings.userNotUsedAddress");
+      const extra = this.address.used
+        ? this.$t("strings.userUsedAddress")
+        : this.$t("strings.userNotUsedAddress");
 
       return {
         title,
