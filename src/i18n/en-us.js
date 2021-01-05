@@ -500,10 +500,10 @@ export default {
     lnsDescription:
       "Here you can find all the LNS names owned by this wallet. Decrypting a record you own will return the name and value of that LNS record.",
     loadingSettings: "Loading settings",
-    lokiBalance: "Balance",
+    oxenBalance: "Balance",
     lokinetNameDescription:
       "Purchase or update a name on Lokinet. If you purchase a name it may take a minute or two for it to show up in the list. To learn more about lokinet visit: ",
-    lokiUnlockedBalance: "Unlocked balance",
+    oxenUnlockedBalance: "Unlocked balance",
     lokiUnlockedShort: "Unlocked",
     me: "Me",
     noTransactionsFound: "No transactions found",

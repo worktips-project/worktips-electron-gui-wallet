@@ -1,7 +1,7 @@
 <template>
   <div class="service-node-staking">
     <div class="q-px-md q-pt-md">
-      <p style="color: #cecece">
+      <p class="tab-desc">
         {{ $t("strings.serviceNodeContributionDescription") }}
         <span
           style="cursor: pointer; text-decoration: underline;"
@@ -39,14 +39,14 @@
           @blur="$v.service_node.amount.$touch"
         />
         <q-btn
-          color="secondary"
+          color="primary"
           :text-color="theme == 'dark' ? 'white' : 'dark'"
           :label="$t('buttons.min')"
           :disable="!areButtonsEnabled()"
           @click="service_node.amount = minStake(service_node.key)"
         />
         <q-btn
-          color="secondary"
+          color="primary"
           :text-color="theme == 'dark' ? 'white' : 'dark'"
           :label="$t('buttons.max')"
           :disable="!areButtonsEnabled()"
@@ -62,7 +62,7 @@
         />
         <q-btn
           :disable="!is_able_to_send"
-          color="secondary"
+          color="accent"
           :label="$t('buttons.sweepAll')"
           @click="sweepAllWarning()"
         />

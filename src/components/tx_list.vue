@@ -12,7 +12,7 @@
           link
           no-border
           :dark="theme == 'dark'"
-          class="loki-list tx-list"
+          class="oxen-list tx-list"
         >
           <q-item
             v-for="(tx, i) in tx_list_paged"

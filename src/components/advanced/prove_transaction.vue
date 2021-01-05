@@ -1,7 +1,7 @@
 <template>
   <div class="prove-transaction">
     <div class="q-pa-md">
-      <div class="q-mb-lg description">
+      <div class="q-mb-lg tab-desc">
         {{ $t("strings.proveTransactionDescription") }}
       </div>
       <div>
@@ -50,7 +50,7 @@
           />
           <q-btn
             v-if="canClear"
-            color="secondary"
+            color="accent"
             :label="$t('buttons.clear')"
             @click="clear"
           />

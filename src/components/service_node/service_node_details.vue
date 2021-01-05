@@ -120,7 +120,7 @@
               </div>
             </div>
           </div>
-          <q-list no-border :dark="theme == 'dark'" class="loki-list">
+          <q-list no-border :dark="theme == 'dark'" class="oxen-list">
             <q-item-label class="contributors-title"
               >{{
                 $t("strings.serviceNodeDetails.contributors")

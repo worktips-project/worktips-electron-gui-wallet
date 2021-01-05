@@ -1,7 +1,7 @@
 <template>
   <div class="check-transaction">
     <div class="q-pa-md">
-      <div class="q-mb-lg description">
+      <div class="q-mb-lg tab-desc">
         {{ $t("strings.checkTransaction.description") }}
       </div>
       <div>
@@ -59,7 +59,7 @@
           <q-btn color="primary" :label="$t('buttons.check')" @click="check" />
           <q-btn
             v-if="canClear"
-            color="secondary"
+            color="secondsary="
             :label="$t('buttons.clear')"
             @click="clear"
           />

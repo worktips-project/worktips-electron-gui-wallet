@@ -1,7 +1,7 @@
 <template>
   <div class="sign-and-verify">
     <div class="q-pa-md">
-      <div class="q-mb-lg description">
+      <div class="q-mb-lg tab-desc">
         {{ $t("strings.signAndVerifyDescription") }}
       </div>
       <div v-if="is_view_only">

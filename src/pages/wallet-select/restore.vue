@@ -24,7 +24,7 @@
       >
         <q-input
           v-model="wallet.seed"
-          class="full-width text-area-loki"
+          class="full-width text-area-oxen"
           :placeholder="$t('placeholders.mnemonicSeed')"
           type="textarea"
           :dark="theme == 'dark'"

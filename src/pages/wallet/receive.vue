@@ -1,7 +1,7 @@
 <template>
   <q-page class="receive">
-    <q-list link no-border :dark="theme == 'dark'" class="loki-list">
-      <q-item-label header>{{
+    <q-list link no-border :dark="theme == 'dark'" class="oxen-list">
+      <q-item-label header class="list-header">{{
         $t("strings.addresses.myPrimaryAddress")
       }}</q-item-label>
       <ReceiveItem
@@ -17,7 +17,7 @@
       />
 
       <template v-if="address_list.used.length">
-        <q-item-label header>{{
+        <q-item-label header class="list-header">{{
           $t("strings.addresses.myUsedAddresses")
         }}</q-item-label>
         <ReceiveItem
@@ -39,7 +39,7 @@
       </template>
 
       <template v-if="address_list.unused.length">
-        <q-item-label header>{{
+        <q-item-label header class="list-header">{{
           $t("strings.addresses.myUnusedAddresses")
         }}</q-item-label>
         <ReceiveItem

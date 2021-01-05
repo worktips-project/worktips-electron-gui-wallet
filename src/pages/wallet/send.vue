@@ -26,7 +26,7 @@
                 @blur="$v.newTx.amount.$touch"
               />
               <q-btn
-                color="secondary"
+                color="primary"
                 :text-color="theme == 'dark' ? 'white' : 'dark'"
                 @click="newTx.amount = unlocked_balance / 1e9"
               >
@@ -66,7 +66,7 @@
               @blur="$v.newTx.address.$touch"
             />
             <q-btn
-              color="secondary"
+              color="primary"
               :text-color="theme == 'dark' ? 'white' : 'dark'"
               to="addressbook"
             >
@@ -80,9 +80,8 @@
           <OxenField :label="$t('fieldLabels.notes')" optional>
             <q-input
               v-model="newTx.note"
-              class="full-width text-area-loki"
+              class="full-width text-area-oxen"
               type="textarea"
-              :dark="theme == 'dark'"
               :placeholder="$t('placeholders.transactionNotes')"
               borderless
               dense
@@ -93,8 +92,6 @@
         <q-checkbox
           v-model="newTx.address_book.save"
           :label="$t('strings.saveToAddressBook')"
-          :dark="theme == 'dark'"
-          color="dark"
         />
         <div v-if="newTx.address_book.save">
           <OxenField :label="$t('fieldLabels.name')" optional>
@@ -110,16 +107,15 @@
             <q-input
               v-model="newTx.address_book.description"
               type="textarea"
-              class="full-width text-area-loki"
+              class="full-width text-area-oxen"
               rows="2"
-              :dark="theme == 'dark'"
               :placeholder="$t('placeholders.additionalNotes')"
               borderless
               dense
             />
           </OxenField>
         </div>
-        <!-- div required so button below checkbox -->
+        <!-- div required so the button falls below the checkbox -->
         <div>
           <q-btn
             class="send-btn"

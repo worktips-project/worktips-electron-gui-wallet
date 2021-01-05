@@ -18,7 +18,7 @@
           v-model.trim="registration_string"
           type="textarea"
           :dark="theme == 'dark'"
-          class="full-width text-area-loki"
+          class="full-width text-area-oxen"
           placeholder="register_service_node ..."
           :disabled="registration_status.sending"
           borderless

@@ -61,7 +61,7 @@
               v-model="newEntry.description"
               :placeholder="$t('placeholders.additionalNotes')"
               type="textarea"
-              class="full-width text-area-loki"
+              class="full-width text-area-oxen"
               :dark="theme == 'dark'"
               borderless
               dense

@@ -55,6 +55,7 @@ footer,
     font-family: 'RobotoMono-Light', monospace
 }
 
+
 .break-all {
     word-break: break-all
 }
@@ -72,7 +73,7 @@ footer,
     }
 }
 
-.text-area-loki {
+.text-area-oxen {
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -207,6 +208,10 @@ footer,
             font-weight:300;
         }
     }
+}
+
+.q-checkbox {
+    color: $oxen-navy    
 }
 
 .q-loading + .modal {
@@ -504,7 +509,12 @@ footer,
     }
 
     .router-link-exact-active > .q-btn {
-        background: $oxen-navy;
+        color: $oxen-navy
+        background: $oxen-teal;
+
+        .q-icon {
+            color: $oxen-navy;
+        }
     }
 
 }
@@ -540,8 +550,9 @@ footer,
 }
 
 .receive {
-    .q-list-header {
-        color: #FFFFFF;
+
+    .list-header {
+        color: $oxen-navy;
     }
 
     .q-separator-component {
@@ -571,7 +582,7 @@ footer,
 
 }
 
-.loki-list {
+.oxen-list {
     .oxen-list-item {
         background: white;
         -webkit-transition: background-color 0.2s ease-in;
@@ -638,17 +649,26 @@ footer,
     }
 }
 
+.tab-desc {
+    color: $oxen-navy;
+    font-style: normal;
+    b {
+        color: white;
+        font-style: italic;
+    }
+}
+
 .oxen-field {
     .content {
         border: 1px solid #484848;
-
+        background: white;
         -webkit-transition: background-color 0.2s ease-in, border-color 0.2s ease-in;
         transition: background-color 0.2s ease-in, border-color 0.2s ease-in;
     }
 
     &:not(.disable):not(.disable-hover) {
         .content:hover {
-            background: #2e2e2e;
+            background: white;
         }
     }
 
@@ -663,21 +683,10 @@ footer,
     }
 
     .label {
-        color: white;
+        color: $oxen-navy;
 
         .optional {
             color: #7C7C7C;
-        }
-    }
-}
-
-.service-node-registration, .prove-transaction, .check-transaction, .sign-and-verify {
-    .description{
-        color: #b7b7b7;
-        font-style: normal;
-        b {
-            color: white;
-            font-style: italic;
         }
     }
 }

@@ -35,7 +35,7 @@
                 <div class="infoBox">
                   <div class="infoBoxContent">
                     <div class="text">
-                      <span>{{ $t("strings.lokiBalance") }}</span>
+                      <span>{{ $t("strings.oxenBalance") }}</span>
                     </div>
                     <div class="value">
                       <span><FormatOxen :amount="address.balance"/></span>
@@ -46,7 +46,7 @@
                 <div class="infoBox">
                   <div class="infoBoxContent">
                     <div class="text">
-                      <span>{{ $t("strings.lokiUnlockedBalance") }}</span>
+                      <span>{{ $t("strings.oxenUnlockedBalance") }}</span>
                     </div>
                     <div class="value">
                       <span
@@ -73,7 +73,7 @@
                 <div class="infoBox">
                   <div class="infoBoxContent">
                     <div class="text">
-                      <span>{{ $t("strings.lokiBalance") }}</span>
+                      <span>{{ $t("strings.oxenBalance") }}</span>
                     </div>
                     <div class="value"><span>N/A</span></div>
                   </div>
@@ -82,7 +82,7 @@
                 <div class="infoBox">
                   <div class="infoBoxContent">
                     <div class="text">
-                      <span>{{ $t("strings.lokiUnlockedBalance") }}</span>
+                      <span>{{ $t("strings.oxenUnlockedBalance") }}</span>
                     </div>
                     <div class="value"><span>N/A</span></div>
                   </div>

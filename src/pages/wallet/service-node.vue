@@ -3,8 +3,8 @@
     <div class="header row items-center justify-center q-pt-md">
       <q-btn-toggle
         v-model="screen"
-        toggle-color="tertiary"
-        color="tertiary"
+        toggle-color="primary"
+        color="accent"
         :options="[
           {
             label: $t('titles.serviceNode.myStakes'),

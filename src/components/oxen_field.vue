@@ -92,7 +92,8 @@ export default {
       margin: 0;
 
       * {
-        color: white;
+        // Oxen navy, can't use vars here :(
+        color: #1f1c47;
       }
     }
 

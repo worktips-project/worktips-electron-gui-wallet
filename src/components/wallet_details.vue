@@ -9,7 +9,7 @@
         <div class="funds column items-center">
           <div class="balance">
             <div class="text">
-              <span>{{ $t("strings.lokiBalance") }}</span>
+              <span>{{ $t("strings.oxenBalance") }}</span>
             </div>
             <div class="value">
               <span><FormatOxen :amount="info.balance"/></span>

@@ -7,7 +7,7 @@
     </div>
 
     <template v-if="address_book_combined.length">
-      <q-list link no-border :dark="theme == 'dark'" class="loki-list">
+      <q-list link no-border :dark="theme == 'dark'" class="oxen-list">
         <q-item
           v-for="(entry, index) in address_book_combined"
           :key="`${entry.address}-${entry.name}-${index}`"
