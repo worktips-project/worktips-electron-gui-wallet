@@ -84,7 +84,6 @@
     />
     <q-inner-loading
       :showing="stake_status.sending || sweep_all_status.sending"
-      :dark="theme == 'dark'"
     >
       <q-spinner color="primary" size="30" />
     </q-inner-loading>

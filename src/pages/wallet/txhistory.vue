@@ -8,7 +8,6 @@
       <OxenField class="col-5 q-px-sm" :label="$t('fieldLabels.filter')">
         <q-input
           v-model="tx_filter"
-          :dark="theme == 'dark'"
           :placeholder="$t('placeholders.filterTx')"
           borderless
           dense
@@ -18,7 +17,6 @@
       <OxenField class="col-2" :label="$t('fieldLabels.filterTransactionType')">
         <q-select
           v-model="tx_type"
-          :dark="theme == 'dark'"
           :options="tx_type_options"
           borderless
           dense

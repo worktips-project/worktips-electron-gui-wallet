@@ -203,9 +203,8 @@ footer,
         .value {
             font-size: 24px;
             margin-top: 4px;
-            font-weight: 800;
+            font-weight: 300;
             color: $oxen-navy;
-            font-weight:300;
         }
     }
 }
@@ -338,11 +337,11 @@ footer,
     .q-item.tx-out,
     .q-item.tx-pending {
         .amount span {
-            color: white;
+            // color: white;
             &:before {
                 content: "-";
                 font-weight: bold;
-                color: white;
+                // color: white;
             }
         }
     }
@@ -366,18 +365,26 @@ footer,
 }
 
 .q-menu {
-    background: #222;
-    color:#cecece;
+    background: white;
+    color: $oxen-navy !important;
 
     .q-list-separator > .q-item-division + .q-item-division, .q-item-division + .q-separator {
         border-top: 1px solid #333;
     }
+
+    // .q-item:hover {
+    //     background: $oxen-teal;
+    //     color: white;
+    // }
 }
 
 .menu-list {
-  .q-item * {
-    color: white;
-  }
+
+    background: white;
+
+    .q-item * {
+        color: $oxen-navy;
+    }
 }
 .confirm-tx-card {
   width: 450px;
@@ -429,7 +436,6 @@ footer,
 
 .modal {
     color: #cecece;
-    background-color: $dark;
 
     .modal-header {
         margin-top: 6px;
@@ -437,10 +443,6 @@ footer,
         text-align: left;
         font-size: 24px;
         font-weight: bold;
-    }
-    .modal-content,
-    .modal-body {
-        background: $loki-black-80;
     }
 
     .q-header {

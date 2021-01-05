@@ -8,7 +8,6 @@
           emit-value
           map-options
           :options="renewing ? lokinetOptions : typeOptions"
-          :dark="theme == 'dark'"
           :disable="updating"
           borderless
           dense

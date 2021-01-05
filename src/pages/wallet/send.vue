@@ -16,7 +16,6 @@
             >
               <q-input
                 v-model="newTx.amount"
-                :dark="theme == 'dark'"
                 type="number"
                 min="0"
                 :max="unlocked_balance / 1e9"
@@ -27,7 +26,6 @@
               />
               <q-btn
                 color="primary"
-                :text-color="theme == 'dark' ? 'white' : 'dark'"
                 @click="newTx.amount = unlocked_balance / 1e9"
               >
                 {{ $t("buttons.all") }}
@@ -42,7 +40,6 @@
                 v-model="newTx.priority"
                 emit-value
                 map-options
-                :dark="theme == 'dark'"
                 :options="priorityOptions"
                 borderless
                 dense
@@ -59,17 +56,12 @@
           >
             <q-input
               v-model.trim="newTx.address"
-              :dark="theme == 'dark'"
               :placeholder="address_placeholder"
               borderless
               dense
               @blur="$v.newTx.address.$touch"
             />
-            <q-btn
-              color="primary"
-              :text-color="theme == 'dark' ? 'white' : 'dark'"
-              to="addressbook"
-            >
+            <q-btn color="primary" to="addressbook">
               {{ $t("buttons.contacts") }}
             </q-btn>
           </OxenField>
@@ -97,7 +89,6 @@
           <OxenField :label="$t('fieldLabels.name')" optional>
             <q-input
               v-model="newTx.address_book.name"
-              :dark="theme == 'dark'"
               :placeholder="$t('placeholders.addressBookName')"
               borderless
               dense
@@ -135,7 +126,7 @@
         :on-confirm-transaction="onConfirmTransaction"
         :on-cancel-transaction="onCancelTransaction"
       />
-      <q-inner-loading :showing="tx_status.sending" :dark="theme == 'dark'">
+      <q-inner-loading :showing="tx_status.sending">
         <q-spinner color="primary" size="30" />
       </q-inner-loading>
     </template>
@@ -379,9 +370,7 @@ export default {
         ok: {
           label: this.$t("dialog.transfer.ok"),
           color: "primary"
-        },
-        dark: this.theme == "dark",
-        color: this.theme == "dark" ? "white" : "dark"
+        }
       });
       passwordDialog
         .onOk(password => {

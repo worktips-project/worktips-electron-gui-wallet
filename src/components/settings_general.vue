@@ -44,7 +44,6 @@
           <q-input
             v-model="config_daemon.rpc_bind_ip"
             :placeholder="daemon_defaults.rpc_bind_ip"
-            :dark="theme == 'dark'"
             disable
             borderless
             dense
@@ -62,7 +61,6 @@
             :step="1"
             min="1024"
             max="65535"
-            :dark="theme == 'dark'"
             borderless
             dense
           />

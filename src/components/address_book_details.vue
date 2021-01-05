@@ -48,12 +48,7 @@
             />
           </OxenField>
           <OxenField :label="$t('fieldLabels.name')">
-            <q-input
-              v-model.trim="newEntry.name"
-              :dark="theme == 'dark'"
-              borderless
-              dense
-            />
+            <q-input v-model.trim="newEntry.name" borderless dense />
           </OxenField>
           <OxenField :label="$t('fieldLabels.notes')" optional>
             <q-input

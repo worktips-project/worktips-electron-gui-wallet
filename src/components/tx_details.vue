@@ -200,8 +200,6 @@
           <q-input
             v-model="txNotes"
             :label="$t('fieldLabels.transactionNotes')"
-            :dark="theme == 'dark'"
-            :text-color="theme == 'dark' ? 'white' : 'dark'"
             type="textarea"
             rows="2"
             dense
@@ -327,8 +325,8 @@ export default {
             label: this.$t("dialog.transactionDetails.ok"),
             color: "primary"
           },
-          dark: this.theme == "dark",
-          style: "min-width: 500px; overflow-wrap: break-word;"
+          style: "min-width: 500px; overflow-wrap: break-word;",
+          color: "#1F1C47"
         })
         .onOk(() => {})
         .onCancel(() => {})

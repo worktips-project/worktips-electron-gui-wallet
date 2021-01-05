@@ -254,6 +254,9 @@ export default {
 </script>
 
 <style lang="scss">
+.message {
+  color: #1f1c47;
+}
 .init-screen-page {
   height: 100vh;
   position: relative;

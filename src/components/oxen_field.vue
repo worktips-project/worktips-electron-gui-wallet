@@ -97,6 +97,12 @@ export default {
       }
     }
 
+    .q-select {
+      .row {
+        color: red;
+      }
+    }
+
     .q-date {
       min-width: 100%;
       max-width: 100%;

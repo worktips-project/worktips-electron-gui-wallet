@@ -71,7 +71,7 @@
     >
       <div class="modal private-key-modal">
         <div class="modal-header">{{ $t("titles.privateKeys") }}</div>
-        <div class="q-ma-lg">
+        <div class="q-ma-md">
           <template v-if="secret.mnemonic">
             <h6 class="q-mb-xs q-mt-lg">
               {{ $t("strings.seedWords") }}
@@ -170,7 +170,7 @@
     <q-dialog v-model="modals.rescan.visible" minimized>
       <div class="modal rescan-modal">
         <div class="a-ma-lg modal-header">{{ $t("titles.rescanWallet") }}</div>
-        <div class="q-ma-lg">
+        <div class="q-ma-md">
           <p>{{ $t("strings.rescanModalDescription") }}</p>
 
           <div class="q-mt-lg">
@@ -222,7 +222,7 @@
             })
           }}
         </div>
-        <div class="q-ma-lg">
+        <div class="q-ma-md">
           <div class="row q-mb-md">
             <div class="q-mr-xl">
               <q-radio
@@ -316,7 +316,7 @@
     >
       <div class="modal password-modal">
         <div class="modal-header">{{ $t("titles.changePassword") }}</div>
-        <div class="q-ma-lg">
+        <div class="q-ma-md">
           <q-input
             v-model="modals.change_password.old_password"
             type="password"
@@ -514,6 +514,10 @@ export default {
           label: this.$t("dialog.showPrivateKeys.ok"),
           color: "primary"
         },
+        cancel: {
+          color: "tertiary",
+          flat: true
+        },
         color: "white"
       });
       passwordDialog
@@ -703,8 +707,6 @@ export default {
   }
 };
 </script>
-
-.menu-list { }
 
 <style lang="scss">
 .wallet-settings {

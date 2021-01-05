@@ -87,13 +87,6 @@ export default {
 </script>
 
 <style lang="scss">
-.title {
-  font-size: 18px;
-  margin-bottom: 4px;
-  // oxen-navy
-  color: #1f1c47;
-}
-
 .extra {
   margin-top: 8px;
   color: #1f1c47;

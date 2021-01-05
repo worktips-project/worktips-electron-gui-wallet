@@ -37,9 +37,7 @@
           </q-item-label>
         </q-item-section>
         <q-item-section side>
-          <span style="font-size: 16px; color: #cecece">{{
-            getFee(node)
-          }}</span>
+          <span class="fee">{{ getFee(node) }}</span>
         </q-item-section>
         <q-item-section side>
           <q-btn
@@ -168,4 +166,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.fee {
+  color: #1f1c47;
+}
+
+.service-node-list {
+  .q-item:hover {
+    .fee {
+      color: white;
+    }
+  }
+}
+</style>
