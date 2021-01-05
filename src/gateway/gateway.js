@@ -99,7 +99,7 @@ export class Gateway extends EventEmitter {
             ? "white"
             : "dark"
       },
-      dark: this.app.store.state.gateway.app.config.appearance.theme === "dark"
+      color: "#1F1C47"
     })
       .onOk(() => {
         this.closeDialog = false;

@@ -139,7 +139,7 @@ footer,
     }
 
     .q-toolbar-inverted {
-        background: none;
+        background: $oxen-navy;
         padding-top: 0;
     }
 
@@ -197,14 +197,14 @@ footer,
         .text {
             font-size: 14px;
             margin-top: 8px;
-            color: #cecece;
+            color: $oxen-navy;
         }
 
         .value {
             font-size: 24px;
             margin-top: 4px;
             font-weight: 800;
-            color: #cecece;
+            color: $oxen-navy;
             font-weight:300;
         }
     }
@@ -380,9 +380,10 @@ footer,
   }
 }
 .confirm-tx-card {
-  color: "primary";
   width: 450px;
   max-width: 450x;
+
+  color: $oxen-navy !important;
 
   .confirm-list {
     .q-item {
@@ -395,7 +396,7 @@ footer,
   }
 
   .label {
-    color: #cecece;
+    color: $oxen-purple;
     padding-right: 6px;
   }
   .address-value {
@@ -453,7 +454,15 @@ footer,
 
 }
 
+.q-toolbar {
+    background-color: $oxen-navy;
+}
+
 .header {
+    color: $oxen-navy;
+}
+
+.detail-page {
     color: $oxen-navy;
 }
 
@@ -627,7 +636,8 @@ footer,
 .service-node-list {
     .q-item {
         cursor: pointer;
-        background: $oxen-navy;
+        color: $oxen-navy;
+        background: white;
         -webkit-transition: background-color 0.2s ease-in;
         transition: background-color 0.2s ease-in;
 
@@ -636,14 +646,25 @@ footer,
         + .q-item {
             margin-top: 10px;
         }
+
+        .contrib-amounts {
+            color: $oxen-navy;
+        }
     }
+    
+
 
     .q-item-label {
         color: $oxen-navy;
     }
 
     .q-item:hover {
-        background: rgba(117,117,117,0.3);
+        background: $oxen-navy;
+        color: white;
+
+        .contrib-amounts {
+            color: white;
+        }
     }
 
 }

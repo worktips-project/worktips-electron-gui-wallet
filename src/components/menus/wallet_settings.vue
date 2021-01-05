@@ -67,10 +67,9 @@
     <q-dialog
       v-model="modals.private_keys.visible"
       minimized
-      class="private-key-modal"
       @hide="closePrivateKeys()"
     >
-      <div class="modal">
+      <div class="modal private-key-modal">
         <div class="modal-header">{{ $t("titles.privateKeys") }}</div>
         <div class="q-ma-lg">
           <template v-if="secret.mnemonic">
@@ -169,7 +168,7 @@
 
     <!-- RESCAN MODAL -->
     <q-dialog v-model="modals.rescan.visible" minimized>
-      <div class="modal">
+      <div class="modal rescan-modal">
         <div class="a-ma-lg modal-header">{{ $t("titles.rescanWallet") }}</div>
         <div class="q-ma-lg">
           <p>{{ $t("strings.rescanModalDescription") }}</p>
@@ -322,20 +321,17 @@
             v-model="modals.change_password.old_password"
             type="password"
             :label="$t('fieldLabels.oldPassword')"
-            :dark="theme == 'dark'"
           />
           <q-input
             v-model="modals.change_password.new_password"
             type="password"
             :label="$t('fieldLabels.newPassword')"
-            :dark="theme == 'dark'"
           />
 
           <q-input
             v-model="modals.change_password.new_password_confirm"
             type="password"
             :label="$t('fieldLabels.confirmNewPassword')"
-            :dark="theme == 'dark'"
           />
 
           <div class="q-mt-xl text-right">
@@ -518,8 +514,7 @@ export default {
           label: this.$t("dialog.showPrivateKeys.ok"),
           color: "primary"
         },
-        dark: this.theme == "dark",
-        color: this.theme == "dark" ? "white" : "dark"
+        color: "white"
       });
       passwordDialog
         .onOk(password => {
@@ -557,10 +552,8 @@ export default {
             },
             cancel: {
               flat: true,
-              label: this.$t("dialog.buttons.cancel"),
-              color: this.theme == "dark" ? "white" : "dark"
-            },
-            dark: this.theme == "dark"
+              label: this.$t("dialog.buttons.cancel")
+            }
           })
           .onOk(() => {
             this.$gateway.send("wallet", "rescan_blockchain");
@@ -666,7 +659,7 @@ export default {
             label: this.$t("dialog.buttons.cancel"),
             color: this.theme == "dark" ? "white" : "dark"
           },
-          dark: this.theme == "dark"
+          color: "#1F1C47"
         })
         .onOk(async () => {
           const hasPassword = await this.hasPassword();
@@ -722,6 +715,17 @@ export default {
 
 .password-modal {
   min-width: 400px;
+  background: white;
+  color: #1f1c47;
+
+  > * {
+    color: #1f1c47;
+  }
+}
+
+.rescan-modal {
+  background: white;
+  color: #1f1c47;
 }
 
 .image-path {
@@ -730,8 +734,11 @@ export default {
 }
 
 .key-image-modal {
+  color: #1f1c47;
+  background: white;
+
   label * {
-    color: #cecece !important;
+    color: #1f1c47 !important;
     text-overflow: ellipsis;
     overflow: hidden;
   }
@@ -741,6 +748,9 @@ export default {
 }
 
 .private-key-modal {
+  background: white;
+  color: #1f1c47;
+
   .copy-btn {
     margin-left: 8px;
   }

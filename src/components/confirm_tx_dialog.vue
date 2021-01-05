@@ -1,6 +1,6 @@
 <template>
-  <q-dialog v-model="show" persistent>
-    <q-card class="confirm-tx-card" dark>
+  <q-dialog v-model="show" persistent class="oxen-light-teal">
+    <q-card class="confirm-tx-card oxen-light-teal">
       <q-card-section>
         <div class="text-h6">{{ $t("dialog.confirmTransaction.title") }}</div>
       </q-card-section>

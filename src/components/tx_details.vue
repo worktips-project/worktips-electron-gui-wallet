@@ -21,7 +21,7 @@
           />
         </q-toolbar>
       </q-header>
-      <q-page-container>
+      <q-page-container class="detail-page">
         <div class="layout-padding">
           <div class="row items-center non-selectable">
             <div class="q-mr-sm">

@@ -20,7 +20,7 @@
           />
         </q-toolbar>
       </q-header>
-      <q-page-container>
+      <q-page-container class="detail-page">
         <div class="layout-padding">
           <template v-if="address != null">
             <AddressHeader

@@ -179,8 +179,8 @@ export default {
 <style lang="scss">
 .about-modal {
   padding: 25px;
-  background-color: $dark;
-  color: white;
+  background-color: white;
+  color: #1f1c47;
 
   .external-links {
     a {

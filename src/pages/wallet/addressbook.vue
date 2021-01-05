@@ -27,7 +27,7 @@
                 :name="entry.starred ? 'star' : 'star_border'"
               />
               <q-btn
-                color="secondary"
+                color="primary"
                 style="margin-left: 10px;"
                 :label="$t('buttons.send')"
                 :disabled="view_only"
@@ -45,7 +45,7 @@
       </q-list>
     </template>
     <template v-else>
-      <p class="q-ma-md">{{ $t("strings.addressBookIsEmpty") }}</p>
+      <p class="q-ma-md tab-desc">{{ $t("strings.addressBookIsEmpty") }}</p>
     </template>
 
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
@@ -126,6 +126,7 @@ export default {
   .header {
     font-size: 14px;
     font-weight: 500;
+    color: #1f1c47;
   }
 
   .oxen-list-item {

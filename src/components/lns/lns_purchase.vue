@@ -1,7 +1,7 @@
 <template>
   <div class="lns-purchase">
     <div class="q-mb-lg q-px-md q-pt-md">
-      <div class="description">
+      <div class="tab-desc">
         {{ $t("strings.lnsPurchaseDescription") }}
       </div>
       <div class="prices">
@@ -57,11 +57,11 @@ export default {
     white-space: pre-line;
     // oxen-navy
     color: #1f1c47;
-    margin-bottom: 20px;
   }
 
   .prices {
     // oxen-navy
+    margin-top: 20px;
     color: #1f1c47;
   }
 }

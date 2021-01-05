@@ -90,12 +90,13 @@ export default {
 .title {
   font-size: 18px;
   margin-bottom: 4px;
-  color: white;
+  // oxen-navy
+  color: #1f1c47;
 }
 
 .extra {
   margin-top: 8px;
-  color: white;
+  color: #1f1c47;
 }
 
 .address-header {

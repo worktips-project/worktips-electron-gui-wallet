@@ -23,7 +23,7 @@
           />
         </q-toolbar>
       </q-header>
-      <q-page-container>
+      <q-page-container class="detail-page">
         <div class="layout-padding">
           <h6 class="q-mt-xs q-mb-none text-weight-light">
             {{ $t("strings.serviceNodeDetails.serviceNodeKey") }}

@@ -201,15 +201,14 @@ export default {
               type: "password"
             },
             ok: {
-              label: this.$t("dialog.buttons.open")
+              label: this.$t("dialog.buttons.open"),
+              color: "primary"
             },
             cancel: {
               flat: true,
-              label: this.$t("dialog.buttons.cancel"),
-              color: this.theme == "dark" ? "white" : "dark"
+              label: this.$t("dialog.buttons.cancel")
             },
-            dark: this.theme == "dark",
-            color: "positive"
+            color: "#1F1C47"
           })
           .onOk(password => {
             this.$q.loading.show({

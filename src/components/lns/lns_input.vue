@@ -125,8 +125,7 @@ export default {
           label: this.$t("dialog.lnsUpdate.ok"),
           color: "primary"
         },
-        dark: this.theme == "dark",
-        color: this.theme == "dark" ? "white" : "dark"
+        color: "#1F1C47"
       });
       passwordDialog
         .onOk(password => {

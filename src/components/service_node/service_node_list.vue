@@ -28,7 +28,7 @@
             >
               {{ $t("strings.serviceNodeDetails.reserved") }} •
             </span>
-            <span v-if="node.awaitingContribution">
+            <span v-if="node.awaitingContribution" class="contrib-amounts">
               {{ $t("strings.serviceNodeDetails.minContribution") }}:
               {{ getMinContribution(node) }} LOKI •
               {{ $t("strings.serviceNodeDetails.maxContribution") }}:

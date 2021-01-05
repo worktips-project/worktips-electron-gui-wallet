@@ -1,7 +1,7 @@
 <template>
   <div class="tx-list">
     <template v-if="tx_list_paged.length === 0">
-      <p class="q-pa-md q-mb-none">
+      <p class="q-pa-md q-mb-none tab-desc">
         {{ $t("strings.noTransactionsFound") }}
       </p>
     </template>
