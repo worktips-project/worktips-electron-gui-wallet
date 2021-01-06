@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="address-header-div">
     <q-item-section class="self-start">
       <q-item-label class="title non-selectable">{{ title }}</q-item-label>
       <q-item-label class="row">
@@ -87,11 +87,18 @@ export default {
 </script>
 
 <style lang="scss">
-.extra {
-  margin-top: 8px;
-  color: #1f1c47;
+.address-header-div {
+  .title {
+    font-size: 20px;
+    color: #1f1c47;
+  }
+
+  .extra {
+    color: #1f1c47;
+  }
 }
 
+// is this even used?
 .address-header {
   padding: 0;
   img {
