@@ -20,7 +20,6 @@
         <q-select
           v-model="wallet.language"
           :options="languageOptions"
-          :dark="theme == 'dark'"
           borderless
           dense
           emit-value

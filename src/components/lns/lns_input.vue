@@ -151,9 +151,7 @@ export default {
         ok: {
           label: this.$t("dialog.purchase.ok"),
           color: "primary"
-        },
-        dark: this.theme == "dark",
-        color: this.theme == "dark" ? "white" : "dark"
+        }
       });
       passwordDialog
         .onOk(password => {

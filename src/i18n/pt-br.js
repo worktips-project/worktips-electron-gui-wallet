@@ -406,7 +406,7 @@ export default {
     loadingSettings: "Carregando configurações",
     oxenBalance: "Saldo",
     oxenUnlockedBalance: "Saldo desbloqueado",
-    lokiUnlockedShort: "Desbloqueado",
+    oxenUnlockedShort: "Desbloqueado",
     noTransactionsFound: "Nenhuma transação encontrada",
     notes: "Notas",
     numberOfUnspentOutputs: "Número de outputs não gastos",

@@ -490,8 +490,7 @@ export default {
           ok: {
             label: this.$t("dialog.buttons.ok"),
             color: "primary"
-          },
-          dark: this.theme === "dark"
+          }
         })
         .onDismiss(() => null)
         .onCancel(() => null)

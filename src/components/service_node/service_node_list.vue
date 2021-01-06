@@ -30,9 +30,9 @@
             </span>
             <span v-if="node.awaitingContribution" class="contrib-amounts">
               {{ $t("strings.serviceNodeDetails.minContribution") }}:
-              {{ getMinContribution(node) }} LOKI •
+              {{ getMinContribution(node) }} OXEN •
               {{ $t("strings.serviceNodeDetails.maxContribution") }}:
-              {{ openForContributionLoki(node) }} LOKI
+              {{ openForContriubtionOxen(node) }} OXEN
             </span>
           </q-item-label>
         </q-item-section>

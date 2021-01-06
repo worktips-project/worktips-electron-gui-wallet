@@ -280,6 +280,7 @@ export default {
 <style lang="scss">
 .contributors-title {
   margin-bottom: 12px;
+  color: #1f1c47;
 }
 
 .serviceNodeDetails {

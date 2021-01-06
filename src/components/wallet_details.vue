@@ -17,7 +17,7 @@
           </div>
           <div class="row unlocked">
             <span
-              >{{ $t("strings.lokiUnlockedShort") }}:
+              >{{ $t("strings.oxenUnlockedShort") }}:
               <FormatOxen :amount="info.unlocked_balance"
             /></span>
           </div>

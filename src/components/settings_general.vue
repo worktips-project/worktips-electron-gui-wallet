@@ -74,7 +74,6 @@
           <q-input
             v-model="config_daemon.remote_host"
             :placeholder="daemon_defaults.remote_host"
-            :dark="theme == 'dark'"
             borderless
             dense
           />
@@ -84,7 +83,7 @@
             class="remote-dropdown"
             flat
           >
-            <q-list link dark no-border>
+            <q-list link no-border>
               <q-item
                 v-for="option in remotes"
                 :key="option.host"

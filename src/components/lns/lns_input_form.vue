@@ -102,7 +102,7 @@
       />
       <q-btn
         v-if="showClearButton"
-        color="secondary"
+        color="accent"
         :label="$t('buttons.clear')"
         @click="clear()"
       />

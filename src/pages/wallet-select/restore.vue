@@ -9,7 +9,6 @@
         <q-input
           v-model="wallet.name"
           :placeholder="$t('placeholders.walletName')"
-          :dark="theme == 'dark'"
           borderless
           dense
           @keyup.enter="restore_wallet"
@@ -27,7 +26,6 @@
           class="full-width text-area-oxen"
           :placeholder="$t('placeholders.mnemonicSeed')"
           type="textarea"
-          :dark="theme == 'dark'"
           borderless
           dense
           @blur="$v.wallet.seed.$touch"
@@ -96,7 +94,6 @@
           <template v-if="wallet.refresh_type == 'date'">
             <q-btn
               class="restore-from-button"
-              :text-color="theme == 'dark' ? 'white' : 'dark'"
               flat
               @click="wallet.refresh_type = 'height'"
             >
@@ -109,7 +106,6 @@
           <template v-else-if="wallet.refresh_type == 'height'">
             <q-btn
               class="restore-from-button"
-              :text-color="theme == 'dark' ? 'white' : 'dark'"
               flat
               @click="wallet.refresh_type = 'date'"
             >

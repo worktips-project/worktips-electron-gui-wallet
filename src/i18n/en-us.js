@@ -504,7 +504,7 @@ export default {
     lokinetNameDescription:
       "Purchase or update a name on Lokinet. If you purchase a name it may take a minute or two for it to show up in the list. To learn more about lokinet visit: ",
     oxenUnlockedBalance: "Unlocked balance",
-    lokiUnlockedShort: "Unlocked",
+    oxenUnlockedShort: "Unlocked",
     me: "Me",
     noTransactionsFound: "No transactions found",
     notes: "Notes",

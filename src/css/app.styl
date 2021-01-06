@@ -386,6 +386,12 @@ footer,
         color: $oxen-navy;
     }
 }
+
+.context-menu-list {
+  min-width: 150px;
+  max-height: 300px;
+}
+
 .confirm-tx-card {
   width: 450px;
   max-width: 450x;
@@ -412,7 +418,7 @@ footer,
 
   .confirm-send-btn {
     color: white;
-    background: $positive;
+    background: $primary;
   }
 }
 
@@ -480,7 +486,7 @@ footer,
   color: white;
 
   .qr-code-card {
-    background-color: $dark;
+    background-color: white;
   }
 }
 
@@ -629,10 +635,15 @@ footer,
 
 }
 
-.lns-record-list {
-    .q-item-label.unlocked {
-        color: white;
-    }
+.record-type-title {
+  font-weight: bold;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  color: $oxen-navy;
+}
+
+.records-group {
+  padding-bottom: 40px;
 }
 
 .service-node-list {
@@ -725,6 +736,10 @@ footer,
     }
 }
 
+.welcome-container {
+    color: $oxen-navy;
+}
+
 .address-book, .address-header {
     .q-item-label, .header {
         color: white;
@@ -768,4 +783,47 @@ footer,
 
 .non-selectable {
     color: #979797;
+}
+
+.created {
+    color: $oxen-navy;
+    
+  .wallet h6 {
+    text-align: center;
+  }
+
+  .address {
+    text-align: center;
+    word-break: break-all;
+  }
+
+  .seed-box {
+    border: 1px solid white;
+    border-radius: 3px;
+    margin: 16px;
+    padding: 16px;
+
+    div,
+    h6 {
+      text-align: center;
+    }
+
+    .seed {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .warning {
+      color: goldenrod;
+    }
+  }
+  h6 {
+    font-size: 18px;
+    margin: 8px 0;
+    font-weight: 450;
+  }
+  .advanced-options-label {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

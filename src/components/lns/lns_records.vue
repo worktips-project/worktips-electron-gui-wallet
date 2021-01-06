@@ -209,14 +209,4 @@ export default {
     }
   }
 }
-
-.record-type-title {
-  font-weight: bold;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-}
-
-.records-group {
-  padding-bottom: 40px;
-}
 </style>

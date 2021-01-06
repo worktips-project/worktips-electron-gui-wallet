@@ -293,7 +293,7 @@ export default {
     },
     maxStake() {
       const node = this.getNodeWithPubKey();
-      return this.openForContributionLoki(node);
+      return this.openForContriubtionOxen(node);
     },
     getFeeDecimal(node) {
       const operatorPortion = node.portions_for_operator;
@@ -352,9 +352,8 @@ export default {
           cancel: {
             flat: true,
             label: this.$t("dialog.buttons.cancel"),
-            color: this.theme === "dark" ? "white" : "dark"
-          },
-          dark: this.theme === "dark"
+            color: "negative"
+          }
         })
         .onOk(() => {
           this.sweepAll();
@@ -386,10 +385,8 @@ export default {
         noPasswordMessage: this.$t("dialog.sweepAll.message"),
         ok: {
           label: this.$t("dialog.sweepAll.ok"),
-          color: "primary"
-        },
-        dark: this.theme == "dark",
-        color: this.theme == "dark" ? "white" : "dark"
+          color: "#12C7BA"
+        }
       });
       passwordDialog
         .onOk(password => {

@@ -105,7 +105,6 @@ export default {
 
   .welcome-stepper {
     height: 100%;
-    // the Loki lighter grey is behind it
     background: transparent;
   }
 
