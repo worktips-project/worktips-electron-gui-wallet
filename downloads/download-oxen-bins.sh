@@ -18,7 +18,7 @@ if [ "$OS" == "Linux" ]; then
 elif [ "$OS" == "Windows" ]; then
     ASSET_URL="https://oxen.rocks/darcys22/loki-core/oxen-rebrand/oxen-win-x64-9.0.0-dev-d198af3de.zip"
 elif [ "$OS" == "macOS" ]; then
-    ASSET_URL="https://oxen.rocks/darcys22/loki-core/oxen-rebrand/oxen-macos-x86_64-9.0.0-dev-d198af3de.tar.xz"
+    ASSET_URL="https://oxen.rocks/darcys22/loki-core/oxen-rebrand/oxen-macos-9.0.0-dev-d198af3de.tar.xz"
 else
     echo "OS must be Linux, Windows or macOS"
     exit 1
