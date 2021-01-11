@@ -166,16 +166,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.fee {
-  color: #1f1c47;
-}
-
-.service-node-list {
-  .q-item:hover {
-    .fee {
-      color: white;
-    }
-  }
-}
-</style>
+<style lang="scss"></style>

@@ -161,46 +161,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.lokinet-expiration {
-  width: 180px;
-}
-
-.lns-record-list {
-  .q-item {
-    cursor: pointer;
-    color: #1f1c47;
-    background: white;
-    -webkit-transition: background-color 0.2s ease-in;
-    transition: background-color 0.2s ease-in;
-
-    border-radius: 3px;
-
-    .height {
-      color: #1f1c47;
-    }
-
-    // we don't want to select button text (also a span) as well
-    // this is the height text
-    div > span {
-      color: #1f1c47;
-    }
-
-    + .q-item {
-      margin-top: 10px;
-    }
-  }
-
-  .q-item:hover {
-    background: #12c7ba;
-  }
-}
-.update-renew-buttons {
-  .q-btn {
-    color: red;
-  }
-  .q-btn:not(:first-child) {
-    margin-left: 8px;
-  }
-}
-</style>
+<style lang="scss"></style>

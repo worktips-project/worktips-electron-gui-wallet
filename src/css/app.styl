@@ -101,8 +101,8 @@ footer,
 }
 
 .q-layout, .app-content {
-    background: $oxen-light-teal;
-    color:white;
+    background: white;
+    color:$oxen-navy;
 }
 
 .q-header {
@@ -570,6 +570,12 @@ footer,
     }
 }
 
+.wallet-settings {
+  .q-btn {
+    color: $oxen-navy;
+  }
+}
+
 .receive {
 
     .list-header {
@@ -583,6 +589,7 @@ footer,
 
     .primary-address {
         background: $oxen-teal !important;
+        border: none !important;
 
         .q-item, .q-item-side {
             color: white;
@@ -598,7 +605,7 @@ footer,
     }
 
     .primary-address:hover {
-        background: $oxen-navy !important;
+        background: #0ca69b !important;
     }
 
 }
@@ -615,7 +622,8 @@ footer,
         padding-bottom: 6px;
 
         margin: 0 16px;
-        border-radius: 3px;
+        border: 1px solid $oxen-navy;
+        border-radius: 4px;
 
         + .oxen-list-item {
             margin-top: 10px;
@@ -627,8 +635,8 @@ footer,
     }
 
     .oxen-list-item:hover {
-        background: $oxen-teal;
-
+        background: $off-grey;
+        cursor: pointer;
 
     }
 
@@ -653,7 +661,8 @@ footer,
         -webkit-transition: background-color 0.2s ease-in;
         transition: background-color 0.2s ease-in;
 
-        border-radius: 3px;
+        border: 1px solid $oxen-navy;
+        border-radius: 4px;
 
         + .q-item {
             margin-top: 10px;
@@ -664,21 +673,57 @@ footer,
         }
     }
     
-
-
     .q-item-label {
         color: $oxen-navy;
     }
 
-    .q-item:hover {
-        background: $oxen-navy;
-        color: white;
-
-        .contrib-amounts {
-            color: white;
-        }
+    .fee {
+        color: $oxen-navy;
     }
 
+    .q-item:hover {
+        background: $off-grey;
+    }
+
+}
+
+.lokinet-expiration {
+  width: 180px;
+}
+
+.lns-record-list {
+  .q-item {
+    cursor: pointer;
+    color: $oxen-navy;
+    -webkit-transition: background-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in;
+
+    border: 1px solid $oxen-navy;
+    border-radius: 4px;
+
+    .height {
+      color: $oxen-navy;
+    }
+
+    // we don't want to select button text (also a span) as well
+    // this is the height text
+    div > span {
+      color: #1f1c47;
+    }
+
+    + .q-item {
+      margin-top: 10px;
+    }
+  }
+
+  .q-item:hover {
+    background: $off-grey;
+  }
+}
+.update-renew-buttons {
+  .q-btn:not(:first-child) {
+    margin-left: 8px;
+  }
 }
 
 .tx-list {
