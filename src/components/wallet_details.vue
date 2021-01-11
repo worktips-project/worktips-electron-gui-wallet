@@ -1,6 +1,6 @@
 <template>
   <div class="column wallet-info">
-    <div class="row justify-between items-center wallet-header oxen-teal">
+    <div class="row justify-between items-center wallet-header">
       <div class="title">{{ info.name }}</div>
       <WalletSettings />
     </div>

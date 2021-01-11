@@ -1,10 +1,6 @@
 <template>
   <q-page>
-    <q-list
-      class="wallet-list oxen-light-teal"
-      no-border
-      :dark="theme == 'dark'"
-    >
+    <q-list class="wallet-list" no-border :dark="theme == 'dark'">
       <template v-if="wallets.list.length">
         <div class="header row justify-between items-center">
           <div class="header-title">
