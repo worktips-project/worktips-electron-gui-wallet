@@ -6,7 +6,7 @@
         <span
           style="cursor: pointer; text-decoration: underline;"
           @click="oxenWebsite"
-          >Loki {{ $t("strings.website") }}.</span
+          >Oxen {{ $t("strings.website") }}.</span
         >
       </p>
       <OxenField
@@ -278,7 +278,7 @@ export default {
   },
   methods: {
     oxenWebsite() {
-      const url = "https://loki.network/service-nodes/";
+      const url = "https://oxen.io/";
       this.$gateway.send("core", "open_url", {
         url
       });

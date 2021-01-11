@@ -29,7 +29,7 @@
         </div>
 
         <div v-if="page == 'peers'">
-          <q-list :dark="theme == 'dark'" no-border>
+          <q-list no-border>
             <q-item-label header>{{ $t("strings.peerList") }}</q-item-label>
             <q-item
               v-for="entry in daemon.connections"
