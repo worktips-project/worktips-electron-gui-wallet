@@ -146,7 +146,7 @@ export class WalletRPC {
         if (!fs.existsSync(rpcPath)) {
           reject(
             new Error(
-              "Failed to find Oxen Wallet RPC. Please make sure you anti-virus has not removed it."
+              "Failed to find Oxen Wallet RPC. Please make sure your anti-virus has not removed it."
             )
           );
           return;
