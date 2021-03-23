@@ -12,6 +12,10 @@
             <td>15 OXEN</td>
           </tr>
           <tr>
+            <td>{{ $t("strings.lns.wallet") }}:</td>
+            <td>15 OXEN</td>
+          </tr>
+          <tr>
             <td>{{ $t("strings.lns.lokinetName1Year") }}:</td>
             <td>15 OXEN</td>
           </tr>

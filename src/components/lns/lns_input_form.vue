@@ -28,7 +28,9 @@
           :disable="disableName"
           borderless
           dense
-          :suffix="record.type === 'session' ? '' : '.loki'"
+          :suffix="
+            record.type === 'session' || record.type === 'wallet' ? '' : '.loki'
+          "
           @blur="$v.record.name.$touch"
         />
       </OxenField>
@@ -48,7 +50,9 @@
           borderless
           dense
           :disable="renewing"
-          :suffix="record.type === 'session' ? '' : '.loki'"
+          :suffix="
+            record.type === 'session' || record.type === 'wallet' ? '' : '.loki'
+          "
           @blur="$v.record.value.$touch"
         />
       </OxenField>
@@ -167,6 +171,9 @@ export default {
     let sessionOptions = [
       { label: this.$t("strings.lns.sessionID"), value: "session" }
     ];
+    let walletOptions = [
+      { label: this.$t("strings.lns.wallet"), value: "wallet" }
+    ];
     let lokinetOptions = [
       { label: this.$t("strings.lns.lokinetName1Year"), value: "lokinet_1y" },
       {
@@ -182,11 +189,11 @@ export default {
         value: "lokinet_10y"
       }
     ];
-    let typeOptions = [...sessionOptions, ...lokinetOptions];
+    let typeOptions = [...sessionOptions, ...walletOptions, ...lokinetOptions];
 
     const initialRecord = {
       // Lokinet 1 year is valid on renew or purchase
-      type: typeOptions[1].value,
+      type: typeOptions[2].value,
       name: "",
       value: "",
       owner: "",
@@ -207,6 +214,8 @@ export default {
     value_field_label() {
       if (this.record.type === "session") {
         return this.$t("fieldLabels.sessionId");
+      } else if (this.record.type === "wallet") {
+        return this.$t("fieldLabels.walletAddress");
       } else {
         return this.$t("fieldLabels.lokinetFullAddress");
       }
@@ -231,6 +240,8 @@ export default {
     value_placeholder() {
       if (this.record.type === "session") {
         return this.$t("placeholders.sessionId");
+      } else if (this.record.type === "wallet") {
+        return this.$t("placeholders.walletAddress");
       } else {
         return this.$t("placeholders.lokinetFullAddress");
       }
@@ -333,7 +344,10 @@ export default {
       const submitRecord = {
         ...this.record,
         name: this.record.name.toLowerCase(),
-        value: this.record.value.toLowerCase()
+        value:
+          this.record.type === "wallet"
+            ? this.record.value
+            : this.record.value.toLowerCase()
       };
       // Send up the submission with the record
       this.$emit("onSubmit", submitRecord);
@@ -372,6 +386,8 @@ export default {
           const _value = value.toLowerCase();
           if (this.record.type === "session") {
             return session_id(_value);
+          } else if (this.record.type === "wallet") {
+            return this.isAddress(value);
           } else {
             // full lokinet address
             return lokinet_address(_value);

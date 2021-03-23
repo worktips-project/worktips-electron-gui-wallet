@@ -146,6 +146,9 @@ export default {
       if (record.type === "session") {
         message = this.$t("notification.positive.sessionIdCopied");
       }
+      if (record.type === "wallet") {
+        message = this.$t("notification.positive.walletCopied");
+      }
       this.copy(record.value, message);
     },
     copy(value, message) {

@@ -35,6 +35,14 @@
         @onUpdate="onUpdate"
       />
     </div>
+    <div v-if="wallet_records.length > 0" class="records-group">
+      <span class="record-type-title">{{ $t("titles.lnsWalletRecords") }}</span>
+      <LNSRecordList
+        :record-list="wallet_records"
+        :is-lokinet="false"
+        @onUpdate="onUpdate"
+      />
+    </div>
     <div v-if="lokinet_records.length > 0" class="records-group">
       <span class="record-type-title">{{
         $t("titles.lnsLokinetRecords")
@@ -81,11 +89,18 @@ export default {
     session_records(state) {
       return this.records_of_type(state, "session");
     },
+    wallet_records(state) {
+      return this.records_of_type(state, "wallet");
+    },
     lokinet_records(state) {
       return this.records_of_type(state, "lokinet");
     },
     needsDecryption() {
-      const records = [...this.lokinet_records, ...this.session_records];
+      const records = [
+        ...this.lokinet_records,
+        ...this.session_records,
+        ...this.wallet_records
+      ];
       return records.find(r => this.isLocked(r));
     }
   }),

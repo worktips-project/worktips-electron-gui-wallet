@@ -248,6 +248,7 @@ export default {
     sessionId: "SESSION ID",
     signature: "SIGNATURE",
     transactionId: "TRANSACTION ID",
+    walletAddress: "WALLET ADDRESS",
     walletFile: "WALLET FILE",
     walletLogLevel: "WALLET LOG LEVEL",
     walletName: "WALLET NAME",
@@ -335,7 +336,8 @@ export default {
       signatureCopied: "Signature copied to clipboard",
       signatureVerified: "Signature verified",
       stakeSuccess: "Successfully staked",
-      transactionNotesSaved: "Transaction notes saved"
+      transactionNotesSaved: "Transaction notes saved",
+      walletCopied: "wallet Address copied to clipboard"
     },
     errors: {
       banningPeer: "Error banning peer",
@@ -428,6 +430,7 @@ export default {
     signature: "Signature to verify",
     transactionNotes: "Additional notes to locally attach to the transaction",
     unsignedData: "The data as it should look before it was signed",
+    walletAddress: "wallet address to map LNS name to",
     walletName: "A name for your wallet",
     walletPassword: "An optional password for the wallet"
   },
@@ -491,6 +494,7 @@ export default {
     expirationHeight: "Expiration height",
     lns: {
       sessionID: "Session ID",
+      wallet: "Wallet Address",
       lokinetName1Year: "Lokinet Name 1 year",
       lokinetNameXYears: "Lokinet Name {years} years",
       prices: "LNS Prices:"
@@ -615,6 +619,7 @@ export default {
     lnsRecordDetails: "LNS record details",
     lnsSessionRecords: "Session records",
     lnsLokinetRecords: "Lokinet records",
+    lnsWalletRecords: "Wallet records",
     privateKeys: "Private keys",
     rescanWallet: "Rescan wallet",
     lns: {

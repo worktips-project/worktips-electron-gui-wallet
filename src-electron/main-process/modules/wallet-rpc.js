@@ -1064,7 +1064,7 @@ export class WalletRPC {
         include_expired: false
       };
 
-      let data = await this.sendRPC("lns_known_names", params);
+      let data = await this.sendRPC("ons_known_names", params);
 
       if (data.result && data.result.known_names) {
         return data.result.known_names;
@@ -1120,7 +1120,7 @@ export class WalletRPC {
           name: _name
         };
 
-        this.sendRPC("lns_renew_mapping", params).then(data => {
+        this.sendRPC("ons_renew_mapping", params).then(data => {
           if (data.hasOwnProperty("error")) {
             let error =
               data.error.message.charAt(0).toUpperCase() +
@@ -1241,7 +1241,7 @@ export class WalletRPC {
     }
 
     try {
-      const data = await this.sendRPC("lns_hash_name", {
+      const data = await this.sendRPC("ons_hash_name", {
         type,
         name: fullName
       });
@@ -1269,7 +1269,7 @@ export class WalletRPC {
     }
 
     try {
-      const data = await this.sendRPC("lns_decrypt_value", {
+      const data = await this.sendRPC("ons_decrypt_value", {
         type,
         name: fullName,
         encrypted_value
@@ -1828,7 +1828,7 @@ export class WalletRPC {
           value
         };
 
-        this.sendRPC("lns_buy_mapping", params).then(data => {
+        this.sendRPC("ons_buy_mapping", params).then(data => {
           if (data.hasOwnProperty("error")) {
             let error =
               data.error.message.charAt(0).toUpperCase() +
@@ -1900,7 +1900,7 @@ export class WalletRPC {
           value
         };
 
-        this.sendRPC("lns_update_mapping", params).then(data => {
+        this.sendRPC("ons_update_mapping", params).then(data => {
           if (data.hasOwnProperty("error")) {
             let error =
               data.error.message.charAt(0).toUpperCase() +
