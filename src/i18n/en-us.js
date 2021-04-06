@@ -22,7 +22,7 @@ export default {
     generate: "GENERATE",
     import: "IMPORT",
     importWallet: "IMPORT WALLET | IMPORT WALLETS",
-    lns: "LOKI NAME SERVICE",
+    ons: "OXEN NAME SERVICE",
     max: "MAX",
     min: "MIN",
     next: "NEXT",
@@ -97,9 +97,9 @@ export default {
       export: "Export",
       import: "Import"
     },
-    lnsUpdate: {
-      title: "Update LNS record",
-      message: "Do you want to update the LNS record?",
+    onsUpdate: {
+      title: "Update ONS record",
+      message: "Do you want to update the ONS record?",
       ok: "UPDATE"
     },
     noPassword: {
@@ -222,7 +222,7 @@ export default {
     },
     limitDownloadRate: "LIMIT DOWNLOAD RATE",
     limitUploadRate: "LIMIT UPLOAD RATE",
-    lnsType: "LNS RECORD TYPE",
+    onsType: "ONS RECORD TYPE",
     localDaemonIP: "LOCAL DAEMON IP",
     localDaemonPort: "LOCAL DAEMON PORT",
     lokinetFullAddress: "LOKINET FULL ADDRESS",
@@ -248,6 +248,7 @@ export default {
     sessionId: "SESSION ID",
     signature: "SIGNATURE",
     transactionId: "TRANSACTION ID",
+    walletAddress: "WALLET ADDRESS",
     walletFile: "WALLET FILE",
     walletLogLevel: "WALLET LOG LEVEL",
     walletName: "WALLET NAME",
@@ -313,13 +314,13 @@ export default {
       backupOwnerCopied: "Backup owner copied to clipboard",
       bannedPeer: "Banned {host} until {time}",
       copied: "{item} copied to clipboard",
-      decryptedLNSRecord: "Successfully decrypted LNS Record for {name}",
+      decryptedONSRecord: "Successfully decrypted ONS Record for {name}",
       itemSaved: "{item} saved to {filename}",
       keyImages: {
         exported: "Key images exported to {filename}",
         imported: "Key images imported"
       },
-      lnsRecordUpdated: "LNS Record was successfully updated",
+      onsRecordUpdated: "ONS Record was successfully updated",
       lokinetAddressCopied: "Full lokinet address copied",
       lokinetNameCopied: "Lokinet name copied",
       passwordUpdated: "Password updated",
@@ -335,7 +336,8 @@ export default {
       signatureCopied: "Signature copied to clipboard",
       signatureVerified: "Signature verified",
       stakeSuccess: "Successfully staked",
-      transactionNotesSaved: "Transaction notes saved"
+      transactionNotesSaved: "Transaction notes saved",
+      walletCopied: "wallet Address copied to clipboard"
     },
     errors: {
       banningPeer: "Error banning peer",
@@ -345,7 +347,7 @@ export default {
       copyWalletFail: "Failed to copy wallet",
       copyingPrivateKeys: "Error copying private keys",
       dataPathNotFound: "Data storage path not found",
-      decryptLNSRecord: "Failed to decrypt LNS Record for {name}",
+      decryptONSRecord: "Failed to decrypt ONS Record for {name}",
       differentNetType: "Remote node is using a different nettype",
       enterSeedWords: "Enter seed words",
       enterTransactionId: "Enter transaction ID",
@@ -412,11 +414,11 @@ export default {
     dataToSign: "Data you want to sign with your primary address's private key",
     filterTx: "Enter an ID, name, address or amount",
     hexCharacters: "{count} hexadecimal characters",
-    lnsName: "The name to purchase via Loki Name Service",
-    lnsBackupOwner: "The wallet address of the backup owner",
-    lnsDecryptName: "A LNS name that belongs to you",
+    onsName: "The name to purchase via Oxen Name Service",
+    onsBackupOwner: "The wallet address of the backup owner",
+    onsDecryptName: "A ONS name that belongs to you",
     lokinetFullAddress:
-      "Full lokinet address to map LNS name to (without .loki)",
+      "Full lokinet address to map ONS name to (without .loki)",
     mnemonicSeed: "25 (or 24) word mnemonic seed",
     pasteTransactionId: "Paste transaction ID",
     pasteTransactionProof: "Paste transaction proof",
@@ -424,10 +426,11 @@ export default {
       "Optional message against which the signature is signed",
     recipientWalletAddress: "Recipient's wallet address",
     selectAFile: "Please select a file",
-    sessionId: "The Session ID to link to Loki Name Service",
+    sessionId: "The Session ID to link to Oxen Name Service",
     signature: "Signature to verify",
     transactionNotes: "Additional notes to locally attach to the transaction",
     unsignedData: "The data as it should look before it was signed",
+    walletAddress: "wallet address to map ONS name to",
     walletName: "A name for your wallet",
     walletPassword: "An optional password for the wallet"
   },
@@ -489,16 +492,17 @@ export default {
     destinationUnknown: "Destination Unknown",
     editAddressBookEntry: "Edit address book entry",
     expirationHeight: "Expiration height",
-    lns: {
+    ons: {
       sessionID: "Session ID",
+      wallet: "Wallet Address",
       lokinetName1Year: "Lokinet Name 1 year",
       lokinetNameXYears: "Lokinet Name {years} years",
-      prices: "LNS Prices:"
+      prices: "ONS Prices:"
     },
-    lnsPurchaseDescription:
-      "Purchase or update an LNS record. If you purchase a name, it may take a minute or two for it to show up in the list.",
-    lnsDescription:
-      "Here you can find all the LNS names owned by this wallet. Decrypting a record you own will return the name and value of that LNS record.",
+    onsPurchaseDescription:
+      "Purchase or update an ONS record. If you purchase a name, it may take a minute or two for it to show up in the list.",
+    onsDescription:
+      "Here you can find all the ONS names owned by this wallet. Decrypting a record you own will return the name and value of that ONS record.",
     loadingSettings: "Loading settings",
     oxenBalance: "Balance",
     lokinetNameDescription:
@@ -612,14 +616,15 @@ export default {
     changePassword: "Change password",
     configure: "Configure",
     currentlyStakedNodes: "Currently staked nodes",
-    lnsRecordDetails: "LNS record details",
-    lnsSessionRecords: "Session records",
-    lnsLokinetRecords: "Lokinet records",
+    onsRecordDetails: "ONS record details",
+    onsSessionRecords: "Session records",
+    onsLokinetRecords: "Lokinet records",
+    onsWalletRecords: "Wallet records",
     privateKeys: "Private keys",
     rescanWallet: "Rescan wallet",
-    lns: {
+    ons: {
       purchase: "PURCHASE",
-      myLns: "MY LNS"
+      myOns: "MY ONS"
     },
     serviceNode: {
       registration: "REGISTRATION",

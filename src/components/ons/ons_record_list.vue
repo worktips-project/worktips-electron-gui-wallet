@@ -1,5 +1,5 @@
 <template>
-  <q-list link no-border class="lns-record-list">
+  <q-list link no-border class="ons-record-list">
     <q-item
       v-for="record in recordList"
       :key="record.name_hash"
@@ -67,7 +67,7 @@ import ContextMenu from "components/menus/contextmenu";
 const { clipboard } = require("electron");
 
 export default {
-  name: "LNSRecordList",
+  name: "ONSRecordList",
   components: {
     ContextMenu
   },
@@ -145,6 +145,9 @@ export default {
       let message = this.$t("notification.positive.lokinetAddressCopied");
       if (record.type === "session") {
         message = this.$t("notification.positive.sessionIdCopied");
+      }
+      if (record.type === "wallet") {
+        message = this.$t("notification.positive.walletCopied");
       }
       this.copy(record.value, message);
     },

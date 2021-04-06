@@ -484,14 +484,14 @@ export class Daemon {
     });
   }
 
-  async getLNSRecordsForOwners(owners) {
+  async getONSRecordsForOwners(owners) {
     if (!Array.isArray(owners) || owners.length === 0) {
       return [];
     }
 
     // only 256 addresses allowed in this call
     let ownersMax = owners.slice(0, 256);
-    const data = await this.sendRPC("lns_owners_to_names", {
+    const data = await this.sendRPC("ons_owners_to_names", {
       entries: ownersMax
     });
     if (!data.hasOwnProperty("result")) return [];
@@ -506,10 +506,10 @@ export class Daemon {
       };
     });
 
-    return this._sanitizeLNSRecords(recordsWithOwners);
+    return this._sanitizeONSRecords(recordsWithOwners);
   }
 
-  async getLNSRecord(nameHash) {
+  async getONSRecord(nameHash) {
     if (!nameHash || nameHash.length === 0) {
       return null;
     }
@@ -525,16 +525,16 @@ export class Daemon {
       ]
     };
 
-    const data = await this.sendRPC("lns_names_to_owners", params);
+    const data = await this.sendRPC("ons_names_to_owners", params);
     if (!data.hasOwnProperty("result")) return null;
 
-    const entries = this._sanitizeLNSRecords(data.result.entries);
+    const entries = this._sanitizeONSRecords(data.result.entries);
     if (entries.length === 0) return null;
 
     return entries[0];
   }
 
-  _sanitizeLNSRecords(records) {
+  _sanitizeONSRecords(records) {
     return (records || []).map(record => {
       // Record type is in uint16 format
       // Session = 0

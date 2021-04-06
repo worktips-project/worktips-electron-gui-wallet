@@ -48,7 +48,7 @@ export default {
       unused: [],
       address_book: []
     },
-    lnsRecords: [],
+    onsRecords: [],
     isRPCSyncing: false
   },
   tx_status: {
@@ -109,7 +109,7 @@ export default {
     i18n: "",
     sending: false
   },
-  lns_status: {
+  ons_status: {
     code: 0,
     message: "",
     i18n: "",
