@@ -519,8 +519,9 @@ export class Daemon {
         {
           name_hash: nameHash,
           // 0 = session
+          // 1 = wallet
           // 2 = lokinet
-          types: [0, 2]
+          types: [0, 1, 2]
         }
       ]
     };
@@ -542,6 +543,9 @@ export class Daemon {
       let type = "lokinet";
       if (record.type === 0) {
         type = "session";
+      }
+      if (record.type === 1) {
+        type = "wallet";
       }
       return {
         ...record,
