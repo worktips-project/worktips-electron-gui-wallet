@@ -1,5 +1,5 @@
 <template>
-  <q-list link no-border class="lns-record-list">
+  <q-list link no-border class="ons-record-list">
     <q-item
       v-for="record in recordList"
       :key="record.name_hash"
@@ -67,7 +67,7 @@ import ContextMenu from "components/menus/contextmenu";
 const { clipboard } = require("electron");
 
 export default {
-  name: "LNSRecordList",
+  name: "ONSRecordList",
   components: {
     ContextMenu
   },

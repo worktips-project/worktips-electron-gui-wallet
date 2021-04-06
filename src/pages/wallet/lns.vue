@@ -1,5 +1,5 @@
 <template>
-  <q-page class="lns-page">
+  <q-page class="ons-page">
     <div class="header row items-center justify-center q-pt-md">
       <q-btn-toggle
         v-model="screen"
@@ -7,31 +7,31 @@
         color="accent"
         :options="[
           {
-            label: $t('titles.lns.purchase'),
+            label: $t('titles.ons.purchase'),
             value: 'purchase'
           },
           {
-            label: $t('titles.lns.myLns'),
-            value: 'my_lns'
+            label: $t('titles.ons.myOns'),
+            value: 'my_ons'
           }
         ]"
       />
     </div>
-    <LNSPurchase v-if="screen === 'purchase'" ref="purchase" />
-    <MyLNS v-if="screen === 'my_lns'" @onUpdate="onUpdate" @onRenew="onRenew" />
+    <ONSPurchase v-if="screen === 'purchase'" ref="purchase" />
+    <MyONS v-if="screen === 'my_ons'" @onUpdate="onUpdate" @onRenew="onRenew" />
   </q-page>
 </template>
 
 <script>
-import LNSPurchase from "components/lns/lns_purchase";
-import MyLNS from "components/lns/lns_mylns";
+import ONSPurchase from "components/ons/ons_purchase";
+import MyONS from "components/ons/ons_myons";
 import Vue from "vue";
 import _ from "lodash";
 
 export default {
   components: {
-    MyLNS,
-    LNSPurchase
+    MyONS,
+    ONSPurchase
   },
   data() {
     return {

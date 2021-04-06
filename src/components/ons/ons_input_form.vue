@@ -1,8 +1,8 @@
 <template>
-  <div class="lns-input-form">
+  <div class="ons-input-form">
     <!-- Type -->
     <div class="col q-mt-sm">
-      <OxenField :label="$t('fieldLabels.lnsType')" :disable="updating">
+      <OxenField :label="$t('fieldLabels.onsType')" :disable="updating">
         <q-select
           v-model.trim="record.type"
           emit-value
@@ -24,7 +24,7 @@
         <q-input
           v-model.trim="record.name"
           :dark="theme == 'dark'"
-          :placeholder="$t('placeholders.lnsName')"
+          :placeholder="$t('placeholders.onsName')"
           :disable="disableName"
           borderless
           dense
@@ -89,7 +89,7 @@
         <q-input
           v-model.trim="record.backup_owner"
           :dark="theme == 'dark'"
-          :placeholder="$t('placeholders.lnsBackupOwner')"
+          :placeholder="$t('placeholders.onsBackupOwner')"
           :disable="renewing"
           borderless
           dense
@@ -127,7 +127,7 @@ import OxenField from "components/oxen_field";
 import WalletPassword from "src/mixins/wallet_password";
 
 export default {
-  name: "LNSInputForm",
+  name: "ONSInputForm",
   components: {
     OxenField
   },
@@ -169,23 +169,23 @@ export default {
   },
   data() {
     let sessionOptions = [
-      { label: this.$t("strings.lns.sessionID"), value: "session" }
+      { label: this.$t("strings.ons.sessionID"), value: "session" }
     ];
     let walletOptions = [
-      { label: this.$t("strings.lns.wallet"), value: "wallet" }
+      { label: this.$t("strings.ons.wallet"), value: "wallet" }
     ];
     let lokinetOptions = [
-      { label: this.$t("strings.lns.lokinetName1Year"), value: "lokinet_1y" },
+      { label: this.$t("strings.ons.lokinetName1Year"), value: "lokinet_1y" },
       {
-        label: this.$t("strings.lns.lokinetNameXYears", { years: 2 }),
+        label: this.$t("strings.ons.lokinetNameXYears", { years: 2 }),
         value: "lokinet_2y"
       },
       {
-        label: this.$t("strings.lns.lokinetNameXYears", { years: 5 }),
+        label: this.$t("strings.ons.lokinetNameXYears", { years: 5 }),
         value: "lokinet_5y"
       },
       {
-        label: this.$t("strings.lns.lokinetNameXYears", { years: 10 }),
+        label: this.$t("strings.ons.lokinetNameXYears", { years: 10 }),
         value: "lokinet_10y"
       }
     ];
@@ -370,7 +370,7 @@ export default {
           if (this.record.type === "session") {
             return session_name(_value);
           } else {
-            // shortened lokinet LNS name
+            // shortened lokinet ONS name
             return lokinet_name(_value);
           }
         }
@@ -405,7 +405,7 @@ export default {
 </script>
 
 <style lang="scss">
-.lns-input-form {
+.ons-input-form {
   .buttons {
     margin-top: 6px;
 

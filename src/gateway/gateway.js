@@ -190,13 +190,13 @@ export class Gateway extends EventEmitter {
         break;
       }
 
-      case "set_lns_status": {
+      case "set_ons_status": {
         const data = { ...decrypted_data.data };
         if (data.i18n) {
           data.message = this.geti18n(data.i18n);
         }
 
-        this.app.store.commit("gateway/set_lns_status", data);
+        this.app.store.commit("gateway/set_ons_status", data);
         break;
       }
 

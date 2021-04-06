@@ -94,8 +94,8 @@ export default [
         component: () => import("pages/wallet/service-node")
       },
       {
-        path: "lns",
-        component: () => import("pages/wallet/lns")
+        path: "ons",
+        component: () => import("pages/wallet/ons")
       },
       {
         path: "advanced",

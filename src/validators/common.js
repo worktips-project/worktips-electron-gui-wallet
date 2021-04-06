@@ -17,7 +17,7 @@ export const session_id = input => {
   return input.length === 66 && /^05[0-9A-Za-z]+$/.test(input);
 };
 
-// shortened Lokinet LNS name
+// shortened Lokinet ONS name
 export const lokinet_name = (input, lokiExt = false) => {
   let inputSafe = input || "";
   let maxLength = 32;
