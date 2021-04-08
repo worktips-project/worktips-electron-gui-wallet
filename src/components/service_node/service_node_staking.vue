@@ -289,11 +289,11 @@ export default {
     },
     minStake() {
       const node = this.getNodeWithPubKey();
-      return this.getMinContribution(node);
+      return this.getMinContribution(node, this.award_address);
     },
     maxStake() {
       const node = this.getNodeWithPubKey();
-      return this.openForContriubtionOxen(node);
+      return this.openForContributionOxen(node, this.award_address);
     },
     getFeeDecimal(node) {
       const operatorPortion = node.portions_for_operator;
