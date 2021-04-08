@@ -1199,8 +1199,8 @@ export class WalletRPC {
   Get a ONS record associated with the given name
   */
   async getONSRecord(type, name) {
-    // We currently only support session and lokinet
-    const types = ["session", "lokinet"];
+    // We support session, wallet and lokinet
+    const types = ["session", "wallet", "lokinet"];
     if (!types.includes(type)) return null;
 
     if (!name || name.trim().length === 0) return null;
