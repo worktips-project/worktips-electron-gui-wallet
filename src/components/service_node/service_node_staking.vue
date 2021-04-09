@@ -151,17 +151,24 @@ export default {
     },
     awaiting_service_nodes(state) {
       const nodes = state.gateway.daemon.service_nodes.nodes;
-      // a reserved node is one on which someone is a "contributor" of amount = 0
       const getOurContribution = node =>
         node.contributors.find(
-          c => c.address === this.our_address && c.amount > 0
+          c => c.address === this.award_address && c.amount > 0
+        );
+      // a reserved node is one on which someone is a "contributor" of amount = 0
+      const reservedForUs = node =>
+        node.contributors.find(
+          c => c.address === this.award_address && c.amount == 0
         );
       const isAwaitingContribution = node =>
-        !node.active && !node.funded && node.requested_unlock_height === 0;
+        !node.active && !node.funded;
       const isAwaitingContributionNonReserved = node =>
-        isAwaitingContribution(node) && !getOurContribution(node);
+        node.requested_unlock_height === 0 &&
+        isAwaitingContribution(node) &&
+        !getOurContribution(node) &&
+        this.openForContribution(node) > 0;
       const isAwaitingContributionReserved = node =>
-        isAwaitingContribution(node) && getOurContribution(node);
+        isAwaitingContribution(node) && reservedForUs(node);
 
       // we want the reserved nodes sorted by fee at the top
       const awaitingContributionNodesReserved = nodes
