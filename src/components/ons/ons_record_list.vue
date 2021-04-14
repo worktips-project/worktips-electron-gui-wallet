@@ -37,7 +37,7 @@
         </template>
       </q-item-section>
       <q-item-section v-if="!isLocked(record)" side>
-        <span v-if="record.type === 'session'">{{
+        <span v-if="record.type === 'session' || record.type === 'wallet'">{{
           record.update_height | blockHeight
         }}</span>
         <span v-else class="lokinet-expiration">{{
@@ -108,7 +108,7 @@ export default {
       this.$emit("onRenew", record);
     },
     copyNameI18nLabel(record) {
-      if (record.type === "session") {
+      if (record.type === "session" || record.type === "wallet") {
         return "menuItems.copyName";
       } else {
         return "menuItems.copyLokinetName";
