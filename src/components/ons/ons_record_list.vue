@@ -12,7 +12,9 @@
         <q-item-label :class="bindClass(record)">{{
           isLocked(record) ? record.name_hash : record.name
         }}</q-item-label>
-        <q-item-label v-if="!isLocked(record)">{{ record.value }}</q-item-label>
+        <q-item-label v-if="!isLocked(record)" class="truncate-item">{{
+          record.value
+        }}</q-item-label>
       </q-item-section>
       <q-item-section side class="height">
         <template v-if="isLocked(record)">{{
