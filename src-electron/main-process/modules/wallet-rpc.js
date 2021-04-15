@@ -433,6 +433,9 @@ export class WalletRPC {
       case "import_key_images":
         this.importKeyImages(params.password, params.path);
         break;
+      case "export_transfers":
+        this.exportTransfers(params.password, params.path);
+        break;
 
       case "change_wallet_password":
         this.changeWalletPassword(params.old_password, params.new_password);
@@ -2466,6 +2469,79 @@ export class WalletRPC {
             });
           })
           .catch(() => onError("notification.errors.keyImages.reading"));
+      }
+    );
+  }
+
+  exportTransfers(password, filename = null) {
+    crypto.pbkdf2(
+      password,
+      this.auth[2],
+      1000,
+      64,
+      "sha512",
+      (err, password_hash) => {
+        if (err) {
+          this.sendGateway("show_notification", {
+            type: "negative",
+            i18n: "notification.errors.internalError",
+            timeout: 2000
+          });
+          return;
+        }
+        if (!this.isValidPasswordHash(password_hash)) {
+          this.sendGateway("show_notification", {
+            type: "negative",
+            i18n: "notification.errors.invalidPassword",
+            timeout: 2000
+          });
+          return;
+        }
+
+        if (filename == null) {
+          filename = path.join(
+            this.wallet_data_dir,
+            "CSV",
+            this.wallet_state.name,
+            "transfers.csv"
+          );
+        } else {
+          filename = path.join(filename, "transfers.csv");
+        }
+
+        const onError = () =>
+          this.sendGateway("show_notification", {
+            type: "negative",
+            i18n: "notification.errors.exportTransfers",
+            timeout: 2000
+          });
+
+        this.sendRPC("export_transfers")
+          .then(data => {
+            if (
+              data.hasOwnProperty("error") ||
+              !data.hasOwnProperty("result")
+            ) {
+              onError();
+              return;
+            }
+
+            if (data.result.data) {
+              fs.outputFileSync(filename, data.result.data);
+              this.sendGateway("show_notification", {
+                i18n: ["notification.positive.exportTransfers", { filename }],
+                timeout: 2000
+              });
+            } else {
+              this.sendGateway("show_notification", {
+                type: "warning",
+                textColor: "black",
+                i18n: "notification.warnings.noExportTransfers",
+                timeout: 2000
+              });
+            }
+          })
+          .catch(onError);
       }
     );
   }
