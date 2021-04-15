@@ -337,7 +337,7 @@ export default {
       signatureVerified: "Signature verified",
       stakeSuccess: "Successfully staked",
       transactionNotesSaved: "Transaction notes saved",
-      walletCopied: "wallet Address copied to clipboard"
+      walletCopied: "Wallet address copied to clipboard"
     },
     errors: {
       banningPeer: "Error banning peer",
@@ -430,7 +430,7 @@ export default {
     signature: "Signature to verify",
     transactionNotes: "Additional notes to locally attach to the transaction",
     unsignedData: "The data as it should look before it was signed",
-    walletAddress: "wallet address to map ONS name to",
+    walletAddress: "Wallet address to map ONS name to",
     walletName: "A name for your wallet",
     walletPassword: "An optional password for the wallet"
   },
