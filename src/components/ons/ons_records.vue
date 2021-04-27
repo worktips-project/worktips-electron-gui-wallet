@@ -1,5 +1,5 @@
 <template>
-  <div class="lns-record-list">
+  <div class="ons-record-list">
     <div v-if="needsDecryption" class="decrypt row justify-between items-end">
       <OxenField
         :label="$t('fieldLabels.decryptRecord')"
@@ -11,7 +11,7 @@
           :dark="theme == 'dark'"
           borderless
           dense
-          :placeholder="$t('placeholders.lnsDecryptName')"
+          :placeholder="$t('placeholders.onsDecryptName')"
           :disable="decrypting"
           @blur="$v.name.$touch"
         />
@@ -27,19 +27,27 @@
     </div>
     <div v-if="session_records.length > 0" class="records-group">
       <span class="record-type-title">{{
-        $t("titles.lnsSessionRecords")
+        $t("titles.onsSessionRecords")
       }}</span>
-      <LNSRecordList
+      <ONSRecordList
         :record-list="session_records"
+        :is-lokinet="false"
+        @onUpdate="onUpdate"
+      />
+    </div>
+    <div v-if="wallet_records.length > 0" class="records-group">
+      <span class="record-type-title">{{ $t("titles.onsWalletRecords") }}</span>
+      <ONSRecordList
+        :record-list="wallet_records"
         :is-lokinet="false"
         @onUpdate="onUpdate"
       />
     </div>
     <div v-if="lokinet_records.length > 0" class="records-group">
       <span class="record-type-title">{{
-        $t("titles.lnsLokinetRecords")
+        $t("titles.onsLokinetRecords")
       }}</span>
-      <LNSRecordList
+      <ONSRecordList
         :record-list="lokinet_records"
         :is-lokinet="true"
         @onUpdate="onUpdate"
@@ -53,13 +61,13 @@
 import { mapState } from "vuex";
 import OxenField from "components/oxen_field";
 import { session_name_or_lokinet_name } from "src/validators/common";
-import LNSRecordList from "./lns_record_list";
+import ONSRecordList from "./ons_record_list";
 
 export default {
-  name: "LNSRecords",
+  name: "ONSRecords",
   components: {
     OxenField,
-    LNSRecordList
+    ONSRecordList
   },
   data() {
     return {
@@ -68,7 +76,7 @@ export default {
     };
   },
   mounted() {
-    this.$gateway.send("wallet", "lns_known_names");
+    this.$gateway.send("wallet", "ons_known_names");
   },
   computed: mapState({
     theme: state => state.gateway.app.config.appearance.theme,
@@ -81,11 +89,18 @@ export default {
     session_records(state) {
       return this.records_of_type(state, "session");
     },
+    wallet_records(state) {
+      return this.records_of_type(state, "wallet");
+    },
     lokinet_records(state) {
       return this.records_of_type(state, "lokinet");
     },
     needsDecryption() {
-      const records = [...this.lokinet_records, ...this.session_records];
+      const records = [
+        ...this.lokinet_records,
+        ...this.session_records,
+        ...this.wallet_records
+      ];
       return records.find(r => this.isLocked(r));
     }
   }),
@@ -93,7 +108,7 @@ export default {
     records_of_type(state, type) {
       // receives the type and returns the records of that type
       const ourAddresses = this.ourAddresses;
-      const records = state.gateway.wallet.lnsRecords;
+      const records = state.gateway.wallet.onsRecords;
       const ourRecords = records.filter(record => {
         return (
           record.type === type &&
@@ -151,7 +166,7 @@ export default {
           this.$q.notify({
             type: "positive",
             timeout: 2000,
-            message: this.$t("notification.positive.decryptedLNSRecord", {
+            message: this.$t("notification.positive.decryptedONSRecord", {
               name
             })
           });
@@ -160,7 +175,7 @@ export default {
           this.$q.notify({
             type: "negative",
             timeout: 3000,
-            message: this.$t("notification.errors.decryptLNSRecord", { name })
+            message: this.$t("notification.errors.decryptONSRecord", { name })
           });
         }
         this.decrypting = false;
@@ -189,7 +204,7 @@ export default {
 </script>
 
 <style lang="scss">
-.lns-record-list {
+.ons-record-list {
   .height {
     font-size: 0.9em;
   }

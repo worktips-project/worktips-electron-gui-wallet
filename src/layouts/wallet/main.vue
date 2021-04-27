@@ -44,10 +44,10 @@
               align="between"
             />
           </router-link>
-          <router-link to="/wallet/lns">
+          <router-link to="/wallet/ons">
             <q-btn
               class="large-btn"
-              :label="$t('buttons.lns')"
+              :label="$t('buttons.ons')"
               size="md"
               icon-right="text_fields"
               align="between"

@@ -107,7 +107,7 @@ export class Backend {
         net_type: "mainnet"
       },
       wallet: {
-        rpc_bind_port: 18082,
+        rpc_bind_port: 22026,
         log_level: 0
       }
     };
@@ -294,8 +294,8 @@ export class Backend {
         if (path) {
           const baseUrl =
             net_type === "testnet"
-              ? "https://lokitestnet.com"
-              : "https://lokiblocks.com";
+              ? "https://testnet.oxen.observer"
+              : "https://oxen.observer";
           const url = `${baseUrl}/${path}/`;
           require("electron").shell.openExternal(url + params.id);
         }

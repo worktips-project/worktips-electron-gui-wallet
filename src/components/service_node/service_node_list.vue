@@ -30,9 +30,9 @@
             </span>
             <span v-if="node.awaitingContribution" class="contrib-amounts">
               {{ $t("strings.serviceNodeDetails.minContribution") }}:
-              {{ getMinContribution(node) }} OXEN •
+              {{ getMinContribution(node, our_address) }} OXEN •
               {{ $t("strings.serviceNodeDetails.maxContribution") }}:
-              {{ openForContriubtionOxen(node) }} OXEN
+              {{ openForContributionOxen(node, our_address) }} OXEN
             </span>
           </q-item-label>
         </q-item-section>
@@ -118,7 +118,7 @@ export default {
     nodeWithMinContribution(node) {
       const nodeWithMinContribution = {
         ...node,
-        minContribution: this.getMinContribution(node)
+        minContribution: this.getMinContribution(node, this.our_address)
       };
       return nodeWithMinContribution;
     },

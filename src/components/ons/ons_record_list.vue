@@ -1,5 +1,5 @@
 <template>
-  <q-list link no-border class="lns-record-list">
+  <q-list link no-border class="ons-record-list">
     <q-item
       v-for="record in recordList"
       :key="record.name_hash"
@@ -12,7 +12,9 @@
         <q-item-label :class="bindClass(record)">{{
           isLocked(record) ? record.name_hash : record.name
         }}</q-item-label>
-        <q-item-label v-if="!isLocked(record)">{{ record.value }}</q-item-label>
+        <q-item-label v-if="!isLocked(record)" class="truncate-item">{{
+          record.value
+        }}</q-item-label>
       </q-item-section>
       <q-item-section side class="height">
         <template v-if="isLocked(record)">{{
@@ -37,7 +39,7 @@
         </template>
       </q-item-section>
       <q-item-section v-if="!isLocked(record)" side>
-        <span v-if="record.type === 'session'">{{
+        <span v-if="record.type === 'session' || record.type === 'wallet'">{{
           record.update_height | blockHeight
         }}</span>
         <span v-else class="lokinet-expiration">{{
@@ -67,7 +69,7 @@ import ContextMenu from "components/menus/contextmenu";
 const { clipboard } = require("electron");
 
 export default {
-  name: "LNSRecordList",
+  name: "ONSRecordList",
   components: {
     ContextMenu
   },
@@ -108,7 +110,7 @@ export default {
       this.$emit("onRenew", record);
     },
     copyNameI18nLabel(record) {
-      if (record.type === "session") {
+      if (record.type === "session" || record.type === "wallet") {
         return "menuItems.copyName";
       } else {
         return "menuItems.copyLokinetName";
@@ -145,6 +147,9 @@ export default {
       let message = this.$t("notification.positive.lokinetAddressCopied");
       if (record.type === "session") {
         message = this.$t("notification.positive.sessionIdCopied");
+      }
+      if (record.type === "wallet") {
+        message = this.$t("notification.positive.walletCopied");
       }
       this.copy(record.value, message);
     },
