@@ -91,6 +91,11 @@ export default {
       message: "Are you sure you want to exit?",
       ok: "EXIT"
     },
+    exportTransfers: {
+      title: "Export Transfers to CSV",
+      message: "Do you want to export transfers?",
+      export: "Export"
+    },
     keyImages: {
       title: "{type} key images",
       message: "Do you want to {type} key images?",
@@ -213,6 +218,9 @@ export default {
     data: "DATA",
     dataStoragePath: "DATA STORAGE PATH",
     decryptRecord: "DECRYPT RECORD",
+    exportTransfers: {
+      exportDirectory: "CSV EXPORT DIRECTORY"
+    },
     filter: "FILTER",
     filterTransactionType: "FILTER BY TRANSACTION TYPE",
     internalWalletPort: "INTERNAL WALLET PORT",
@@ -292,6 +300,7 @@ export default {
     copyViewKey: "Copy view key",
     createNewWallet: "Create new wallet",
     deleteWallet: "Delete Wallet",
+    exportTransfers: "Export Transfers",
     exit: "Exit Oxen GUI Wallet",
     importOldGUIWallet: "Import wallets from old GUI",
     manageKeyImages: "Manage Key Images",
@@ -315,6 +324,7 @@ export default {
       bannedPeer: "Banned {host} until {time}",
       copied: "{item} copied to clipboard",
       decryptedONSRecord: "Successfully decrypted ONS Record for {name}",
+      exportTransfers: "Transfers exported to {filename}",
       itemSaved: "{item} saved to {filename}",
       keyImages: {
         exported: "Key images exported to {filename}",
@@ -355,6 +365,7 @@ export default {
       enterWalletName: "Enter a wallet name",
       enterName: "Enter a name",
       errorSavingItem: "Error saving {item}",
+      exportTransfers: "Error exporting transfers",
       failedServiceNodeUnlock: "Failed to unlock service node",
       failedToSetLanguage: "Failed to set language: {lang}",
       failedWalletImport: "Failed to import wallet",
@@ -402,6 +413,7 @@ export default {
       zeroAmount: "Amount must be greater than zero"
     },
     warnings: {
+      noExportTransfers: "No transfers found to export",
       noKeyImageExport: "No key images found to export",
       usingLocalNode: "Could not access remote node, switching to local only",
       usingRemoteNode: "oxend not found, using remote node"

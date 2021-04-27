@@ -32,6 +32,16 @@
             v-close-popup
             clickable
             :disabled="!is_ready"
+            @click.native="showModal('export_transfers')"
+          >
+            <q-item-label header>{{
+              $t("menuItems.exportTransfers")
+            }}</q-item-label>
+          </q-item>
+          <q-item
+            v-close-popup
+            clickable
+            :disabled="!is_ready"
             @click.native="showModal('rescan')"
           >
             <q-item-label header>{{
@@ -350,6 +360,61 @@
         </div>
       </div>
     </q-dialog>
+    <!-- EXPORT TRANSFERS MODAL -->
+    <q-dialog
+      v-model="modals.export_transfers.visible"
+      class="export-transfers-modal"
+      minimized
+    >
+      <div class="modal export-transfers-modal">
+        <div class="modal-header">
+          <!-- Export Transfers as CSV -->
+          {{ $t("dialog.exportTransfers.title") }}
+        </div>
+        <div class="q-ma-md">
+          <template>
+            <OxenField
+              class="q-mt-lg"
+              :label="$t('fieldLabels.exportTransfers.exportDirectory')"
+              disable-hover
+            >
+              <q-input
+                v-model="modals.export_transfers.export_path"
+                disable
+                borderless
+              />
+              <input
+                id="exportTransfersExportPath"
+                ref="exportTransfersExportSelect"
+                class="export-transfers-path"
+                type="file"
+                webkitdirectory
+                directory
+                hidden
+                @change="setExportTransfersExportPath"
+              />
+              <q-btn color="primary" @click="selectExportTransfersExportPath">{{
+                $t("buttons.browse")
+              }}</q-btn>
+            </OxenField>
+          </template>
+
+          <div class="q-mt-lg text-right">
+            <q-btn
+              flat
+              class="q-mr-sm"
+              :label="$t('buttons.close')"
+              @click="hideModal('export_transfers')"
+            />
+            <q-btn
+              color="primary"
+              :label="$t('buttons.export')"
+              @click="doExportTransfers()"
+            />
+          </div>
+        </div>
+      </div>
+    </q-dialog>
   </div>
 </template>
 
@@ -380,6 +445,10 @@ export default {
           type: "Export",
           export_path: "",
           import_path: ""
+        },
+        export_transfers: {
+          visible: false,
+          export_path: ""
         },
         change_password: {
           visible: false,
@@ -443,6 +512,11 @@ export default {
       "images",
       this.info.name,
       "key_image_export"
+    );
+    this.modals.export_transfers.export_path = path.join(
+      this.wallet_data_dir,
+      "CSV",
+      this.info.name
     );
   },
   methods: {
@@ -579,6 +653,12 @@ export default {
     setKeyImageImportPath(file) {
       this.modals.key_image.import_path = file.target.files[0].path;
     },
+    selectExportTransfersExportPath() {
+      this.$refs.exportTransfersExportSelect.click();
+    },
+    setExportTransfersExportPath(file) {
+      this.modals.export_transfers.export_path = file.target.files[0].path;
+    },
     async doKeyImages() {
       this.hideModal("key_image");
 
@@ -595,8 +675,11 @@ export default {
           label: type.toLocaleUpperCase(this.locale),
           color: "primary"
         },
-        dark: this.theme == "dark",
-        color: this.theme == "dark" ? "white" : "dark"
+        color: this.theme == "dark" ? "dark" : "white",
+        cancel: {
+          color: "tertiary",
+          flat: true
+        }
       });
       passwordDialog
         .onOk(password => {
@@ -646,6 +729,34 @@ export default {
       this.modals.change_password.old_password = "";
       this.modals.change_password.new_password = "";
       this.modals.change_password.new_password_confirm = "";
+    },
+    async doExportTransfers() {
+      this.hideModal("export_transfers");
+
+      let passwordDialog = await this.showPasswordConfirmation({
+        title: this.$t("dialog.exportTransfers.title"),
+        noPasswordMessage: this.$t("dialog.exportTransfers.message"),
+        ok: {
+          label: "export".toLocaleUpperCase(this.locale),
+          color: "primary"
+        },
+        color: this.theme == "dark" ? "dark" : "white",
+        cancel: {
+          color: "tertiary",
+          flat: true
+        }
+      });
+      passwordDialog
+        .onOk(password => {
+          // if no password set
+          password = password || "";
+          this.$gateway.send("wallet", "export_transfers", {
+            password: password,
+            path: this.modals.export_transfers.export_path
+          });
+        })
+        .onCancel(() => {})
+        .onDismiss(() => {});
     },
     deleteWallet() {
       if (!this.is_ready) return;
@@ -740,6 +851,25 @@ export default {
   input {
     overflow: ellipsis;
   }
+}
+.export-transfers-modal {
+  color: #1f1c47;
+  background: white;
+  min-width: 500px;
+
+  label * {
+    color: #1f1c47 !important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  input {
+    overflow: ellipsis;
+  }
+}
+
+.export-transfers-path {
+  opacity: 0;
+  overflow: hidden;
 }
 
 .private-key-modal {
