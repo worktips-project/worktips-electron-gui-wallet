@@ -2,7 +2,7 @@
   <div class="lns-input-form">
     <!-- Name -->
     <div class="col q-mt-sm">
-      <LokiField :label="$t('fieldLabels.name')" :disable="disableName" :error="$v.record.name.$error">
+      <WorktipsField :label="$t('fieldLabels.name')" :disable="disableName" :error="$v.record.name.$error">
         <q-input
           v-model.trim="record.name"
           :dark="theme == 'dark'"
@@ -12,12 +12,12 @@
           dense
           @blur="$v.record.name.$touch"
         />
-      </LokiField>
+      </WorktipsField>
     </div>
 
-    <!-- Value (Session ID, Wallet Address or .loki address) -->
+    <!-- Value (Session ID, Wallet Address or .worktips address) -->
     <div class="col q-mt-sm">
-      <LokiField class="q-mt-md" :label="value_field_label" :error="$v.record.value.$error">
+      <WorktipsField class="q-mt-md" :label="value_field_label" :error="$v.record.value.$error">
         <q-input
           v-model.trim="record.value"
           :dark="theme == 'dark'"
@@ -26,12 +26,12 @@
           dense
           @blur="$v.record.value.$touch"
         />
-      </LokiField>
+      </WorktipsField>
     </div>
 
     <!-- Owner -->
     <div class="col q-mt-sm">
-      <LokiField class="q-mt-md" :label="$t('fieldLabels.owner')" :error="$v.record.owner.$error" optional>
+      <WorktipsField class="q-mt-md" :label="$t('fieldLabels.owner')" :error="$v.record.owner.$error" optional>
         <q-input
           v-model.trim="record.owner"
           :dark="theme == 'dark'"
@@ -40,12 +40,12 @@
           dense
           @blur="$v.record.owner.$touch"
         />
-      </LokiField>
+      </WorktipsField>
     </div>
 
     <!-- Backup owner -->
     <div class="col q-mt-sm">
-      <LokiField class="q-mt-md" :label="$t('fieldLabels.backupOwner')" :error="$v.record.backup_owner.$error" optional>
+      <WorktipsField class="q-mt-md" :label="$t('fieldLabels.backupOwner')" :error="$v.record.backup_owner.$error" optional>
         <q-input
           v-model.trim="record.backup_owner"
           :dark="theme == 'dark'"
@@ -54,7 +54,7 @@
           dense
           @blur="$v.record.backup_owner.$touch"
         />
-      </LokiField>
+      </WorktipsField>
     </div>
     <div class="buttons">
       <q-btn
@@ -72,13 +72,13 @@
 import { mapState } from "vuex";
 import { required, maxLength } from "vuelidate/lib/validators";
 import { address, session_id, lns_name } from "src/validators/common";
-import LokiField from "components/loki_field";
+import WorktipsField from "components/worktips_field";
 import WalletPassword from "src/mixins/wallet_password";
 
 export default {
   name: "LNSInputForm",
   components: {
-    LokiField
+    WorktipsField
   },
   mixins: [WalletPassword],
   props: {

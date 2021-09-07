@@ -1,5 +1,5 @@
 <template>
-  <q-list class="loki-list-item" no-border @click.native="details(address)">
+  <q-list class="worktips-list-item" no-border @click.native="details(address)">
     <q-item>
       <q-item-section class="flex">
         <q-item-label class="ellipsis">{{ address.address }}</q-item-label>
@@ -28,12 +28,12 @@
         <q-item-section>
           <div class="row info-section">
             <span class="col-sm-4">
-              <span>{{ $t("strings.lokiBalance") }}</span>
+              <span>{{ $t("strings.worktipsBalance") }}</span>
               <br />
               <span class="value">{{ address.balance | currency }}</span>
             </span>
             <span class="col-sm-4">
-              <span>{{ $t("strings.lokiUnlockedBalance") }}</span>
+              <span>{{ $t("strings.worktipsUnlockedBalance") }}</span>
               <br />
               <span class="value">{{ address.unlocked_balance | currency }}</span>
             </span>
@@ -70,7 +70,7 @@ export default {
     currency: function(value) {
       if (typeof value !== "number") return "N/A";
 
-      const amount = value / 1e9;
+      const amount = value / 1e8;
       return amount.toLocaleString();
     }
   },

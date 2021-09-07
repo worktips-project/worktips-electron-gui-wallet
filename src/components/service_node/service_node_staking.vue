@@ -5,11 +5,11 @@
         {{ $t("strings.serviceNodeContributionDescription") }}
         <span
           style="cursor: pointer; text-decoration: underline;"
-          @click="lokiWebsite"
-          >Loki {{ $t("strings.website") }}.</span
+          @click="worktipsWebsite"
+          >Worktips {{ $t("strings.website") }}.</span
         >
       </p>
-      <LokiField
+      <WorktipsField
         :label="$t('fieldLabels.serviceNodeKey')"
         :error="$v.service_node.key.$error"
       >
@@ -21,8 +21,8 @@
           dense
           @blur="$v.service_node.key.$touch"
         />
-      </LokiField>
-      <LokiField
+      </WorktipsField>
+      <WorktipsField
         :label="$t('fieldLabels.amount')"
         class="q-mt-md"
         :error="$v.service_node.amount.$error"
@@ -32,7 +32,7 @@
           :dark="theme == 'dark'"
           type="number"
           min="0"
-          :max="unlocked_balance / 1e9"
+          :max="unlocked_balance / 1e8"
           placeholder="0"
           borderless
           dense
@@ -52,7 +52,7 @@
           :disable="!areButtonsEnabled()"
           @click="service_node.amount = maxStake(service_node.key)"
         />
-      </LokiField>
+      </WorktipsField>
       <div class="submit-button">
         <q-btn
           :disable="!is_able_to_send"
@@ -96,7 +96,7 @@ const objectAssignDeep = require("object-assign-deep");
 import { mapState } from "vuex";
 import { required, decimal } from "vuelidate/lib/validators";
 import { service_node_key, greater_than_zero } from "src/validators/common";
-import LokiField from "components/loki_field";
+import WorktipsField from "components/worktips_field";
 import WalletPassword from "src/mixins/wallet_password";
 import ConfirmDialogMixin from "src/mixins/confirm_dialog_mixin";
 import ServiceNodeContribute from "./service_node_contribute";
@@ -108,7 +108,7 @@ const DO_NOTHING = 10;
 export default {
   name: "ServiceNodeStaking",
   components: {
-    LokiField,
+    WorktipsField,
     ServiceNodeContribute,
     ConfirmTransactionDialog
   },
@@ -121,7 +121,7 @@ export default {
         // the min and max are for that particular SN,
         // start at min/max for the wallet
         minStakeAmount: 0,
-        maxStakeAmount: this.unlocked_balance / 1e9
+        maxStakeAmount: this.unlocked_balance / 1e8
       },
       confirmFields: {
         metadataList: [],
@@ -280,8 +280,8 @@ export default {
     }
   },
   methods: {
-    lokiWebsite() {
-      const url = "https://loki.network/service-nodes/";
+    worktipsWebsite() {
+      const url = "https://worktips.network/service-nodes/";
       this.$gateway.send("core", "open_url", {
         url
       });
@@ -296,7 +296,7 @@ export default {
     },
     maxStake() {
       const node = this.getNodeWithPubKey();
-      return this.openForContributionLoki(node);
+      return this.openForContributionWorktips(node);
     },
     getFeeDecimal(node) {
       const operatorPortion = node.portions_for_operator;
@@ -381,7 +381,7 @@ export default {
       const { unlocked_balance } = this.info;
 
       const tx = {
-        amount: unlocked_balance / 1e9,
+        amount: unlocked_balance / 1e8,
         address: this.award_address,
         priority: 0
       };
@@ -439,7 +439,7 @@ export default {
           message: this.$t("notification.errors.zeroAmount")
         });
         return;
-      } else if (this.service_node.amount > this.unlocked_balance / 1e9) {
+      } else if (this.service_node.amount > this.unlocked_balance / 1e8) {
         this.$q.notify({
           type: "negative",
           timeout: 1000,

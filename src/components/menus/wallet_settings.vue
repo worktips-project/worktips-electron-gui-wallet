@@ -150,7 +150,7 @@
           </div>
 
           <template v-if="modals.key_image.type == 'Export'">
-            <LokiField class="q-mt-lg" :label="$t('fieldLabels.keyImages.exportDirectory')" disable-hover>
+            <WorktipsField class="q-mt-lg" :label="$t('fieldLabels.keyImages.exportDirectory')" disable-hover>
               <q-input v-model="modals.key_image.export_path" disable borderless />
               <input
                 id="keyImageExportPath"
@@ -163,10 +163,10 @@
                 @change="setKeyImageExportPath"
               />
               <q-btn color="secondary" @click="selectKeyImageExportPath">{{ $t("buttons.browse") }}</q-btn>
-            </LokiField>
+            </WorktipsField>
           </template>
           <template v-if="modals.key_image.type == 'Import'">
-            <LokiField class="q-mt-lg" :label="$t('fieldLabels.keyImages.importFile')" disable-hover>
+            <WorktipsField class="q-mt-lg" :label="$t('fieldLabels.keyImages.importFile')" disable-hover>
               <q-input v-model="modals.key_image.import_path" disable borderless />
               <input
                 id="keyImageImportPath"
@@ -177,7 +177,7 @@
                 @change="setKeyImageImportPath"
               />
               <q-btn color="secondary" @click="selectKeyImageImportPath">{{ $t("buttons.browse") }}</q-btn>
-            </LokiField>
+            </WorktipsField>
           </template>
 
           <div class="q-mt-lg text-right">
@@ -231,12 +231,12 @@
 const { clipboard } = require("electron");
 import { mapState } from "vuex";
 import WalletPassword from "src/mixins/wallet_password";
-import LokiField from "components/loki_field";
+import WorktipsField from "components/worktips_field";
 
 export default {
   name: "WalletSettings",
   components: {
-    LokiField
+    WorktipsField
   },
   mixins: [WalletPassword],
   data() {
@@ -608,7 +608,7 @@ export default {
   min-width: 400px;
   width: 45vw;
 
-  .loki-field {
+  .worktips-field {
     flex: 1;
   }
 }

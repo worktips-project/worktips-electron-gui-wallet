@@ -1,16 +1,16 @@
 {
-  "name": "loki-electron-wallet",
+  "name": "worktips-electron-wallet",
   "version": "1.4.6",
-  "description": "Modern GUI interface for Loki Currency",
-  "productName": "Loki Electron Wallet",
+  "description": "Modern GUI interface for Worktips Currency",
+  "productName": "Worktips Electron Wallet",
   "repository": {
     "type": "git",
-    "url": "https://github.com/loki-project/loki-electron-gui-wallet.git"
+    "url": "https://github.com/worktips-project/worktips-electron-gui-wallet.git"
   },
-  "cordovaId": "com.lokinetwork.wallet",
+  "cordovaId": "com.worktipsnetwork.wallet",
   "author": {
-    "name": "Loki Project",
-    "email": "team@loki.network"
+    "name": "Worktips Project",
+    "email": "worktips@protonmail.com"
   },
   "private": true,
   "scripts": {

@@ -10,7 +10,7 @@
         <div class="row gutter-md">
           <!-- Amount -->
           <div class="col-6 amount">
-            <LokiField
+            <WorktipsField
               :label="$t('fieldLabels.amount')"
               :error="$v.newTx.amount.$error"
             >
@@ -19,7 +19,7 @@
                 :dark="theme == 'dark'"
                 type="number"
                 min="0"
-                :max="unlocked_balance / 1e9"
+                :max="unlocked_balance / 1e8"
                 placeholder="0"
                 borderless
                 dense
@@ -28,16 +28,16 @@
               <q-btn
                 color="secondary"
                 :text-color="theme == 'dark' ? 'white' : 'dark'"
-                @click="newTx.amount = unlocked_balance / 1e9"
+                @click="newTx.amount = unlocked_balance / 1e8"
               >
                 {{ $t("buttons.all") }}
               </q-btn>
-            </LokiField>
+            </WorktipsField>
           </div>
 
           <!-- Priority -->
           <div class="col-6 priority">
-            <LokiField :label="$t('fieldLabels.priority')">
+            <WorktipsField :label="$t('fieldLabels.priority')">
               <q-select
                 v-model="newTx.priority"
                 emit-value
@@ -47,13 +47,13 @@
                 borderless
                 dense
               />
-            </LokiField>
+            </WorktipsField>
           </div>
         </div>
 
         <!-- Address -->
         <div class="col q-mt-sm">
-          <LokiField
+          <WorktipsField
             :label="$t('fieldLabels.address')"
             :error="$v.newTx.address.$error"
           >
@@ -72,12 +72,12 @@
             >
               {{ $t("buttons.contacts") }}
             </q-btn>
-          </LokiField>
+          </WorktipsField>
         </div>
 
         <!-- Payment ID -->
         <div class="col q-mt-sm">
-          <LokiField
+          <WorktipsField
             :label="$t('fieldLabels.paymentId')"
             :error="$v.newTx.payment_id.$error"
             optional
@@ -95,22 +95,22 @@
               dense
               @blur="$v.newTx.payment_id.$touch"
             />
-          </LokiField>
+          </WorktipsField>
         </div>
 
         <!-- Notes -->
         <div class="col q-mt-sm">
-          <LokiField :label="$t('fieldLabels.notes')" optional>
+          <WorktipsField :label="$t('fieldLabels.notes')" optional>
             <q-input
               v-model="newTx.note"
-              class="full-width text-area-loki"
+              class="full-width text-area-worktips"
               type="textarea"
               :dark="theme == 'dark'"
               :placeholder="$t('placeholders.transactionNotes')"
               borderless
               dense
             />
-          </LokiField>
+          </WorktipsField>
         </div>
 
         <q-checkbox
@@ -120,7 +120,7 @@
           color="dark"
         />
         <div v-if="newTx.address_book.save">
-          <LokiField :label="$t('fieldLabels.name')" optional>
+          <WorktipsField :label="$t('fieldLabels.name')" optional>
             <q-input
               v-model="newTx.address_book.name"
               :dark="theme == 'dark'"
@@ -128,19 +128,19 @@
               borderless
               dense
             />
-          </LokiField>
-          <LokiField class="q-mt-sm" :label="$t('fieldLabels.notes')" optional>
+          </WorktipsField>
+          <WorktipsField class="q-mt-sm" :label="$t('fieldLabels.notes')" optional>
             <q-input
               v-model="newTx.address_book.description"
               type="textarea"
-              class="full-width text-area-loki"
+              class="full-width text-area-worktips"
               rows="2"
               :dark="theme == 'dark'"
               :placeholder="$t('placeholders.additionalNotes')"
               borderless
               dense
             />
-          </LokiField>
+          </WorktipsField>
         </div>
         <!-- div required so button below checkbox -->
         <div>
@@ -173,7 +173,7 @@
 import { mapState } from "vuex";
 import { required, decimal } from "vuelidate/lib/validators";
 import { payment_id, address, greater_than_zero } from "src/validators/common";
-import LokiField from "components/loki_field";
+import WorktipsField from "components/worktips_field";
 import WalletPassword from "src/mixins/wallet_password";
 import ConfirmDialogMixin from "src/mixins/confirm_dialog_mixin";
 import ConfirmTransactionDialog from "components/confirm_tx_dialog";
@@ -184,7 +184,7 @@ const DO_NOTHING = 10;
 
 export default {
   components: {
-    LokiField,
+    WorktipsField,
     ConfirmTransactionDialog
   },
   mixins: [WalletPassword, ConfirmDialogMixin],
@@ -379,7 +379,7 @@ export default {
           message: this.$t("notification.errors.zeroAmount")
         });
         return;
-      } else if (this.newTx.amount > this.unlocked_balance / 1e9) {
+      } else if (this.newTx.amount > this.unlocked_balance / 1e8) {
         this.$q.notify({
           type: "negative",
           timeout: 1000,

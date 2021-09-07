@@ -13,9 +13,9 @@
           </div>
           <br />
           <span class="label">{{ $t("strings.transactions.amount") }}: </span>
-          {{ amount }} Loki
+          {{ amount }} Wtips
           <br />
-          <span class="label">{{ $t("strings.transactions.fee") }}: </span> {{ fee }} Loki
+          <span class="label">{{ $t("strings.transactions.fee") }}: </span> {{ fee }} Wtips
           <br />
           <span class="label">{{ $t("dialog.confirmTransaction.priority") }}: </span>
           {{ isBlinkToTranslatedLabel(isBlink) }}

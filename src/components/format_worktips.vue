@@ -1,10 +1,10 @@
 <template>
-  <span> {{ value }} LOKI </span>
+  <span> {{ value }} WTIPS </span>
 </template>
 
 <script>
 export default {
-  name: "FormatLoki",
+  name: "FormatWorktips",
   props: {
     amount: {
       type: Number,
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     value() {
-      let value = this.amount / 1e9;
+      let value = this.amount / 1e8;
       if (this.round) value = value.toFixed(3);
       return this.rawValue ? value : value.toLocaleString();
     }

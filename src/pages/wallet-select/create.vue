@@ -1,7 +1,7 @@
 <template>
   <q-page class="create-wallet">
     <div class="fields q-mx-md q-mt-md">
-      <LokiField
+      <WorktipsField
         :label="$t('fieldLabels.walletName')"
         :error="$v.wallet.name.$error"
       >
@@ -14,9 +14,9 @@
           @keyup.enter="create"
           @blur="$v.wallet.name.$touch"
         />
-      </LokiField>
+      </WorktipsField>
 
-      <LokiField :label="$t('fieldLabels.seedLanguage')">
+      <WorktipsField :label="$t('fieldLabels.seedLanguage')">
         <q-select
           v-model="wallet.language"
           :options="languageOptions"
@@ -26,9 +26,9 @@
           emit-value
           map-options
         />
-      </LokiField>
+      </WorktipsField>
 
-      <LokiField :label="$t('fieldLabels.password')" optional>
+      <WorktipsField :label="$t('fieldLabels.password')" optional>
         <q-input
           v-model="wallet.password"
           type="password"
@@ -38,9 +38,9 @@
           dense
           @keyup.enter="create"
         />
-      </LokiField>
+      </WorktipsField>
 
-      <LokiField :label="$t('fieldLabels.confirmPassword')">
+      <WorktipsField :label="$t('fieldLabels.confirmPassword')">
         <q-input
           v-model="wallet.password_confirm"
           type="password"
@@ -49,7 +49,7 @@
           dense
           @keyup.enter="create"
         />
-      </LokiField>
+      </WorktipsField>
 
       <q-btn
         class="submit-button"
@@ -64,10 +64,10 @@
 <script>
 import { required } from "vuelidate/lib/validators";
 import { mapState } from "vuex";
-import LokiField from "components/loki_field";
+import WorktipsField from "components/worktips_field";
 export default {
   components: {
-    LokiField
+    WorktipsField
   },
   data() {
     const languageOptions = [

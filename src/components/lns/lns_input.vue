@@ -43,10 +43,10 @@ export default {
     unlocked_balance: state => state.gateway.wallet.info.unlocked_balance,
     disable_submit_button() {
       const minBalance = this.updating ? 0.05 : 21;
-      return this.unlocked_balance < minBalance * 1e9;
+      return this.unlocked_balance < minBalance * 1e8;
     },
     submit_label() {
-      const label = this.updating ? "buttons.update" : "buttons.purchase";
+      const label = this.updating ? "Disabled" : "Disabled";
       return this.$t(label);
     }
   }),
@@ -145,10 +145,10 @@ export default {
     },
     async purchase(record) {
       let passwordDialog = await this.showPasswordConfirmation({
-        title: this.$t("dialog.purchase.title"),
-        noPasswordMessage: this.$t("dialog.purchase.message"),
+        title: this.$t("This Feature is Disabled"),
+        noPasswordMessage: this.$t("this will be enabled in upcoming hardforks"),
         ok: {
-          label: this.$t("dialog.purchase.ok"),
+          label: this.$t("Disabled"),
           color: "primary"
         },
         dark: this.theme == "dark",

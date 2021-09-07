@@ -156,12 +156,12 @@ module.exports = function() {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: "com.loki-project.electron-wallet",
-        productName: "Loki Electron Wallet",
+        appId: "com.worktips-project.electron-wallet",
+        productName: "Worktips Electron Wallet",
         copyright:
-          "Copyright © 2018-2020 Loki Project, 2018 Ryo Currency Project",
+          "Copyright © 2018-2020 Worktips Project, 2018 Ryo Currency Project",
         afterSign: "build/notarize.js",
-        artifactName: "loki-electron-wallet-${version}-${os}.${ext}",
+        artifactName: "worktips-electron-wallet-${version}-${os}.${ext}",
         publish: "github",
 
         linux: {
@@ -184,7 +184,7 @@ module.exports = function() {
         },
 
         dmg: {
-          background: "src-electron/build/loki-dmg.tiff",
+          background: "src-electron/build/worktips-dmg.tiff",
           sign: false
         },
 

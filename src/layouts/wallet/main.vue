@@ -4,7 +4,7 @@
       <MainMenu />
       <q-toolbar-title>
         <div class="flex items-center justify-center" style="margin-top:7px">
-          <img src="loki.svg" height="32" />
+          <img src="worktips.svg" height="32" />
         </div>
       </q-toolbar-title>
     </q-header>

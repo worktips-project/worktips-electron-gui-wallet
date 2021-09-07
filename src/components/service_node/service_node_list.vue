@@ -16,7 +16,7 @@
               <span v-if="getRole(node)">{{ getRole(node) }} •</span>
               <span>
                 {{ $t("strings.contribution") }}:
-                <FormatLoki :amount="node.ourContributionAmount" />
+                <FormatWorktips :amount="node.ourContributionAmount" />
               </span>
             </span>
             <!-- you only have a contribution amount of 0 if you are a "contributor"
@@ -30,9 +30,9 @@
             </span>
             <span v-if="node.awaitingContribution">
               {{ $t("strings.serviceNodeDetails.minContribution") }}:
-              {{ getMinContribution(node) }} LOKI •
+              {{ getMinContribution(node) }} WTIPS •
               {{ $t("strings.serviceNodeDetails.maxContribution") }}:
-              {{ openForContributionLoki(node) }} LOKI
+              {{ openForContributionWorktips(node) }} WTIPS
             </span>
           </q-item-label>
         </q-item-section>
@@ -72,7 +72,7 @@
 <script>
 import { clipboard } from "electron";
 import ContextMenu from "components/menus/contextmenu";
-import FormatLoki from "components/format_loki";
+import FormatWorktips from "components/format_worktips";
 import ServiceNodeMixin from "src/mixins/service_node_mixin";
 import { mapState } from "vuex";
 
@@ -80,7 +80,7 @@ export default {
   name: "ServiceNodeList",
   components: {
     ContextMenu,
-    FormatLoki
+    FormatWorktips
   },
   mixins: [ServiceNodeMixin],
   props: {

@@ -12,7 +12,7 @@ if [ -z "$RENAME" ]; then
     RENAME="latest"
 fi
 
-REPO="loki-project/loki-core"
+REPO="worktips-project/worktips-core"
 RELEASE="latest"
 
 if [ "$OS" == "Linux" ]; then

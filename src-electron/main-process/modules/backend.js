@@ -35,11 +35,11 @@ export class Backend {
 
   init(config) {
     if (os.platform() === "win32") {
-      this.config_dir = "C:\\ProgramData\\loki";
-      this.wallet_dir = `${os.homedir()}\\Documents\\Loki`;
+      this.config_dir = "C:\\ProgramData\\worktips";
+      this.wallet_dir = `${os.homedir()}\\Documents\\Worktips`;
     } else {
-      this.config_dir = path.join(os.homedir(), ".loki");
-      this.wallet_dir = path.join(os.homedir(), "Loki");
+      this.config_dir = path.join(os.homedir(), ".worktips");
+      this.wallet_dir = path.join(os.homedir(), "Worktips");
     }
 
     if (!fs.existsSync(this.config_dir)) {
@@ -55,11 +55,11 @@ export class Backend {
     const daemon = {
       type: "remote",
       p2p_bind_ip: "0.0.0.0",
-      p2p_bind_port: 22022,
+      p2p_bind_port: 31021,
       rpc_bind_ip: "127.0.0.1",
-      rpc_bind_port: 22023,
+      rpc_bind_port: 31022,
       zmq_rpc_bind_ip: "127.0.0.1",
-      zmq_rpc_bind_port: 22024,
+      zmq_rpc_bind_port: 31023,
       out_peers: -1,
       in_peers: -1,
       limit_rate_up: -1,
@@ -70,22 +70,22 @@ export class Backend {
     const daemons = {
       mainnet: {
         ...daemon,
-        remote_host: "imaginary.stream",
-        remote_port: 22023
+        remote_host: "apple.node.worktipscoin.com",
+        remote_port: 31022
       },
       stagenet: {
         ...daemon,
         type: "local",
-        p2p_bind_port: 38153,
-        rpc_bind_port: 38154,
-        zmq_rpc_bind_port: 38155
+        p2p_bind_port: 32021,
+        rpc_bind_port: 32022,
+        zmq_rpc_bind_port: 32023
       },
       testnet: {
         ...daemon,
         type: "local",
-        p2p_bind_port: 38156,
-        rpc_bind_port: 38157,
-        zmq_rpc_bind_port: 38158
+        p2p_bind_port: 33021,
+        rpc_bind_port: 33022,
+        zmq_rpc_bind_port: 33023
       }
     };
 
@@ -99,7 +99,7 @@ export class Backend {
         net_type: "mainnet"
       },
       wallet: {
-        rpc_bind_port: 18082,
+        rpc_bind_port: 21082,
         log_level: 0
       }
     };
@@ -114,20 +114,20 @@ export class Backend {
 
     this.remotes = [
       {
-        host: "imaginary.stream",
-        port: "22023"
+        host: "apple.node.worktipscoin.com",
+        port: "33022"
       },
       {
-        host: "nodes.hashvault.pro",
-        port: "22023"
+        host: "blueberry.node.worktipscoin.com",
+        port: "33022"
       },
       {
-        host: "explorer.loki.aussie-pools.com",
-        port: "18081"
+        host: "cherry.node.worktipscoin.com",
+        port: "33022"
       },
       {
-        host: "public.loki.foundation",
-        port: "22023"
+        host: "dates.node.worktipscoin.com",
+        port: "33022"
       }
     ];
 
@@ -286,8 +286,8 @@ export class Backend {
         if (path) {
           const baseUrl =
             net_type === "testnet"
-              ? "https://lokitestnet.com"
-              : "https://lokiblocks.com";
+              ? "https://worktipstestnet.com"
+              : "https://worktipsblocks.com";
           const url = `${baseUrl}/${path}/`;
           require("electron").shell.openExternal(url + params.id);
         }
@@ -340,7 +340,7 @@ export class Backend {
   async checkVersion() {
     try {
       const { data } = await axios.get(
-        "https://api.github.com/repos/loki-project/loki-electron-gui-wallet/releases/latest"
+        "https://api.github.com/repos/worktips-project/worktips-electron-gui-wallet/releases/latest"
       );
       // remove the 'v' from front of the version
       const latestVersion = data.tag_name.substring(1);

@@ -8,8 +8,8 @@
         <template v-else>
           <q-btn class="cancel" icon="reply" flat round dense @click="cancel()" />
         </template>
-        <q-toolbar-title v-if="page_title == 'Loki'" class="flex items-center justify-center">
-          <img src="loki.svg" height="32" />
+        <q-toolbar-title v-if="page_title == 'Worktips'" class="flex items-center justify-center">
+          <img src="worktips.svg" height="32" />
         </q-toolbar-title>
         <q-toolbar-title v-else class="flex items-center justify-center">{{ page_title }}</q-toolbar-title>
       </q-toolbar>
@@ -58,7 +58,7 @@ export default {
 
         default:
         case "wallet-select":
-          return "Loki";
+          return "Worktips";
       }
     }
   },

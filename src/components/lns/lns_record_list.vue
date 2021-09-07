@@ -1,7 +1,7 @@
 <template>
   <div v-if="records.length > 0" class="lns-record-list">
     <div v-if="needsDecryption" class="decrypt q-pa-md row justify-between items-end">
-      <LokiField :label="$t('fieldLabels.decryptRecord')" :disable="decrypting" :error="$v.name.$error">
+      <WorktipsField :label="$t('fieldLabels.decryptRecord')" :disable="decrypting" :error="$v.name.$error">
         <q-input
           v-model.trim="name"
           :dark="theme == 'dark'"
@@ -11,13 +11,13 @@
           :disable="decrypting"
           @blur="$v.name.$touch"
         />
-      </LokiField>
+      </WorktipsField>
       <div class="btn-wrapper q-ml-md row items-center">
         <q-btn color="primary" :label="$t('buttons.decrypt')" :loading="decrypting" @click="decrypt()" />
       </div>
     </div>
-    <q-list link no-border :dark="theme == 'dark'" class="loki-list">
-      <q-item v-for="record in records" :key="record.name_hash" class="loki-list-item">
+    <q-list link no-border :dark="theme == 'dark'" class="worktips-list">
+      <q-item v-for="record in records" :key="record.name_hash" class="worktips-list-item">
         <q-item-section class="type" avatar>
           <q-icon :name="isLocked(record) ? 'lock' : 'lock_open'" size="24px" />
         </q-item-section>
@@ -56,14 +56,14 @@
 const { clipboard } = require("electron");
 import { mapState } from "vuex";
 import { i18n } from "boot/i18n";
-import LokiField from "components/loki_field";
+import WorktipsField from "components/worktips_field";
 import { lns_name } from "src/validators/common";
 import ContextMenu from "components/menus/contextmenu";
 
 export default {
   name: "LNSRecordList",
   components: {
-    LokiField,
+    WorktipsField,
     ContextMenu
   },
   filters: {
@@ -221,7 +221,7 @@ export default {
     cursor: default;
   }
 
-  .loki-field {
+  .worktips-field {
     flex: 1;
   }
 

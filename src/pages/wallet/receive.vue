@@ -1,6 +1,6 @@
 <template>
   <q-page class="receive">
-    <q-list link no-border :dark="theme == 'dark'" class="loki-list">
+    <q-list link no-border :dark="theme == 'dark'" class="worktips-list">
       <q-item-label header>{{ $t("strings.addresses.myPrimaryAddress") }}</q-item-label>
       <ReceiveItem
         v-for="address in address_list.primary"
@@ -85,7 +85,7 @@ export default {
     currency: function(value) {
       if (typeof value !== "number") return "N/A";
 
-      const amount = value / 1e9;
+      const amount = value / 1e8;
       return amount.toLocaleString();
     }
   },
@@ -161,7 +161,7 @@ export default {
     font-weight: 400;
   }
 
-  .loki-list-item {
+  .worktips-list-item {
     cursor: pointer;
 
     .q-item-section {

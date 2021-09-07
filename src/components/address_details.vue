@@ -26,10 +26,10 @@
                 <div class="infoBox">
                   <div class="infoBoxContent">
                     <div class="text">
-                      <span>{{ $t("strings.lokiBalance") }}</span>
+                      <span>{{ $t("strings.worktipsBalance") }}</span>
                     </div>
                     <div class="value">
-                      <span><FormatLoki :amount="address.balance"/></span>
+                      <span><FormatWorktips :amount="address.balance"/></span>
                     </div>
                   </div>
                 </div>
@@ -37,10 +37,10 @@
                 <div class="infoBox">
                   <div class="infoBoxContent">
                     <div class="text">
-                      <span>{{ $t("strings.lokiUnlockedBalance") }}</span>
+                      <span>{{ $t("strings.worktipsUnlockedBalance") }}</span>
                     </div>
                     <div class="value">
-                      <span><FormatLoki :amount="address.unlocked_balance"/></span>
+                      <span><FormatWorktips :amount="address.unlocked_balance"/></span>
                     </div>
                   </div>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="infoBox">
                   <div class="infoBoxContent">
                     <div class="text">
-                      <span>{{ $t("strings.lokiBalance") }}</span>
+                      <span>{{ $t("strings.worktipsBalance") }}</span>
                     </div>
                     <div class="value"><span>N/A</span></div>
                   </div>
@@ -71,7 +71,7 @@
                 <div class="infoBox">
                   <div class="infoBoxContent">
                     <div class="text">
-                      <span>{{ $t("strings.lokiUnlockedBalance") }}</span>
+                      <span>{{ $t("strings.worktipsUnlockedBalance") }}</span>
                     </div>
                     <div class="value"><span>N/A</span></div>
                   </div>
@@ -136,7 +136,7 @@
 import { mapState } from "vuex";
 const { clipboard, nativeImage } = require("electron");
 import AddressHeader from "components/address_header";
-import FormatLoki from "components/format_loki";
+import FormatWorktips from "components/format_worktips";
 import QrcodeVue from "qrcode.vue";
 import TxList from "components/tx_list";
 export default {
@@ -144,7 +144,7 @@ export default {
   components: {
     AddressHeader,
     TxList,
-    FormatLoki,
+    FormatWorktips,
     QrcodeVue
   },
   data() {

@@ -28,24 +28,24 @@ export class Daemon {
   checkVersion() {
     return new Promise(resolve => {
       if (process.platform === "win32") {
-        let lokid_path = path.join(__ryo_bin, "lokid.exe");
-        let lokid_version_cmd = `"${lokid_path}" --version`;
-        if (!fs.existsSync(lokid_path)) {
+        let worktipsd_path = path.join(__ryo_bin, "worktipsd.exe");
+        let worktipsd_version_cmd = `"${worktipsd_path}" --version`;
+        if (!fs.existsSync(worktipsd_path)) {
           resolve(false);
         }
-        child_process.exec(lokid_version_cmd, (error, stdout) => {
+        child_process.exec(worktipsd_version_cmd, (error, stdout) => {
           if (error) {
             resolve(false);
           }
           resolve(stdout);
         });
       } else {
-        let lokid_path = path.join(__ryo_bin, "lokid");
-        let lokid_version_cmd = `"${lokid_path}" --version`;
-        if (!fs.existsSync(lokid_path)) {
+        let worktipsd_path = path.join(__ryo_bin, "worktipsd");
+        let worktipsd_version_cmd = `"${worktipsd_path}" --version`;
+        if (!fs.existsSync(worktipsd_path)) {
           resolve(false);
         }
-        child_process.exec(lokid_version_cmd, { detached: true }, (error, stdout) => {
+        child_process.exec(worktipsd_version_cmd, { detached: true }, (error, stdout) => {
           if (error) {
             resolve(false);
           }
@@ -145,7 +145,7 @@ export class Daemon {
         args.push("--stagenet");
       }
 
-      args.push("--log-file", path.join(dirs[net_type], "logs", "lokid.log"));
+      args.push("--log-file", path.join(dirs[net_type], "logs", "worktipsd.log"));
       if (daemon.rpc_bind_ip !== "127.0.0.1") {
         args.push("--confirm-external-bind");
       }
@@ -166,9 +166,9 @@ export class Daemon {
         .then(status => {
           if (status === "closed") {
             if (process.platform === "win32") {
-              this.daemonProcess = child_process.spawn(path.join(__ryo_bin, "lokid.exe"), args);
+              this.daemonProcess = child_process.spawn(path.join(__ryo_bin, "worktipsd.exe"), args);
             } else {
-              this.daemonProcess = child_process.spawn(path.join(__ryo_bin, "lokid"), args, {
+              this.daemonProcess = child_process.spawn(path.join(__ryo_bin, "worktipsd"), args, {
                 detached: true
               });
             }
@@ -483,7 +483,7 @@ export class Daemon {
     return (records || []).map(record => {
       // Record type is in uint16 format
       // Session = 0
-      // For now since wallet and loki names haven't been implemented, we always assume it's session
+      // For now since wallet and worktips names haven't been implemented, we always assume it's session
       const type = "session";
       return {
         ...record,

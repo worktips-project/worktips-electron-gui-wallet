@@ -131,8 +131,8 @@ export class WalletRPC {
 
         const rpcExecutable =
           process.platform === "win32"
-            ? "loki-wallet-rpc.exe"
-            : "loki-wallet-rpc";
+            ? "worktips-wallet-rpc.exe"
+            : "worktips-wallet-rpc";
         // eslint-disable-next-line no-undef
         const rpcPath = path.join(__ryo_bin, rpcExecutable);
 
@@ -140,7 +140,7 @@ export class WalletRPC {
         if (!fs.existsSync(rpcPath)) {
           reject(
             new Error(
-              "Failed to find Loki Wallet RPC. Please make sure you anti-virus has not removed it."
+              "Failed to find Worktips Wallet RPC. Please make sure you anti-virus has not removed it."
             )
           );
           return;
@@ -280,7 +280,7 @@ export class WalletRPC {
         break;
 
       case "restore_view_wallet":
-        // TODO: Decide if we want this for loki
+        // TODO: Decide if we want this for worktips
         this.restoreViewWallet(
           params.name,
           params.password,
@@ -1162,7 +1162,7 @@ export class WalletRPC {
           return;
         }
 
-        amount = (parseFloat(amount) * 1e9).toFixed(0);
+        amount = (parseFloat(amount) * 1e8).toFixed(0);
 
         this.sendRPC("stake", {
           amount,
@@ -1446,11 +1446,11 @@ export class WalletRPC {
         return;
       }
 
-      amount = (parseFloat(amount) * 1e9).toFixed(0);
+      amount = (parseFloat(amount) * 1e8).toFixed(0);
 
       // if sending "All" the funds, then we need to send all - fee (sweep_all)
       // To be amended after the hardfork, v8.
-      // https://github.com/loki-project/loki-electron-gui-wallet/issues/181
+      // https://github.com/worktips-project/worktips-electron-gui-wallet/issues/181
       const isSweepAllRPC = amount == this.wallet_state.unlocked_balance;
       const rpc_endpoint = isSweepAllRPC ? "sweep_all" : "transfer_split";
 
@@ -2396,9 +2396,9 @@ export class WalletRPC {
       wallets.legacy = [];
       let legacy_paths = [];
       if (os.platform() == "win32") {
-        legacy_paths = ["C:\\ProgramData\\Loki"];
+        legacy_paths = ["C:\\ProgramData\\Worktips"];
       } else {
-        legacy_paths = [path.join(os.homedir(), "Loki")];
+        legacy_paths = [path.join(os.homedir(), "Worktips")];
       }
       for (var i = 0; i < legacy_paths.length; i++) {
         try {

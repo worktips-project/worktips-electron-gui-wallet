@@ -239,7 +239,7 @@ export default {
     copyViewKey: "Copiar clave de visualización",
     createNewWallet: "Crear nuevo monedero",
     deleteWallet: "Eliminar monedero",
-    exit: "Cerrar la interfaz del monedero Loki",
+    exit: "Cerrar la interfaz del monedero Worktips",
     importOldGUIWallet: "Importar monedero de una interfaz gráfica antigua",
     manageKeyImages: "Administrar Imágenes de Clave",
     openWallet: "Abrir monedero",
@@ -324,7 +324,7 @@ export default {
     warnings: {
       noKeyImageExport: "No se han encontrado claves para exportar",
       usingLocalNode: "No se ha podido acceder al nodo remoto, volviendo al modo local",
-      usingRemoteNode: "lokid no encontrado, utilizando nodo remoto"
+      usingRemoteNode: "worktipsd no encontrado, utilizando nodo remoto"
     }
   },
   placeholders: {
@@ -396,9 +396,9 @@ export default {
     destinationUnknown: "Destino Desconocido",
     editAddressBookEntry: "Modificar un registro de la libreta de direcciones",
     loadingSettings: "Cargando configuración",
-    lokiBalance: "Saldo",
-    lokiUnlockedBalance: "Saldo libre",
-    lokiUnlockedShort: "Libre",
+    worktipsBalance: "Saldo",
+    worktipsUnlockedBalance: "Saldo libre",
+    worktipsUnlockedShort: "Libre",
     noTransactionsFound: "No se han encontrado transacciones",
     notes: "Notas",
     numberOfUnspentOutputs: "Número de salidas no gastadas",
@@ -422,7 +422,7 @@ export default {
     seedWords: "Palabras semilla",
     selectLanguage: "Escoja un idioma",
     serviceNodeRegistrationDescription:
-      'Introduzca la orden {registerCommand} generada por el servicio (lokid) que se está intentado registrar como Nodo de Servicio usando la instrucción "{prepareCommand}"',
+      'Introduzca la orden {registerCommand} generada por el servicio (worktipsd) que se está intentado registrar como Nodo de Servicio usando la instrucción "{prepareCommand}"',
     spendKey: "Clave de gasto",
     startingDaemon: "Iniciando servicio",
     startingWallet: "Iniciando monedero",

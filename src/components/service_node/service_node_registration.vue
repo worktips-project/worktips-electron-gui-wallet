@@ -5,7 +5,7 @@
         <b place="registerCommand">register_service_node</b>
         <b place="prepareCommand">prepare_registration</b>
       </i18n>
-      <LokiField
+      <WorktipsField
         :label="$t('fieldLabels.serviceNodeCommand')"
         :error="$v.registration_string.$error"
         :disabled="registration_status.sending"
@@ -14,7 +14,7 @@
           v-model.trim="registration_string"
           type="textarea"
           :dark="theme == 'dark'"
-          class="full-width text-area-loki"
+          class="full-width text-area-worktips"
           placeholder="register_service_node ..."
           :disabled="registration_status.sending"
           borderless
@@ -22,7 +22,7 @@
           @blur="$v.registration_string.$touch"
           @paste="onPaste"
         />
-      </LokiField>
+      </WorktipsField>
       <q-btn
         class="register-button"
         color="primary"
@@ -41,13 +41,13 @@
 <script>
 import { mapState } from "vuex";
 import { required } from "vuelidate/lib/validators";
-import LokiField from "components/loki_field";
+import WorktipsField from "components/worktips_field";
 import WalletPassword from "src/mixins/wallet_password";
 
 export default {
   name: "ServiceNodeRegistration",
   components: {
-    LokiField
+    WorktipsField
   },
   mixins: [WalletPassword],
   data() {

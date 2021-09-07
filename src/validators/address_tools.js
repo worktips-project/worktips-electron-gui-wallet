@@ -351,7 +351,7 @@ var JSBigInt = (function () {
      If no base is provided, or *base* is 10, the number can be in exponential
      form. For example, these are all valid:
 
-     > BigInteger.parse("1e9");              // Same as "1000000000"
+     > BigInteger.parse("1e8");              // Same as "100000000"
      > BigInteger.parse("1.234*10^3");       // Same as 1234
      > BigInteger.parse("56789 * 10 ** -2"); // Same as 567
 
@@ -1945,12 +1945,12 @@ return{_strlen:lb,_ge_mul8:Va,_keccak:db,_ge_scalarmult:Ta,_ge_fromfe_frombytes_
 
 
 
-var lokiConfig = {
+var worktipsConfig = {
     coinUnitPlaces: 12,
-    coinSymbol: 'LOKI',
-    coinName: 'Loki',
-    coinUriPrefix: 'loki:',
-    addressPrefix: 114,
+    coinSymbol: 'WTIPS',
+    coinName: 'Wtips',
+    coinUriPrefix: 'worktips:',
+    addressPrefix: 0x121bb2,
 };
 
 var cnUtilGen = function(initConfig) {
@@ -2389,7 +2389,7 @@ var cnUtilGen = function(initConfig) {
 
     return this;
 };
-var cnUtil = cnUtilGen(lokiConfig);
+var cnUtil = cnUtilGen(worktipsConfig);
 /*
  mnemonic.js : Converts between 4-byte aligned strings and a human-readable
  sequence of words. Uses 1626 common words taken from wikipedia article:
