@@ -1,6 +1,6 @@
 {
   "name": "worktips-electron-wallet",
-  "version": "1.4.6",
+  "version": "3.0.0",
   "description": "Modern GUI interface for Worktips Currency",
   "productName": "Worktips Electron Wallet",
   "repository": {
