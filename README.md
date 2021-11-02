@@ -3,7 +3,7 @@
 ### Introduction
 
 Worktips is a private cryptocurrency based on Oxen(which is based Monero). Worktips aims to provide a private data transmission layer using a second layer of Service Nodes.
-More information on the project can be found on the [website][worktipscoin.com](https://worktipscoin.com). Worktips is an open source project, and we encourage contributions from anyone with something to offer.
+More information on the project can be found on the [website](https://worktipscoin.com). Worktips is an open source project, and we encourage contributions from anyone with something to offer.
 
 
 ### About this project
